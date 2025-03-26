@@ -819,3 +819,235 @@ INFO 2025-03-25 21:41:45,573 breed_classifier 开始预测图像: C:\Users\ljh\AppData
 INFO 2025-03-25 21:41:45,577 breed_classifier 成功打开图像，尺寸: (740, 555)
 INFO 2025-03-25 21:41:45,601 breed_classifier 模型预测成功，品种: 中华田园犬, 置信度: 0.8677
 INFO 2025-03-26 00:37:21,989 views 用户 111 获取了个人信息
+WARNING 2025-03-26 01:05:02,571 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000002B4880AF5E0>.
+WARNING 2025-03-26 01:05:02,587 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000002B4880AF5E0>.
+WARNING 2025-03-26 01:05:02,591 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000002B4880AF5E0>.
+WARNING 2025-03-26 01:05:02,596 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000002B4880AF5E0>.
+INFO 2025-03-26 21:23:10,260 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:23:10,262 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:23:10,262 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:23:10,476 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:23:10,476 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:23:10,476 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:23:10,476 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:23:10,476 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:23:10,479 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:23:10,488 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:23:10,490 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmpq8bkq1we.jpg
+INFO 2025-03-26 21:23:10,555 breed_classifier 成功打开图像，尺寸: (3072, 2304)
+INFO 2025-03-26 21:23:10,639 breed_classifier 模型预测成功，品种: 博美, 置信度: 0.4567
+INFO 2025-03-26 21:23:35,250 views 用户 123456 获取了个人信息
+INFO 2025-03-26 21:26:54,493 views 用户 123456 获取了个人信息
+INFO 2025-03-26 21:27:03,772 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:27:03,772 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:27:03,772 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:03,889 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:03,889 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:27:03,891 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:27:03,891 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:27:03,891 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:27:03,893 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:27:03,899 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:27:03,899 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmp1r3amuai.jpg
+INFO 2025-03-26 21:27:03,946 breed_classifier 成功打开图像，尺寸: (3072, 2304)
+INFO 2025-03-26 21:27:03,985 breed_classifier 模型预测成功，品种: 雪纳瑞, 置信度: 0.6500
+INFO 2025-03-26 21:27:20,233 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:27:20,233 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:27:20,235 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:20,349 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:20,349 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:27:20,349 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:27:20,349 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:27:20,349 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:27:20,351 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:27:20,358 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:27:20,359 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmpcvf8fp22.jpg
+INFO 2025-03-26 21:27:20,396 breed_classifier 成功打开图像，尺寸: (3072, 2304)
+INFO 2025-03-26 21:27:20,428 breed_classifier 模型预测成功，品种: 雪纳瑞, 置信度: 0.8233
+INFO 2025-03-26 21:27:27,962 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:27:27,962 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:27:27,962 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:28,084 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:28,084 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:27:28,084 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:27:28,084 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:27:28,084 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:27:28,085 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:27:28,091 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:27:28,091 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmpx99lurfx.jpg
+INFO 2025-03-26 21:27:28,098 breed_classifier 成功打开图像，尺寸: (740, 555)
+INFO 2025-03-26 21:27:28,113 breed_classifier 模型预测成功，品种: 中华田园犬, 置信度: 0.8677
+INFO 2025-03-26 21:35:27,505 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:35:27,505 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:35:27,507 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:35:27,631 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:35:27,632 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:35:27,632 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:35:27,632 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:35:27,632 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:35:27,634 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:35:27,641 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:35:27,642 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmpe84yn67j.jpg
+INFO 2025-03-26 21:35:27,742 breed_classifier 成功打开图像，尺寸: (4096, 3072)
+INFO 2025-03-26 21:35:27,791 breed_classifier 模型预测成功，品种: 藏獒, 置信度: 0.9999
+INFO 2025-03-26 21:36:33,156 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-26 21:36:33,156 breed_classifier 使用设备: cpu
+INFO 2025-03-26 21:36:33,156 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:36:33,272 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:36:33,272 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-26 21:36:33,272 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-26 21:36:33,272 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-26 21:36:33,273 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-26 21:36:33,273 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-26 21:36:33,280 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-26 21:36:33,281 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmpk2fv7gk9.jpg
+INFO 2025-03-26 21:36:33,370 breed_classifier 成功打开图像，尺寸: (4096, 3072)
+INFO 2025-03-26 21:36:33,419 breed_classifier 模型预测成功，品种: 边牧, 置信度: 0.9999

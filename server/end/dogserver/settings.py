@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'users',
     'dogs',
+    'mqtt_client',
 ]
 
 MIDDLEWARE = [
@@ -166,6 +167,15 @@ SWAGGER_SETTINGS = {
     'DEFAULT_MODEL_RENDERING': 'example',
     'DEFAULT_MODEL_DEPTH': 0,
 }
+
+# MQTT配置
+MQTT_BROKER_HOST = 'localhost'
+MQTT_BROKER_PORT = 1883
+MQTT_TOPIC = 'stm32/data'
+MQTT_CLIENT_ID = 'django_server'
+MQTT_KEEPALIVE = 60
+MQTT_USERNAME = ''  # 如有需要设置
+MQTT_PASSWORD = ''  # 如有需要设置
 
 # Logging
 LOGGING = {

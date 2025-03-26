@@ -62,6 +62,7 @@ urlpatterns = [
     path('api/me/', CurrentUserView.as_view(), name='current-user'),
     path('api/users/', include('users.urls')),
     path('api/dogs/', include('dogs.urls')),
+    path('api/mqtt/', include('mqtt_client.urls')),
     path('api-auth/', include('rest_framework.urls')),
     # 添加测试视图
     path('api/test/', TestView.as_view(), name='test'),
