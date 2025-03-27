@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import LogoutConfirmModal from '../../components/LogoutConfirmModal';
+import LogoutConfirmModal from '@/components/LogoutConfirmModal';
 import { useCurrentUser, useLogout, useUploadAvatar } from '../../http/useAuth';
 
 export default function UserProfile() {
