@@ -71,131 +71,134 @@ export default function RegisterScreen() {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Stack.Screen
-        options={{
-          title: '注册',
-          headerShown: true,
-        }}
-      />
+    <>
+      <ScrollView style={styles.container}>
+        <Stack.Screen
+          options={{
+            title: '注册',
+            headerShown: true,
+          }}
+        />
 
-      <View style={styles.form}>
-        <Text style={styles.title}>创建新账号</Text>
-        <Text style={styles.subtitle}>请填写以下信息完成注册</Text>
+        <View style={styles.form}>
+          <Text style={styles.title}>创建新账号</Text>
+          <Text style={styles.subtitle}>请填写以下信息完成注册</Text>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            用户名<Text style={styles.required}>*</Text>
-          </Text>
-          <Controller
-            control={control}
-            name='username'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.username && styles.inputError]}
-                placeholder='请输入用户名'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                autoCapitalize='none'
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>
+              用户名<Text style={styles.required}>*</Text>
+            </Text>
+            <Controller
+              control={control}
+              name='username'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.username && styles.inputError]}
+                  placeholder='请输入用户名'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  autoCapitalize='none'
+                />
+              )}
+            />
+            {errors.username && (
+              <Text style={styles.errorText}>{errors.username.message}</Text>
             )}
-          />
-          {errors.username && (
-            <Text style={styles.errorText}>{errors.username.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            邮箱<Text style={styles.required}>*</Text>
-          </Text>
-          <Controller
-            control={control}
-            name='email'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.email && styles.inputError]}
-                placeholder='请输入邮箱'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                autoCapitalize='none'
-                keyboardType='email-address'
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>
+              邮箱<Text style={styles.required}>*</Text>
+            </Text>
+            <Controller
+              control={control}
+              name='email'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.email && styles.inputError]}
+                  placeholder='请输入邮箱'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  autoCapitalize='none'
+                  keyboardType='email-address'
+                />
+              )}
+            />
+            {errors.email && (
+              <Text style={styles.errorText}>{errors.email.message}</Text>
             )}
-          />
-          {errors.email && (
-            <Text style={styles.errorText}>{errors.email.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            密码<Text style={styles.required}>*</Text>
-          </Text>
-          <Controller
-            control={control}
-            name='password'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.password && styles.inputError]}
-                placeholder='请输入密码'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                secureTextEntry
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>
+              密码<Text style={styles.required}>*</Text>
+            </Text>
+            <Controller
+              control={control}
+              name='password'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.password && styles.inputError]}
+                  placeholder='请输入密码'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  secureTextEntry
+                />
+              )}
+            />
+            {errors.password && (
+              <Text style={styles.errorText}>{errors.password.message}</Text>
             )}
-          />
-          {errors.password && (
-            <Text style={styles.errorText}>{errors.password.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            确认密码<Text style={styles.required}>*</Text>
-          </Text>
-          <Controller
-            control={control}
-            name='password2'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.password2 && styles.inputError]}
-                placeholder='请再次输入密码'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                secureTextEntry
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>
+              确认密码<Text style={styles.required}>*</Text>
+            </Text>
+            <Controller
+              control={control}
+              name='password2'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.password2 && styles.inputError]}
+                  placeholder='请再次输入密码'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  secureTextEntry
+                />
+              )}
+            />
+            {errors.password2 && (
+              <Text style={styles.errorText}>{errors.password2.message}</Text>
             )}
-          />
-          {errors.password2 && (
-            <Text style={styles.errorText}>{errors.password2.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleSubmit(onSubmit)}
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <ActivityIndicator color='#fff' />
-          ) : (
-            <Text style={styles.buttonText}>注册</Text>
-          )}
-        </TouchableOpacity>
-
-        <View style={styles.switchContainer}>
-          <Text>已有账号？</Text>
-          <TouchableOpacity onPress={goToLogin}>
-            <Text style={styles.switchText}>去登录</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleSubmit(onSubmit)}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color='#fff' />
+            ) : (
+              <Text style={styles.buttonText}>注册</Text>
+            )}
           </TouchableOpacity>
+
+          <View style={styles.switchContainer}>
+            <Text>已有账号？</Text>
+            <TouchableOpacity onPress={goToLogin}>
+              <Text style={styles.switchText}>去登录</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+      <Toast />
+    </>
   );
 }
 

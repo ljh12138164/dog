@@ -1,6 +1,6 @@
 import { Picker } from '@react-native-picker/picker';
 import * as ImagePicker from 'expo-image-picker';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -12,8 +12,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useAddDog, useIdentifyBreed } from '../../http/useDogs';
 import Toast from 'react-native-toast-message';
+import { useAddDog, useIdentifyBreed } from '../../http/useDogs';
 
 // 预定义的狗狗品种列表
 const breedOptions = [
@@ -404,112 +404,115 @@ export default function Pets() {
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>添加狗狗</Text>
+    <>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>添加狗狗</Text>
 
-      {/* 图片上传 */}
-      <View style={styles.imageContainer}>
-        {image ? (
-          <Image source={{ uri: image }} style={styles.image} />
-        ) : (
-          <View style={styles.imagePlaceholder}>
-            <Text style={styles.imagePlaceholderText}>选择图片</Text>
-          </View>
-        )}
-        <View style={styles.imageButtons}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={pickImage}
-            disabled={identifying || addDogMutation.isPending}
-          >
-            <Text style={styles.buttonText}>从相册选择</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={takePhoto}
-            disabled={identifying || addDogMutation.isPending}
-          >
-            <Text style={styles.buttonText}>拍照</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* 显示识别结果信息 */}
-        {identifiedBreedInfo && (
-          <View style={styles.identifiedInfo}>
-            <Text style={styles.identifiedText}>
-              识别结果: {identifiedBreedInfo.breed}
-              (置信度: {(identifiedBreedInfo.confidence * 100).toFixed(1)}%)
-            </Text>
-          </View>
-        )}
-      </View>
-
-      {/* 表单字段 */}
-      <View style={styles.formGroup}>
-        <Text style={styles.label}>名字</Text>
-        <TextInput
-          style={styles.input}
-          value={name}
-          onChangeText={setName}
-          placeholder='请输入狗狗名字'
-          placeholderTextColor='#A0A0A0'
-        />
-      </View>
-
-      <View style={styles.formGroup}>
-        <Text style={styles.label}>品种</Text>
-        <View style={styles.breedInputContainer}>
-          {identifying && (
-            <ActivityIndicator
-              size='small'
-              color='#0066CC'
-              style={{ marginRight: 10 }}
-            />
+        {/* 图片上传 */}
+        <View style={styles.imageContainer}>
+          {image ? (
+            <Image source={{ uri: image }} style={styles.image} />
+          ) : (
+            <View style={styles.imagePlaceholder}>
+              <Text style={styles.imagePlaceholderText}>选择图片</Text>
+            </View>
           )}
-          <View style={styles.pickerContainer}>{renderPicker()}</View>
+          <View style={styles.imageButtons}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={pickImage}
+              disabled={identifying || addDogMutation.isPending}
+            >
+              <Text style={styles.buttonText}>从相册选择</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={takePhoto}
+              disabled={identifying || addDogMutation.isPending}
+            >
+              <Text style={styles.buttonText}>拍照</Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* 显示识别结果信息 */}
+          {identifiedBreedInfo && (
+            <View style={styles.identifiedInfo}>
+              <Text style={styles.identifiedText}>
+                识别结果: {identifiedBreedInfo.breed}
+                (置信度: {(identifiedBreedInfo.confidence * 100).toFixed(1)}%)
+              </Text>
+            </View>
+          )}
         </View>
-      </View>
 
-      <View style={styles.formGroup}>
-        <Text style={styles.label}>身高 (cm)</Text>
-        <TextInput
-          style={styles.input}
-          value={height}
-          onChangeText={setHeight}
-          placeholder='请输入狗狗身高'
-          placeholderTextColor='#A0A0A0'
-          keyboardType='numeric'
-        />
-      </View>
+        {/* 表单字段 */}
+        <View style={styles.formGroup}>
+          <Text style={styles.label}>名字</Text>
+          <TextInput
+            style={styles.input}
+            value={name}
+            onChangeText={setName}
+            placeholder='请输入狗狗名字'
+            placeholderTextColor='#A0A0A0'
+          />
+        </View>
 
-      <View style={styles.formGroup}>
-        <Text style={styles.label}>体重 (kg)</Text>
-        <TextInput
-          style={styles.input}
-          value={weight}
-          onChangeText={setWeight}
-          placeholder='请输入狗狗体重'
-          placeholderTextColor='#A0A0A0'
-          keyboardType='numeric'
-        />
-      </View>
+        <View style={styles.formGroup}>
+          <Text style={styles.label}>品种</Text>
+          <View style={styles.breedInputContainer}>
+            {identifying && (
+              <ActivityIndicator
+                size='small'
+                color='#0066CC'
+                style={{ marginRight: 10 }}
+              />
+            )}
+            <View style={styles.pickerContainer}>{renderPicker()}</View>
+          </View>
+        </View>
 
-      {/* 提交按钮 */}
-      <TouchableOpacity
-        style={[
-          styles.submitButton,
-          (addDogMutation.isPending || identifying) && styles.disabledButton,
-        ]}
-        onPress={handleSubmit}
-        disabled={addDogMutation.isPending || identifying}
-      >
-        {addDogMutation.isPending ? (
-          <ActivityIndicator color='#FFFFFF' />
-        ) : (
-          <Text style={styles.submitButtonText}>保存</Text>
-        )}
-      </TouchableOpacity>
-    </ScrollView>
+        <View style={styles.formGroup}>
+          <Text style={styles.label}>身高 (cm)</Text>
+          <TextInput
+            style={styles.input}
+            value={height}
+            onChangeText={setHeight}
+            placeholder='请输入狗狗身高'
+            placeholderTextColor='#A0A0A0'
+            keyboardType='numeric'
+          />
+        </View>
+
+        <View style={styles.formGroup}>
+          <Text style={styles.label}>体重 (kg)</Text>
+          <TextInput
+            style={styles.input}
+            value={weight}
+            onChangeText={setWeight}
+            placeholder='请输入狗狗体重'
+            placeholderTextColor='#A0A0A0'
+            keyboardType='numeric'
+          />
+        </View>
+
+        {/* 提交按钮 */}
+        <TouchableOpacity
+          style={[
+            styles.submitButton,
+            (addDogMutation.isPending || identifying) && styles.disabledButton,
+          ]}
+          onPress={handleSubmit}
+          disabled={addDogMutation.isPending || identifying}
+        >
+          {addDogMutation.isPending ? (
+            <ActivityIndicator color='#FFFFFF' />
+          ) : (
+            <Text style={styles.submitButtonText}>保存</Text>
+          )}
+        </TouchableOpacity>
+      </ScrollView>
+      <Toast />
+    </>
   );
 }
 

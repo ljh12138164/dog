@@ -31,20 +31,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name='mydos'
+        name='stock'
         options={{
-          title: '我的小狗',
+          title: '仓库',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name='explore' size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name='pets'
-        options={{
-          title: '添加小狗',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name='pets' size={size} color={color} />
+            <MaterialIcons name='store' size={size} color={color} />
           ),
         }}
       />
@@ -53,7 +44,7 @@ export default function TabLayout() {
         options={{
           title: '我的',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name='person' size={size} color={color} />
+            <MaterialIcons name='people' size={size} color={color} />
           ),
         }}
       />

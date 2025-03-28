@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import * as SplashScreen from 'expo-splash-screen';
-import { useFonts } from 'expo-font';
-import { Stack, useRouter, useSegments } from 'expo-router';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useColorScheme } from 'react-native';
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
 } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useFonts } from 'expo-font';
+import { Stack, useRouter, useSegments } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect, useState } from 'react';
+import { Pressable, Text, useColorScheme } from 'react-native';
 import Toast from 'react-native-toast-message';
-// import Toast from 'react-native-toast-message';
 
 // 阻止启动画面自动隐藏
 SplashScreen.preventAutoHideAsync();
@@ -71,6 +69,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 }
 
 export default function RootLayout() {
+  const router = useRouter();
   const colorScheme = useColorScheme();
   const [fontsLoaded, fontError] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -91,6 +90,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <QueryClientProvider client={queryClient}>
+        <Toast />
         <AuthProvider>
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
@@ -98,9 +98,37 @@ export default function RootLayout() {
             <Stack.Screen name='register' options={{ headerShown: false }} />
             <Stack.Screen name='+not-found' options={{ title: 'Not Found' }} />
             <Stack.Screen name='index' options={{ headerShown: false }} />
+            <Stack.Screen
+              name='detail/[id]'
+              options={{
+                headerShown: true,
+                headerTitle: '',
+                headerLeft: () => (
+                  <Pressable
+                    onPress={() => {
+                      router.back();
+                    }}
+                  >
+                    <Text>返回</Text>
+                  </Pressable>
+                ),
+                headerRight: () => (
+                  <Pressable onPress={() => router.push('/detail/1')}>
+                    <Text>编辑</Text>
+                  </Pressable>
+                ),
+              }}
+            />
           </Stack>
         </AuthProvider>
       </QueryClientProvider>
     </ThemeProvider>
   );
 }
+
+export const ShowToast = (type: 'success' | 'error', message: string) => {
+  Toast.show({
+    type,
+    text1: message,
+  });
+};

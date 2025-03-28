@@ -1421,3 +1421,64 @@ INFO 2025-03-27 12:44:38,417 breed_classifier 开始预测图像: C:\Users\ljh\AppData
 INFO 2025-03-27 12:44:38,499 breed_classifier 成功打开图像，尺寸: (3072, 2304)
 INFO 2025-03-27 12:44:38,605 breed_classifier 模型预测成功，品种: 博美, 置信度: 0.7983
 INFO 2025-03-27 12:44:49,933 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:19:39,701 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:21:55,063 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:23:57,531 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:25:30,511 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:25:41,791 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:26:25,795 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:27:32,833 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:28:09,045 views 用户 123456 获取了个人信息
+INFO 2025-03-27 16:38:14,277 views 用户 123456 获取了个人信息
+INFO 2025-03-27 22:40:47,996 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-27 22:40:47,999 breed_classifier 使用设备: cpu
+INFO 2025-03-27 22:40:48,000 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:40:48,290 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:40:48,292 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-27 22:40:48,292 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-27 22:40:48,292 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-27 22:40:48,292 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-27 22:40:48,294 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-27 22:40:48,304 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-27 22:40:48,304 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmp9udwibl0.jpg
+INFO 2025-03-27 22:40:48,342 breed_classifier 成功打开图像，尺寸: (1429, 1072)
+INFO 2025-03-27 22:40:48,424 breed_classifier 模型预测成功，品种: 哈士奇, 置信度: 0.3894
+INFO 2025-03-27 22:41:27,678 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-27 22:41:27,679 breed_classifier 使用设备: cpu
+INFO 2025-03-27 22:41:27,679 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:41:27,810 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:41:27,810 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-27 22:41:27,810 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-27 22:41:27,810 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-27 22:41:27,810 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-27 22:41:27,812 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-27 22:41:27,818 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-27 22:41:27,819 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmprzepyoks.jpg
+INFO 2025-03-27 22:41:27,878 breed_classifier 成功打开图像，尺寸: (3072, 2304)
+INFO 2025-03-27 22:41:27,921 breed_classifier 模型预测成功，品种: 哈士奇, 置信度: 0.1699
+INFO 2025-03-27 22:41:58,043 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-27 22:41:58,043 breed_classifier 使用设备: cpu
+INFO 2025-03-27 22:41:58,043 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:41:58,161 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:41:58,163 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-27 22:41:58,163 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-27 22:41:58,163 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-27 22:41:58,163 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-27 22:41:58,164 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-27 22:41:58,171 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-27 22:41:58,172 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmprm6fdp9h.jpg
+INFO 2025-03-27 22:41:58,196 breed_classifier 成功打开图像，尺寸: (2038, 1528)
+INFO 2025-03-27 22:41:58,230 breed_classifier 模型预测成功，品种: 雪纳瑞, 置信度: 0.8756
+INFO 2025-03-27 22:42:27,524 breed_classifier 成功加载了12种狗狗品种名
+INFO 2025-03-27 22:42:27,524 breed_classifier 使用设备: cpu
+INFO 2025-03-27 22:42:27,524 breed_classifier 加载模型: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:42:27,641 breed_classifier 加载的权重类型: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:42:27,641 breed_classifier 检测到state_dict中的键有'resnet.'前缀，正在移除前缀...
+INFO 2025-03-27 22:42:27,641 breed_classifier 已处理state_dict，移除了'resnet.'前缀，现在有124个键
+INFO 2025-03-27 22:42:27,642 breed_classifier 检测到Sequential fc层输出特征数: 12
+INFO 2025-03-27 22:42:27,642 breed_classifier 模型的输出类别数: 12，本地类别数: 12
+INFO 2025-03-27 22:42:27,644 breed_classifier 已创建Sequential fc层，输出维度: 12
+INFO 2025-03-27 22:42:27,650 breed_classifier 成功通过load_state_dict加载模型权重
+INFO 2025-03-27 22:42:27,652 breed_classifier 开始预测图像: C:\Users\ljh\AppData\Local\Temp\tmprmncdzeb.jpg
+INFO 2025-03-27 22:42:27,667 breed_classifier 成功打开图像，尺寸: (1541, 1156)
+INFO 2025-03-27 22:42:27,694 breed_classifier 模型预测成功，品种: 博美, 置信度: 0.9322

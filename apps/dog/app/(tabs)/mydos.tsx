@@ -10,79 +10,89 @@ import { Collapsible } from '@/components/Collapsible';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Dog, useDogs } from '@/http/useDogs';
+import Toast from 'react-native-toast-message';
+import { ShowToast } from '../_layout';
+import { Link } from 'expo-router';
 
 export default function TabTwoScreen() {
   const { data: dogs, isLoading, error } = useDogs();
 
   const renderDogItem = ({ item }: { item: Dog }) => (
-    <ThemedView style={styles.dogCard}>
-      {item.image_url && (
-        <View style={styles.imageContainer}>
-          <Image source={{ uri: item.image_url }} style={styles.dogImage} />
-        </View>
-      )}
-      <ThemedView style={styles.dogInfo}>
-        <ThemedText type='defaultSemiBold' style={styles.dogName}>
-          {item.name}
-        </ThemedText>
-        <View style={styles.dogDetails}>
-          <ThemedText style={styles.detailText}>品种: {item.breed}</ThemedText>
-          <ThemedText style={styles.detailText}>
-            身高: {item.height} cm
+    <Link href={`/detail/${item.id}`}>
+      <ThemedView style={styles.dogCard}>
+        {item.image_url && (
+          <View style={styles.imageContainer}>
+            <Image source={{ uri: item.image_url }} style={styles.dogImage} />
+          </View>
+        )}
+        <ThemedView style={styles.dogInfo}>
+          <ThemedText type='defaultSemiBold' style={styles.dogName}>
+            {item.name}
           </ThemedText>
-          <ThemedText style={styles.detailText}>
-            体重: {item.weight} kg
-          </ThemedText>
-        </View>
+          <View style={styles.dogDetails}>
+            <ThemedText style={styles.detailText}>
+              品种: {item.breed}
+            </ThemedText>
+            <ThemedText style={styles.detailText}>
+              身高: {item.height} cm
+            </ThemedText>
+            <ThemedText style={styles.detailText}>
+              体重: {item.weight} kg
+            </ThemedText>
+          </View>
+        </ThemedView>
       </ThemedView>
-    </ThemedView>
+    </Link>
   );
 
   return (
-    <View style={styles.container}>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type='title' style={styles.titleText}>
-          我的狗狗
-        </ThemedText>
-      </ThemedView>
-
-      {isLoading ? (
-        <ThemedView
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 20,
-          }}
-        >
-          <ActivityIndicator size='large' />
-          <ThemedText>加载中...</ThemedText>
-        </ThemedView>
-      ) : error ? (
-        <ThemedView style={{ padding: 20 }}>
-          <ThemedText style={{ color: 'red' }}>
-            加载失败: {error.message}
+    <>
+      <View style={styles.container}>
+        <ThemedView style={styles.titleContainer}>
+          <ThemedText type='title' style={styles.titleText}>
+            我的狗狗
           </ThemedText>
         </ThemedView>
-      ) : dogs && dogs.length > 0 ? (
-        <FlatList
-          data={dogs}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderDogItem}
-          contentContainerStyle={styles.dogsList}
-          scrollEnabled={true}
-        />
-      ) : (
-        <ThemedView style={{ padding: 20, alignItems: 'center' }}>
-          <ThemedText>暂无狗狗数据</ThemedText>
-        </ThemedView>
-      )}
 
-      <Collapsible title='关于狗狗管理'>
-        <ThemedText>
-          这个页面展示了您的所有狗狗信息。您可以查看每只狗狗的详细信息，包括名称、品种、身高和体重等。
-        </ThemedText>
-      </Collapsible>
-    </View>
+        {isLoading ? (
+          <ThemedView
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 20,
+            }}
+          >
+            <ActivityIndicator size='large' />
+            <ThemedText>加载中...</ThemedText>
+          </ThemedView>
+        ) : error ? (
+          <ThemedView style={{ padding: 20 }}>
+            <ThemedText style={{ color: 'red' }}>
+              加载失败: {error.message}
+            </ThemedText>
+          </ThemedView>
+        ) : dogs && dogs.length > 0 ? (
+          <FlatList
+            data={dogs}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderDogItem}
+            contentContainerStyle={styles.dogsList}
+            scrollEnabled={true}
+          />
+        ) : (
+          <ThemedView style={{ padding: 20, alignItems: 'center' }}>
+            <ThemedText>暂无狗狗数据</ThemedText>
+          </ThemedView>
+        )}
+
+        <Collapsible title='关于狗狗管理'>
+          <ThemedText>
+            这个页面展示了您的所有狗狗信息。您可以查看每只狗狗的详细信息，包括名称、品种、身高和体重等。
+          </ThemedText>
+        </Collapsible>
+      </View>
+      <Toast />
+    </>
   );
 }
 

@@ -14,6 +14,8 @@ import {
 } from 'react-native';
 import LogoutConfirmModal from '@/components/LogoutConfirmModal';
 import { useCurrentUser, useLogout, useUploadAvatar } from '../../http/useAuth';
+import Toast from 'react-native-toast-message';
+import { ShowToast } from '../_layout';
 
 export default function UserProfile() {
   const { data: user, isLoading, error, refetch } = useCurrentUser();
@@ -161,92 +163,103 @@ export default function UserProfile() {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Stack.Screen
-        options={{
-          title: '个人资料',
-          headerShown: true,
-        }}
-      />
+    <>
+      <ScrollView style={styles.container}>
+        <Stack.Screen
+          options={{
+            title: '个人资料',
+            headerShown: true,
+          }}
+        />
 
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.avatarContainer}
-          onPress={handleAvatarPress}
-          disabled={avatarUpload.isPending}
-        >
-          {avatarUpload.isPending ? (
-            <View style={styles.uploadingContainer}>
-              <ActivityIndicator size='small' color='#fff' />
-              <Text style={styles.uploadingText}>{uploadProgress}%</Text>
-            </View>
-          ) : (
-            <>
-              <Image
-                source={{
-                  uri: user.avatar
-                    ? user.avatar
-                    : `https://ui-avatars.com/api/?name=${user.full_name || user.username}&background=random`,
-                }}
-                style={styles.avatar}
-              />
-              <View style={styles.editIconContainer}>
-                <MaterialIcons name='edit' size={16} color='#fff' />
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={styles.avatarContainer}
+            onPress={handleAvatarPress}
+            disabled={avatarUpload.isPending}
+          >
+            {avatarUpload.isPending ? (
+              <View style={styles.uploadingContainer}>
+                <ActivityIndicator size='small' color='#fff' />
+                <Text style={styles.uploadingText}>{uploadProgress}%</Text>
               </View>
-            </>
-          )}
+            ) : (
+              <>
+                <Image
+                  source={{
+                    uri: user.avatar
+                      ? user.avatar
+                      : `https://ui-avatars.com/api/?name=${user.full_name || user.username}&background=random`,
+                  }}
+                  style={styles.avatar}
+                />
+                <View style={styles.editIconContainer}>
+                  <MaterialIcons name='edit' size={16} color='#fff' />
+                </View>
+              </>
+            )}
+          </TouchableOpacity>
+          <Text style={styles.username}>{user.full_name || user.username}</Text>
+          <Text style={styles.email}>{user.email}</Text>
+        </View>
+
+        <View style={styles.infoSection}>
+          <Text
+            style={styles.sectionTitle}
+            onPress={() => {
+              ShowToast('success', '账户信息');
+            }}
+          >
+            账户信息
+          </Text>
+
+          <View style={styles.infoItem}>
+            <MaterialIcons name='person' size={24} color='#555' />
+            <View style={styles.infoContent}>
+              <Text style={styles.infoLabel}>用户名</Text>
+              <Text style={styles.infoValue}>{user.username}</Text>
+            </View>
+          </View>
+
+          <View style={styles.infoItem}>
+            <MaterialIcons name='email' size={24} color='#555' />
+            <View style={styles.infoContent}>
+              <Text style={styles.infoLabel}>邮箱</Text>
+              <Text style={styles.infoValue}>{user.email}</Text>
+            </View>
+          </View>
+
+          <View style={styles.infoItem}>
+            <MaterialIcons name='date-range' size={24} color='#555' />
+            <View style={styles.infoContent}>
+              <Text style={styles.infoLabel}>注册时间</Text>
+              <Text style={styles.infoValue}>{user.date_joined}</Text>
+            </View>
+          </View>
+
+          <View style={styles.infoItem}>
+            <MaterialIcons name='access-time' size={24} color='#555' />
+            <View style={styles.infoContent}>
+              <Text style={styles.infoLabel}>上次登录</Text>
+              <Text style={styles.infoValue}>
+                {user.last_login || '无记录'}
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <MaterialIcons name='logout' size={20} color='#fff' />
+          <Text style={styles.logoutButtonText}>退出登录</Text>
         </TouchableOpacity>
-        <Text style={styles.username}>{user.full_name || user.username}</Text>
-        <Text style={styles.email}>{user.email}</Text>
-      </View>
-
-      <View style={styles.infoSection}>
-        <Text style={styles.sectionTitle}>账户信息</Text>
-
-        <View style={styles.infoItem}>
-          <MaterialIcons name='person' size={24} color='#555' />
-          <View style={styles.infoContent}>
-            <Text style={styles.infoLabel}>用户名</Text>
-            <Text style={styles.infoValue}>{user.username}</Text>
-          </View>
-        </View>
-
-        <View style={styles.infoItem}>
-          <MaterialIcons name='email' size={24} color='#555' />
-          <View style={styles.infoContent}>
-            <Text style={styles.infoLabel}>邮箱</Text>
-            <Text style={styles.infoValue}>{user.email}</Text>
-          </View>
-        </View>
-
-        <View style={styles.infoItem}>
-          <MaterialIcons name='date-range' size={24} color='#555' />
-          <View style={styles.infoContent}>
-            <Text style={styles.infoLabel}>注册时间</Text>
-            <Text style={styles.infoValue}>{user.date_joined}</Text>
-          </View>
-        </View>
-
-        <View style={styles.infoItem}>
-          <MaterialIcons name='access-time' size={24} color='#555' />
-          <View style={styles.infoContent}>
-            <Text style={styles.infoLabel}>上次登录</Text>
-            <Text style={styles.infoValue}>{user.last_login || '无记录'}</Text>
-          </View>
-        </View>
-      </View>
-
-      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-        <MaterialIcons name='logout' size={20} color='#fff' />
-        <Text style={styles.logoutButtonText}>退出登录</Text>
-      </TouchableOpacity>
-
-      <LogoutConfirmModal
-        visible={logoutModalVisible}
-        onConfirm={confirmLogout}
-        onCancel={cancelLogout}
-      />
-    </ScrollView>
+        <LogoutConfirmModal
+          visible={logoutModalVisible}
+          onConfirm={confirmLogout}
+          onCancel={cancelLogout}
+        />
+      </ScrollView>
+      <Toast />
+    </>
   );
 }
 

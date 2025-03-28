@@ -64,81 +64,84 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          title: '登录',
-          headerShown: true,
-        }}
-      />
+    <>
+      <View style={styles.container}>
+        <Stack.Screen
+          options={{
+            title: '登录',
+            headerShown: true,
+          }}
+        />
 
-      <View style={styles.form}>
-        <Text style={styles.title}>欢迎回来</Text>
-        <Text style={styles.subtitle}>请登录您的账号</Text>
+        <View style={styles.form}>
+          <Text style={styles.title}>欢迎回来</Text>
+          <Text style={styles.subtitle}>请登录您的账号</Text>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>邮箱</Text>
-          <Controller
-            control={control}
-            name='email'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.email && styles.inputError]}
-                placeholder='请输入邮箱'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                autoCapitalize='none'
-                keyboardType='email-address'
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>邮箱</Text>
+            <Controller
+              control={control}
+              name='email'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.email && styles.inputError]}
+                  placeholder='请输入邮箱'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  autoCapitalize='none'
+                  keyboardType='email-address'
+                />
+              )}
+            />
+            {errors.email && (
+              <Text style={styles.errorText}>{errors.email.message}</Text>
             )}
-          />
-          {errors.email && (
-            <Text style={styles.errorText}>{errors.email.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>密码</Text>
-          <Controller
-            control={control}
-            name='password'
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                style={[styles.input, errors.password && styles.inputError]}
-                placeholder='请输入密码'
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                secureTextEntry
-              />
+          <View style={styles.inputContainer}>
+            <Text style={styles.label}>密码</Text>
+            <Controller
+              control={control}
+              name='password'
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  style={[styles.input, errors.password && styles.inputError]}
+                  placeholder='请输入密码'
+                  value={value}
+                  onChangeText={onChange}
+                  onBlur={onBlur}
+                  secureTextEntry
+                />
+              )}
+            />
+            {errors.password && (
+              <Text style={styles.errorText}>{errors.password.message}</Text>
             )}
-          />
-          {errors.password && (
-            <Text style={styles.errorText}>{errors.password.message}</Text>
-          )}
-        </View>
+          </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleSubmit(onSubmit)}
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <ActivityIndicator color='#fff' />
-          ) : (
-            <Text style={styles.buttonText}>登录</Text>
-          )}
-        </TouchableOpacity>
-
-        <View style={styles.switchContainer}>
-          <Text>还没有账号？</Text>
-          <TouchableOpacity onPress={goToRegister}>
-            <Text style={styles.switchText}>立即注册</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleSubmit(onSubmit)}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ActivityIndicator color='#fff' />
+            ) : (
+              <Text style={styles.buttonText}>登录</Text>
+            )}
           </TouchableOpacity>
+
+          <View style={styles.switchContainer}>
+            <Text>还没有账号？</Text>
+            <TouchableOpacity onPress={goToRegister}>
+              <Text style={styles.switchText}>立即注册</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
+      <Toast />
+    </>
   );
 }
 

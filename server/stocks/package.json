@@ -1,0 +1,13 @@
+{
+  "name": "stocks-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "py manage.py runserver 0.0.0.0:8100",
+    "postinstall": "pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org  && py manage.py migrate"
+  },
+  "keywords": [],
+  "author": "ljh",
+  "license": "ISC"
+}
