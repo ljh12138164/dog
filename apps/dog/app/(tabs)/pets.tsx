@@ -152,7 +152,6 @@ export default function Pets() {
   const identifyBreed = async (uri: string, name: string, type: string) => {
     try {
       setIdentifying(true);
-      console.log('开始识别品种，URI:', uri.substring(0, 50) + '...');
 
       // 确保文件名有.jpg扩展名
       const fileName = 'image.jpg'; // 使用固定的文件名和扩展名
@@ -169,9 +168,7 @@ export default function Pets() {
             const response = await fetch(uri);
             const blob = await response.blob();
             formData.append('image', blob, fileName);
-            console.log('Web平台: 成功将图片转换为Blob，文件名:', fileName);
           } catch (e) {
-            console.error('Web平台图片处理错误:', e);
             Toast.show({
               type: 'error',
               text1: '上传错误',
@@ -190,7 +187,6 @@ export default function Pets() {
           ) {
             const file = (fileField as HTMLInputElement).files![0];
             formData.append('image', file);
-            console.log('Web平台: 使用input file，文件名:', file.name);
           } else {
             // 退回到原始方法
             formData.append('image', {
@@ -198,7 +194,6 @@ export default function Pets() {
               name: fileName,
               type: 'image/jpeg',
             } as any);
-            console.log('Web平台: 使用自定义文件对象，文件名:', fileName);
           }
         }
       } else {
@@ -209,7 +204,6 @@ export default function Pets() {
           type: 'image/jpeg',
         };
         formData.append('image', file as any);
-        console.log('移动端: 使用RN文件对象，文件名:', fileName);
       }
 
       // 打印FormData内容

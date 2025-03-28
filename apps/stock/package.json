@@ -3,13 +3,14 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "dev": "expo start",
+    "dev": "expo start ",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "build": "eas build --platform all"
   },
   "jest": {
     "preset": "jest-expo"
@@ -18,6 +19,7 @@
     "@babel/runtime": "^7.27.0",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
+    "@react-navigation/drawer": "^7.3.2",
     "@react-navigation/native": "^7.0.14",
     "@tanstack/react-query": "^5.69.0",
     "axios": "^1.8.4",
@@ -38,7 +40,7 @@
     "react-hook-form": "^7.54.2",
     "react-native": "0.76.7",
     "react-native-gesture-handler": "~2.20.2",
-    "react-native-reanimated": "~3.16.1",
+    "react-native-reanimated": "~3.16.7",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
     "react-native-toast-message": "^2.2.1",

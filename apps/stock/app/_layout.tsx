@@ -9,7 +9,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
-// import Toast from 'react-native-toast-message';
+import Toast from 'react-native-toast-message';
 
 // 阻止启动画面自动隐藏
 SplashScreen.preventAutoHideAsync();
@@ -44,7 +44,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <QueryClientProvider client={queryClient}>
-        {/* <Toast /> */}
+        <Toast />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
           <Stack.Screen name='+not-found' options={{ title: 'Not Found' }} />

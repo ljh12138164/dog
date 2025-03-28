@@ -12,6 +12,8 @@
     "**/*.ts",
     "**/*.tsx",
     "expo-router/**/*.ts",
-    "expo-router/**/*.tsx"
+    "expo-router/**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
   ]
 }
