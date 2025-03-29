@@ -30,7 +30,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const segments = useSegments();
   const router = useRouter();
-
   // 检查用户是否已登录
   useEffect(() => {
     const checkAuth = async () => {
@@ -94,8 +93,6 @@ export default function RootLayout() {
         <AuthProvider>
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-            <Stack.Screen name='login' options={{ headerShown: false }} />
-            <Stack.Screen name='register' options={{ headerShown: false }} />
             <Stack.Screen name='+not-found' options={{ title: 'Not Found' }} />
             <Stack.Screen name='index' options={{ headerShown: false }} />
             <Stack.Screen

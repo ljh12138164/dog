@@ -1497,3 +1497,307 @@ INFO 2025-03-28 16:12:34,867 breed_classifier 成功打开图像，尺寸: (2986, 2239)
 INFO 2025-03-28 16:12:34,945 breed_classifier 模型预测成功，品种: 萨摩耶, 置信度: 0.5083
 INFO 2025-03-28 16:12:51,199 views 用户 123456 获取了个人信息
 INFO 2025-03-29 10:44:13,607 views 用户 111 获取了个人信息
+WARNING 2025-03-29 18:28:07,937 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C61C72B0>.
+WARNING 2025-03-29 18:28:07,946 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C61C72B0>.
+WARNING 2025-03-29 18:28:07,948 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C61C72B0>.
+WARNING 2025-03-29 18:28:07,951 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C61C72B0>.
+WARNING 2025-03-29 18:37:13,230 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C6C01450>.
+WARNING 2025-03-29 18:37:13,234 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C6C01450>.
+WARNING 2025-03-29 18:37:13,236 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C6C01450>.
+WARNING 2025-03-29 18:37:13,240 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
+    return int(value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\contrib\auth\models.py", line 437, in __int__
+    raise TypeError(
+TypeError: Cannot cast AnonymousUser to int. Are you trying to use it in place of User?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\drf_yasg\inspectors\base.py", line 42, in call_view_method
+    return view_method()
+  File "F:\study\blog\with-react-native-web\server\end\dogs\views.py", line 60, in get_queryset
+    return Dog.objects.filter(owner=self.request.user)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1613, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1645, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1559, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\sql\query.py", line 1389, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
+    raise e.__class__(
+TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C6C01450>.

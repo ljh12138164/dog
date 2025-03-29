@@ -62,7 +62,7 @@ export const useAddDog = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['dogs'] });
       router.push('/');
-      Toast.show({
+      Toast.show({  
         type: 'success',
         text1: '成功',
         text2: '成功添加狗狗信息'

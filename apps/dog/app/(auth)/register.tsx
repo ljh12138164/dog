@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { z } from 'zod';
-import { useRegister } from '../http/useAuth';
+import { useRegister } from '@/http/useAuth';
 
 // 定义表单验证架构
 const registerSchema = z

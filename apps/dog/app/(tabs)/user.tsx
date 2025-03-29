@@ -33,7 +33,7 @@ export default function UserProfile() {
     logout.mutate(undefined, {
       onSuccess: () => {
         // 退出登录后重定向到登录页
-        router.replace('/login');
+        // router.replace('/login');
         Alert.alert('已成功退出登录');
       },
     });
