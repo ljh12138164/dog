@@ -16,6 +16,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@babel/runtime": "^7.27.0",
     "@dev-plugins/react-query": "^0.1.0",
     "@expo/vector-icons": "^14.0.2",
     "@hookform/resolvers": "^4.1.3",
