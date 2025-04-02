@@ -3,12 +3,13 @@
   "scripts": {
     "dev": "turbo run dev",
     "dev:dog": "turbo  run --filter=end --filter=dog dev",
+    "dev:stock": "turbo  run --filter=stocks-server --filter=stock dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
   },
   "devDependencies": {
-    "prettier": "^3.1.1",
+    "prettier": "^3.5.3",
     "turbo": "^2.4.4"
   },
   "packageManager": "pnpm@9.14.2",

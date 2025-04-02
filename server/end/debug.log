@@ -150,103 +150,103 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x0000021D571046D0>.
-INFO 2025-03-25 19:31:41,478 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 19:33:31,858 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-ERROR 2025-03-25 19:42:42,540 views Ê¶±ð¹·¹·Æ·ÖÖÊ±·¢Éú´íÎó: 'collections.OrderedDict' object has no attribute 'eval'
-INFO 2025-03-25 19:45:07,558 views ÊÕµ½Æ·ÖÖÊ¶±ðÇëÇó: dataÀàÐÍ=<class 'django.http.request.QueryDict'>, FILESÀàÐÍ=<class 'django.utils.datastructures.MultiValueDict'>
-INFO 2025-03-25 19:45:07,565 views ÇëÇóÊý¾Ý¼ü: ['image']
-INFO 2025-03-25 19:45:07,566 views Í¼ÏñÎÄ¼þÐÅÏ¢: Ãû³Æ=image.jpg, ´óÐ¡=170236, ÀàÐÍ=image/jpeg
-INFO 2025-03-25 19:45:07,631 views ÐòÁÐ»¯Æ÷ÑéÖ¤½á¹û: True
-INFO 2025-03-25 19:45:07,632 views ±£´æÁÙÊ±Í¼Ïñµ½: media\temp\image.jpg
-INFO 2025-03-25 19:45:07,633 views ¿ªÊ¼Ê¹ÓÃÄ£ÐÍ½øÐÐÔ¤²â
-INFO 2025-03-25 19:45:07,633 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:45:07,633 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-ERROR 2025-03-25 19:45:07,664 breed_classifier ³õÊ¼»¯DogBreedClassifierÊ§°Ü: 'collections.OrderedDict' object has no attribute 'eval'
-ERROR 2025-03-25 19:45:07,665 views Ê¶±ð¹·¹·Æ·ÖÖÊ±·¢Éú´íÎó: 'collections.OrderedDict' object has no attribute 'eval'
-INFO 2025-03-25 19:45:47,431 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 19:47:26,756 views ÊÕµ½Æ·ÖÖÊ¶±ðÇëÇó: dataÀàÐÍ=<class 'django.http.request.QueryDict'>, FILESÀàÐÍ=<class 'django.utils.datastructures.MultiValueDict'>
-INFO 2025-03-25 19:47:26,756 views ÇëÇóÊý¾Ý¼ü: ['image']
-INFO 2025-03-25 19:47:26,757 views Í¼ÏñÎÄ¼þÐÅÏ¢: Ãû³Æ=image.jpg, ´óÐ¡=170236, ÀàÐÍ=image/jpeg
-INFO 2025-03-25 19:47:26,887 views ÐòÁÐ»¯Æ÷ÑéÖ¤½á¹û: True
-INFO 2025-03-25 19:47:26,888 views ±£´æÁÙÊ±Í¼Ïñµ½: media\temp\image.jpg
-INFO 2025-03-25 19:47:26,889 views ¿ªÊ¼Ê¹ÓÃÄ£ÐÍ½øÐÐÔ¤²â
-INFO 2025-03-25 19:47:26,889 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 19:47:26,889 breed_classifier ³õÊ¼»¯¼òµ¥¹æÔò·ÖÀàÆ÷£¬¹²12¸öÆ·ÖÖ
-INFO 2025-03-25 19:47:26,890 breed_classifier ÒÑ³õÊ¼»¯»ùÓÚ¹æÔòµÄ±¸ÓÃ·ÖÀàÆ÷
-INFO 2025-03-25 19:47:26,890 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:47:26,890 breed_classifier ³¢ÊÔ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 19:47:27,044 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-ERROR 2025-03-25 19:47:27,047 breed_classifier Ä£ÐÍ¼ÓÔØÊ§°Ü: Error(s) in loading state_dict for ResNet:
+INFO 2025-03-25 19:31:41,478 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 19:33:31,858 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+ERROR 2025-03-25 19:42:42,540 views Ê¶ï¿½ð¹·¹ï¿½Æ·ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 'collections.OrderedDict' object has no attribute 'eval'
+INFO 2025-03-25 19:45:07,558 views ï¿½Õµï¿½Æ·ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: dataï¿½ï¿½ï¿½ï¿½=<class 'django.http.request.QueryDict'>, FILESï¿½ï¿½ï¿½ï¿½=<class 'django.utils.datastructures.MultiValueDict'>
+INFO 2025-03-25 19:45:07,565 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½: ['image']
+INFO 2025-03-25 19:45:07,566 views Í¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢: ï¿½ï¿½ï¿½ï¿½=image.jpg, ï¿½ï¿½Ð¡=170236, ï¿½ï¿½ï¿½ï¿½=image/jpeg
+INFO 2025-03-25 19:45:07,631 views ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½: True
+INFO 2025-03-25 19:45:07,632 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:45:07,633 views ï¿½ï¿½Ê¼Ê¹ï¿½ï¿½Ä£ï¿½Í½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
+INFO 2025-03-25 19:45:07,633 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:45:07,633 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+ERROR 2025-03-25 19:45:07,664 breed_classifier ï¿½ï¿½Ê¼ï¿½ï¿½DogBreedClassifierÊ§ï¿½ï¿½: 'collections.OrderedDict' object has no attribute 'eval'
+ERROR 2025-03-25 19:45:07,665 views Ê¶ï¿½ð¹·¹ï¿½Æ·ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 'collections.OrderedDict' object has no attribute 'eval'
+INFO 2025-03-25 19:45:47,431 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 19:47:26,756 views ï¿½Õµï¿½Æ·ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: dataï¿½ï¿½ï¿½ï¿½=<class 'django.http.request.QueryDict'>, FILESï¿½ï¿½ï¿½ï¿½=<class 'django.utils.datastructures.MultiValueDict'>
+INFO 2025-03-25 19:47:26,756 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½: ['image']
+INFO 2025-03-25 19:47:26,757 views Í¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢: ï¿½ï¿½ï¿½ï¿½=image.jpg, ï¿½ï¿½Ð¡=170236, ï¿½ï¿½ï¿½ï¿½=image/jpeg
+INFO 2025-03-25 19:47:26,887 views ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½: True
+INFO 2025-03-25 19:47:26,888 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:47:26,889 views ï¿½ï¿½Ê¼Ê¹ï¿½ï¿½Ä£ï¿½Í½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
+INFO 2025-03-25 19:47:26,889 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:47:26,889 breed_classifier ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½òµ¥¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½ï¿½Æ·ï¿½ï¿½
+INFO 2025-03-25 19:47:26,890 breed_classifier ï¿½Ñ³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:47:26,890 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:47:26,890 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 19:47:27,044 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+ERROR 2025-03-25 19:47:27,047 breed_classifier Ä£ï¿½Í¼ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: Error(s) in loading state_dict for ResNet:
 	Missing key(s) in state_dict: "conv1.weight", "bn1.weight", "bn1.bias", "bn1.running_mean", "bn1.running_var", "layer1.0.conv1.weight", "layer1.0.bn1.weight", "layer1.0.bn1.bias", "layer1.0.bn1.running_mean", "layer1.0.bn1.running_var", "layer1.0.conv2.weight", "layer1.0.bn2.weight", "layer1.0.bn2.bias", "layer1.0.bn2.running_mean", "layer1.0.bn2.running_var", "layer1.1.conv1.weight", "layer1.1.bn1.weight", "layer1.1.bn1.bias", "layer1.1.bn1.running_mean", "layer1.1.bn1.running_var", "layer1.1.conv2.weight", "layer1.1.bn2.weight", "layer1.1.bn2.bias", "layer1.1.bn2.running_mean", "layer1.1.bn2.running_var", "layer2.0.conv1.weight", "layer2.0.bn1.weight", "layer2.0.bn1.bias", "layer2.0.bn1.running_mean", "layer2.0.bn1.running_var", "layer2.0.conv2.weight", "layer2.0.bn2.weight", "layer2.0.bn2.bias", "layer2.0.bn2.running_mean", "layer2.0.bn2.running_var", "layer2.0.downsample.0.weight", "layer2.0.downsample.1.weight", "layer2.0.downsample.1.bias", "layer2.0.downsample.1.running_mean", "layer2.0.downsample.1.running_var", "layer2.1.conv1.weight", "layer2.1.bn1.weight", "layer2.1.bn1.bias", "layer2.1.bn1.running_mean", "layer2.1.bn1.running_var", "layer2.1.conv2.weight", "layer2.1.bn2.weight", "layer2.1.bn2.bias", "layer2.1.bn2.running_mean", "layer2.1.bn2.running_var", "layer3.0.conv1.weight", "layer3.0.bn1.weight", "layer3.0.bn1.bias", "layer3.0.bn1.running_mean", "layer3.0.bn1.running_var", "layer3.0.conv2.weight", "layer3.0.bn2.weight", "layer3.0.bn2.bias", "layer3.0.bn2.running_mean", "layer3.0.bn2.running_var", "layer3.0.downsample.0.weight", "layer3.0.downsample.1.weight", "layer3.0.downsample.1.bias", "layer3.0.downsample.1.running_mean", "layer3.0.downsample.1.running_var", "layer3.1.conv1.weight", "layer3.1.bn1.weight", "layer3.1.bn1.bias", "layer3.1.bn1.running_mean", "layer3.1.bn1.running_var", "layer3.1.conv2.weight", "layer3.1.bn2.weight", "layer3.1.bn2.bias", "layer3.1.bn2.running_mean", "layer3.1.bn2.running_var", "layer4.0.conv1.weight", "layer4.0.bn1.weight", "layer4.0.bn1.bias", "layer4.0.bn1.running_mean", "layer4.0.bn1.running_var", "layer4.0.conv2.weight", "layer4.0.bn2.weight", "layer4.0.bn2.bias", "layer4.0.bn2.running_mean", "layer4.0.bn2.running_var", "layer4.0.downsample.0.weight", "layer4.0.downsample.1.weight", "layer4.0.downsample.1.bias", "layer4.0.downsample.1.running_mean", "layer4.0.downsample.1.running_var", "layer4.1.conv1.weight", "layer4.1.bn1.weight", "layer4.1.bn1.bias", "layer4.1.bn1.running_mean", "layer4.1.bn1.running_var", "layer4.1.conv2.weight", "layer4.1.bn2.weight", "layer4.1.bn2.bias", "layer4.1.bn2.running_mean", "layer4.1.bn2.running_var", "fc.weight", "fc.bias". 
 	Unexpected key(s) in state_dict: "resnet.conv1.weight", "resnet.bn1.weight", "resnet.bn1.bias", "resnet.bn1.running_mean", "resnet.bn1.running_var", "resnet.bn1.num_batches_tracked", "resnet.layer1.0.conv1.weight", "resnet.layer1.0.bn1.weight", "resnet.layer1.0.bn1.bias", "resnet.layer1.0.bn1.running_mean", "resnet.layer1.0.bn1.running_var", "resnet.layer1.0.bn1.num_batches_tracked", "resnet.layer1.0.conv2.weight", "resnet.layer1.0.bn2.weight", "resnet.layer1.0.bn2.bias", "resnet.layer1.0.bn2.running_mean", "resnet.layer1.0.bn2.running_var", "resnet.layer1.0.bn2.num_batches_tracked", "resnet.layer1.1.conv1.weight", "resnet.layer1.1.bn1.weight", "resnet.layer1.1.bn1.bias", "resnet.layer1.1.bn1.running_mean", "resnet.layer1.1.bn1.running_var", "resnet.layer1.1.bn1.num_batches_tracked", "resnet.layer1.1.conv2.weight", "resnet.layer1.1.bn2.weight", "resnet.layer1.1.bn2.bias", "resnet.layer1.1.bn2.running_mean", "resnet.layer1.1.bn2.running_var", "resnet.layer1.1.bn2.num_batches_tracked", "resnet.layer2.0.conv1.weight", "resnet.layer2.0.bn1.weight", "resnet.layer2.0.bn1.bias", "resnet.layer2.0.bn1.running_mean", "resnet.layer2.0.bn1.running_var", "resnet.layer2.0.bn1.num_batches_tracked", "resnet.layer2.0.conv2.weight", "resnet.layer2.0.bn2.weight", "resnet.layer2.0.bn2.bias", "resnet.layer2.0.bn2.running_mean", "resnet.layer2.0.bn2.running_var", "resnet.layer2.0.bn2.num_batches_tracked", "resnet.layer2.0.downsample.0.weight", "resnet.layer2.0.downsample.1.weight", "resnet.layer2.0.downsample.1.bias", "resnet.layer2.0.downsample.1.running_mean", "resnet.layer2.0.downsample.1.running_var", "resnet.layer2.0.downsample.1.num_batches_tracked", "resnet.layer2.1.conv1.weight", "resnet.layer2.1.bn1.weight", "resnet.layer2.1.bn1.bias", "resnet.layer2.1.bn1.running_mean", "resnet.layer2.1.bn1.running_var", "resnet.layer2.1.bn1.num_batches_tracked", "resnet.layer2.1.conv2.weight", "resnet.layer2.1.bn2.weight", "resnet.layer2.1.bn2.bias", "resnet.layer2.1.bn2.running_mean", "resnet.layer2.1.bn2.running_var", "resnet.layer2.1.bn2.num_batches_tracked", "resnet.layer3.0.conv1.weight", "resnet.layer3.0.bn1.weight", "resnet.layer3.0.bn1.bias", "resnet.layer3.0.bn1.running_mean", "resnet.layer3.0.bn1.running_var", "resnet.layer3.0.bn1.num_batches_tracked", "resnet.layer3.0.conv2.weight", "resnet.layer3.0.bn2.weight", "resnet.layer3.0.bn2.bias", "resnet.layer3.0.bn2.running_mean", "resnet.layer3.0.bn2.running_var", "resnet.layer3.0.bn2.num_batches_tracked", "resnet.layer3.0.downsample.0.weight", "resnet.layer3.0.downsample.1.weight", "resnet.layer3.0.downsample.1.bias", "resnet.layer3.0.downsample.1.running_mean", "resnet.layer3.0.downsample.1.running_var", "resnet.layer3.0.downsample.1.num_batches_tracked", "resnet.layer3.1.conv1.weight", "resnet.layer3.1.bn1.weight", "resnet.layer3.1.bn1.bias", "resnet.layer3.1.bn1.running_mean", "resnet.layer3.1.bn1.running_var", "resnet.layer3.1.bn1.num_batches_tracked", "resnet.layer3.1.conv2.weight", "resnet.layer3.1.bn2.weight", "resnet.layer3.1.bn2.bias", "resnet.layer3.1.bn2.running_mean", "resnet.layer3.1.bn2.running_var", "resnet.layer3.1.bn2.num_batches_tracked", "resnet.layer4.0.conv1.weight", "resnet.layer4.0.bn1.weight", "resnet.layer4.0.bn1.bias", "resnet.layer4.0.bn1.running_mean", "resnet.layer4.0.bn1.running_var", "resnet.layer4.0.bn1.num_batches_tracked", "resnet.layer4.0.conv2.weight", "resnet.layer4.0.bn2.weight", "resnet.layer4.0.bn2.bias", "resnet.layer4.0.bn2.running_mean", "resnet.layer4.0.bn2.running_var", "resnet.layer4.0.bn2.num_batches_tracked", "resnet.layer4.0.downsample.0.weight", "resnet.layer4.0.downsample.1.weight", "resnet.layer4.0.downsample.1.bias", "resnet.layer4.0.downsample.1.running_mean", "resnet.layer4.0.downsample.1.running_var", "resnet.layer4.0.downsample.1.num_batches_tracked", "resnet.layer4.1.conv1.weight", "resnet.layer4.1.bn1.weight", "resnet.layer4.1.bn1.bias", "resnet.layer4.1.bn1.running_mean", "resnet.layer4.1.bn1.running_var", "resnet.layer4.1.bn1.num_batches_tracked", "resnet.layer4.1.conv2.weight", "resnet.layer4.1.bn2.weight", "resnet.layer4.1.bn2.bias", "resnet.layer4.1.bn2.running_mean", "resnet.layer4.1.bn2.running_var", "resnet.layer4.1.bn2.num_batches_tracked", "resnet.fc.0.weight", "resnet.fc.0.bias", "resnet.fc.3.weight", "resnet.fc.3.bias". 
-INFO 2025-03-25 19:47:27,048 breed_classifier ½«Ê¹ÓÃ±¸ÓÃ·ÖÀàÆ÷
-INFO 2025-03-25 19:47:27,048 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: media\temp\image.jpg
-INFO 2025-03-25 19:47:27,048 breed_classifier Ê¹ÓÃ±¸ÓÃ·ÖÀàÆ÷½øÐÐÔ¤²â
-INFO 2025-03-25 19:47:27,063 breed_classifier ¼òµ¥¹æÔò·ÖÀàÆ÷Ô¤²âÆ·ÖÖ: ±ßÄÁ, ÖÃÐÅ¶È: 0.8640
-INFO 2025-03-25 19:47:27,064 views ÓÃ»§ 111 ³É¹¦Ê¶±ðÁË¹·¹·Æ·ÖÖ: ±ßÄÁ
-INFO 2025-03-25 19:50:26,844 views ÊÕµ½Æ·ÖÖÊ¶±ðÇëÇó: dataÀàÐÍ=<class 'django.http.request.QueryDict'>, FILESÀàÐÍ=<class 'django.utils.datastructures.MultiValueDict'>
-INFO 2025-03-25 19:50:26,845 views ÇëÇóÊý¾Ý¼ü: ['image']
-INFO 2025-03-25 19:50:26,846 views Í¼ÏñÎÄ¼þÐÅÏ¢: Ãû³Æ=image.jpg, ´óÐ¡=170236, ÀàÐÍ=image/jpeg
-INFO 2025-03-25 19:50:26,905 views ÐòÁÐ»¯Æ÷ÑéÖ¤½á¹û: True
-INFO 2025-03-25 19:50:26,907 views ±£´æÁÙÊ±Í¼Ïñµ½: media\temp\image.jpg
-INFO 2025-03-25 19:50:26,908 views ¿ªÊ¼Ê¹ÓÃÄ£ÐÍ½øÐÐÔ¤²â
-INFO 2025-03-25 19:50:26,909 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 19:50:26,910 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:50:26,910 breed_classifier ³¢ÊÔ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 19:50:27,055 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 19:50:27,056 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 19:50:27,056 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 19:50:27,056 breed_classifier ¼ì²âµ½fc²ã½á¹¹²»Æ¥Åä£¬³¢ÊÔµ÷Õû...
-INFO 2025-03-25 19:50:27,059 breed_classifier ÒÑÖØ½¨fc²ã½á¹¹: Sequential(
+INFO 2025-03-25 19:47:27,048 breed_classifier ï¿½ï¿½Ê¹ï¿½Ã±ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:47:27,048 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:47:27,048 breed_classifier Ê¹ï¿½Ã±ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
+INFO 2025-03-25 19:47:27,063 breed_classifier ï¿½òµ¥¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8640
+INFO 2025-03-25 19:47:27,064 views ï¿½Ã»ï¿½ 111 ï¿½É¹ï¿½Ê¶ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:50:26,844 views ï¿½Õµï¿½Æ·ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: dataï¿½ï¿½ï¿½ï¿½=<class 'django.http.request.QueryDict'>, FILESï¿½ï¿½ï¿½ï¿½=<class 'django.utils.datastructures.MultiValueDict'>
+INFO 2025-03-25 19:50:26,845 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½: ['image']
+INFO 2025-03-25 19:50:26,846 views Í¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢: ï¿½ï¿½ï¿½ï¿½=image.jpg, ï¿½ï¿½Ð¡=170236, ï¿½ï¿½ï¿½ï¿½=image/jpeg
+INFO 2025-03-25 19:50:26,905 views ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½: True
+INFO 2025-03-25 19:50:26,907 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:50:26,908 views ï¿½ï¿½Ê¼Ê¹ï¿½ï¿½Ä£ï¿½Í½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
+INFO 2025-03-25 19:50:26,909 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:50:26,910 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:50:26,910 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 19:50:27,055 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 19:50:27,056 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 19:50:27,056 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:50:27,056 breed_classifier ï¿½ï¿½âµ½fcï¿½ï¿½á¹¹ï¿½ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½...
+INFO 2025-03-25 19:50:27,059 breed_classifier ï¿½ï¿½ï¿½Ø½ï¿½fcï¿½ï¿½á¹¹: Sequential(
   (0): Linear(in_features=512, out_features=512, bias=True)
   (1): ReLU()
   (2): Dropout(p=0.5, inplace=False)
   (3): Linear(in_features=512, out_features=512, bias=True)
 )
-ERROR 2025-03-25 19:50:27,070 breed_classifier Í¨¹ýload_state_dict¼ÓÔØÈ¨ÖØÊ§°Ü: Error(s) in loading state_dict for ResNet:
+ERROR 2025-03-25 19:50:27,070 breed_classifier Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½Ê§ï¿½ï¿½: Error(s) in loading state_dict for ResNet:
 	size mismatch for fc.3.weight: copying a param with shape torch.Size([12, 512]) from checkpoint, the shape in current model is torch.Size([512, 512]).
 	size mismatch for fc.3.bias: copying a param with shape torch.Size([12]) from checkpoint, the shape in current model is torch.Size([512]).
-INFO 2025-03-25 19:50:27,071 breed_classifier ³¢ÊÔ¼ÓÔØ²¿·ÖÈ¨ÖØ...
-INFO 2025-03-25 19:50:27,072 breed_classifier ¹ýÂËºó±£ÁôÁË122/124¸ö²ã
-INFO 2025-03-25 19:50:27,078 breed_classifier ³É¹¦Í¨¹ý¼ÓÔØ²¿·ÖÈ¨ÖØµÄ·½Ê½³õÊ¼»¯Ä£ÐÍ
-INFO 2025-03-25 19:50:27,080 breed_classifier PyTorchÄ£ÐÍ¼ÓÔØ³É¹¦
-INFO 2025-03-25 19:50:27,081 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: media\temp\image.jpg
-INFO 2025-03-25 19:50:27,093 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-WARNING 2025-03-25 19:50:27,182 breed_classifier Ô¤²âµÄÀàË÷Òý 273 ³¬³öÁËÓÐÐ§·¶Î§ 0-11
-INFO 2025-03-25 19:50:27,182 breed_classifier PyTorchÄ£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.0127
-INFO 2025-03-25 19:50:27,183 views ÓÃ»§ 111 ³É¹¦Ê¶±ðÁË¹·¹·Æ·ÖÖ: ÖÐ»ªÌïÔ°È®
-INFO 2025-03-25 19:53:39,097 views ÊÕµ½Æ·ÖÖÊ¶±ðÇëÇó: dataÀàÐÍ=<class 'django.http.request.QueryDict'>, FILESÀàÐÍ=<class 'django.utils.datastructures.MultiValueDict'>
-INFO 2025-03-25 19:53:39,098 views ÇëÇóÊý¾Ý¼ü: ['image']
-INFO 2025-03-25 19:53:39,099 views Í¼ÏñÎÄ¼þÐÅÏ¢: Ãû³Æ=image.jpg, ´óÐ¡=170236, ÀàÐÍ=image/jpeg
-INFO 2025-03-25 19:53:39,235 views ÐòÁÐ»¯Æ÷ÑéÖ¤½á¹û: True
-INFO 2025-03-25 19:53:39,236 views ±£´æÁÙÊ±Í¼Ïñµ½: media\temp\image.jpg
-INFO 2025-03-25 19:53:39,237 views ¿ªÊ¼Ê¹ÓÃÄ£ÐÍ½øÐÐÔ¤²â
-INFO 2025-03-25 19:53:39,237 views ³õÊ¼»¯DogÆ·ÖÖ·ÖÀàÆ÷
-INFO 2025-03-25 19:53:39,238 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 19:53:39,238 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:53:39,238 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 19:53:39,401 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 19:53:39,402 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 19:53:39,402 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 19:53:39,402 breed_classifier ¼ì²âµ½fc²ã½á¹¹²»Æ¥Åä£¬³¢ÊÔµ÷Õû...
-INFO 2025-03-25 19:53:39,405 breed_classifier ÒÑÖØ½¨fc²ã½á¹¹: Sequential(
+INFO 2025-03-25 19:50:27,071 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ï¿½...
+INFO 2025-03-25 19:50:27,072 breed_classifier ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½122/124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:50:27,078 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ØµÄ·ï¿½Ê½ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½
+INFO 2025-03-25 19:50:27,080 breed_classifier PyTorchÄ£ï¿½Í¼ï¿½ï¿½Ø³É¹ï¿½
+INFO 2025-03-25 19:50:27,081 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:50:27,093 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+WARNING 2025-03-25 19:50:27,182 breed_classifier Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 273 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ 0-11
+INFO 2025-03-25 19:50:27,182 breed_classifier PyTorchÄ£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.0127
+INFO 2025-03-25 19:50:27,183 views ï¿½Ã»ï¿½ 111 ï¿½É¹ï¿½Ê¶ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®
+INFO 2025-03-25 19:53:39,097 views ï¿½Õµï¿½Æ·ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: dataï¿½ï¿½ï¿½ï¿½=<class 'django.http.request.QueryDict'>, FILESï¿½ï¿½ï¿½ï¿½=<class 'django.utils.datastructures.MultiValueDict'>
+INFO 2025-03-25 19:53:39,098 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½: ['image']
+INFO 2025-03-25 19:53:39,099 views Í¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢: ï¿½ï¿½ï¿½ï¿½=image.jpg, ï¿½ï¿½Ð¡=170236, ï¿½ï¿½ï¿½ï¿½=image/jpeg
+INFO 2025-03-25 19:53:39,235 views ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½: True
+INFO 2025-03-25 19:53:39,236 views ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:53:39,237 views ï¿½ï¿½Ê¼Ê¹ï¿½ï¿½Ä£ï¿½Í½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
+INFO 2025-03-25 19:53:39,237 views ï¿½ï¿½Ê¼ï¿½ï¿½DogÆ·ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:53:39,238 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:53:39,238 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:53:39,238 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 19:53:39,401 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 19:53:39,402 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 19:53:39,402 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:53:39,402 breed_classifier ï¿½ï¿½âµ½fcï¿½ï¿½á¹¹ï¿½ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½...
+INFO 2025-03-25 19:53:39,405 breed_classifier ï¿½ï¿½ï¿½Ø½ï¿½fcï¿½ï¿½á¹¹: Sequential(
   (0): Linear(in_features=512, out_features=512, bias=True)
   (1): ReLU()
   (2): Dropout(p=0.5, inplace=False)
   (3): Linear(in_features=512, out_features=512, bias=True)
 )
-ERROR 2025-03-25 19:53:39,411 breed_classifier Í¨¹ýload_state_dict¼ÓÔØÈ¨ÖØÊ§°Ü: Error(s) in loading state_dict for ResNet:
+ERROR 2025-03-25 19:53:39,411 breed_classifier Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½Ê§ï¿½ï¿½: Error(s) in loading state_dict for ResNet:
 	size mismatch for fc.3.weight: copying a param with shape torch.Size([12, 512]) from checkpoint, the shape in current model is torch.Size([512, 512]).
 	size mismatch for fc.3.bias: copying a param with shape torch.Size([12]) from checkpoint, the shape in current model is torch.Size([512]).
-INFO 2025-03-25 19:53:39,412 breed_classifier ³¢ÊÔ¼ÓÔØ²¿·ÖÈ¨ÖØ...
-INFO 2025-03-25 19:53:39,413 breed_classifier ¹ýÂËºó±£ÁôÁË122/124¸ö²ã
-INFO 2025-03-25 19:53:39,421 breed_classifier ³É¹¦Í¨¹ý¼ÓÔØ²¿·ÖÈ¨ÖØµÄ·½Ê½³õÊ¼»¯Ä£ÐÍ
-INFO 2025-03-25 19:53:39,423 views DogÆ·ÖÖ·ÖÀàÆ÷³õÊ¼»¯³É¹¦
-INFO 2025-03-25 19:53:39,423 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: media\temp\image.jpg
-INFO 2025-03-25 19:53:39,433 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-WARNING 2025-03-25 19:53:39,469 breed_classifier Ô¤²âµÄÀàË÷Òý 121 ³¬³öÁËÓÐÐ§·¶Î§ 0-11
-INFO 2025-03-25 19:53:39,469 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.0111
-INFO 2025-03-25 19:53:39,470 views ÓÃ»§ 111 ³É¹¦Ê¶±ðÁË¹·¹·Æ·ÖÖ: ÖÐ»ªÌïÔ°È®
+INFO 2025-03-25 19:53:39,412 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ï¿½...
+INFO 2025-03-25 19:53:39,413 breed_classifier ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½122/124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:53:39,421 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ØµÄ·ï¿½Ê½ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½
+INFO 2025-03-25 19:53:39,423 views DogÆ·ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½
+INFO 2025-03-25 19:53:39,423 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: media\temp\image.jpg
+INFO 2025-03-25 19:53:39,433 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+WARNING 2025-03-25 19:53:39,469 breed_classifier Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 121 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ 0-11
+INFO 2025-03-25 19:53:39,469 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.0111
+INFO 2025-03-25 19:53:39,470 views ï¿½Ã»ï¿½ 111 ï¿½É¹ï¿½Ê¶ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®
 WARNING 2025-03-25 19:58:42,281 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
 Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
@@ -399,201 +399,201 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000001E1FA6CBDF0>.
-INFO 2025-03-25 19:59:00,601 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 19:59:00,602 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:59:00,602 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 19:59:00,749 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 19:59:00,749 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 19:59:00,749 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 19:59:00,749 breed_classifier ¼ì²âµ½fc²ã½á¹¹²»Æ¥Åä£¬³¢ÊÔµ÷Õû...
-INFO 2025-03-25 19:59:00,751 breed_classifier ÒÑÖØ½¨fc²ã½á¹¹: Sequential(
+INFO 2025-03-25 19:59:00,601 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:00,602 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:59:00,602 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 19:59:00,749 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 19:59:00,749 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 19:59:00,749 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:00,749 breed_classifier ï¿½ï¿½âµ½fcï¿½ï¿½á¹¹ï¿½ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½...
+INFO 2025-03-25 19:59:00,751 breed_classifier ï¿½ï¿½ï¿½Ø½ï¿½fcï¿½ï¿½á¹¹: Sequential(
   (0): Linear(in_features=512, out_features=512, bias=True)
   (1): ReLU()
   (2): Dropout(p=0.5, inplace=False)
   (3): Linear(in_features=512, out_features=512, bias=True)
 )
-ERROR 2025-03-25 19:59:00,758 breed_classifier Í¨¹ýload_state_dict¼ÓÔØÈ¨ÖØÊ§°Ü: Error(s) in loading state_dict for ResNet:
+ERROR 2025-03-25 19:59:00,758 breed_classifier Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½Ê§ï¿½ï¿½: Error(s) in loading state_dict for ResNet:
 	size mismatch for fc.3.weight: copying a param with shape torch.Size([12, 512]) from checkpoint, the shape in current model is torch.Size([512, 512]).
 	size mismatch for fc.3.bias: copying a param with shape torch.Size([12]) from checkpoint, the shape in current model is torch.Size([512]).
-INFO 2025-03-25 19:59:00,759 breed_classifier ³¢ÊÔ¼ÓÔØ²¿·ÖÈ¨ÖØ...
-INFO 2025-03-25 19:59:00,761 breed_classifier ¹ýÂËºó±£ÁôÁË122/124¸ö²ã
-INFO 2025-03-25 19:59:00,768 breed_classifier ³É¹¦Í¨¹ý¼ÓÔØ²¿·ÖÈ¨ÖØµÄ·½Ê½³õÊ¼»¯Ä£ÐÍ
-INFO 2025-03-25 19:59:00,769 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpq9l68149.jpg
-INFO 2025-03-25 19:59:00,792 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-WARNING 2025-03-25 19:59:00,828 breed_classifier Ô¤²âµÄÀàË÷Òý 164 ³¬³öÁËÓÐÐ§·¶Î§ 0-11
-INFO 2025-03-25 19:59:00,828 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.0103
-INFO 2025-03-25 19:59:31,161 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 19:59:31,161 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 19:59:31,162 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 19:59:31,310 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 19:59:31,312 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 19:59:31,312 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 19:59:31,312 breed_classifier ¼ì²âµ½fc²ã½á¹¹²»Æ¥Åä£¬³¢ÊÔµ÷Õû...
-INFO 2025-03-25 19:59:31,315 breed_classifier ÒÑÖØ½¨fc²ã½á¹¹: Sequential(
+INFO 2025-03-25 19:59:00,759 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ï¿½...
+INFO 2025-03-25 19:59:00,761 breed_classifier ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½122/124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:00,768 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ØµÄ·ï¿½Ê½ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½
+INFO 2025-03-25 19:59:00,769 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpq9l68149.jpg
+INFO 2025-03-25 19:59:00,792 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+WARNING 2025-03-25 19:59:00,828 breed_classifier Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 164 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ 0-11
+INFO 2025-03-25 19:59:00,828 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.0103
+INFO 2025-03-25 19:59:31,161 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:31,161 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 19:59:31,162 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 19:59:31,310 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 19:59:31,312 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 19:59:31,312 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:31,312 breed_classifier ï¿½ï¿½âµ½fcï¿½ï¿½á¹¹ï¿½ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½...
+INFO 2025-03-25 19:59:31,315 breed_classifier ï¿½ï¿½ï¿½Ø½ï¿½fcï¿½ï¿½á¹¹: Sequential(
   (0): Linear(in_features=512, out_features=512, bias=True)
   (1): ReLU()
   (2): Dropout(p=0.5, inplace=False)
   (3): Linear(in_features=512, out_features=512, bias=True)
 )
-ERROR 2025-03-25 19:59:31,321 breed_classifier Í¨¹ýload_state_dict¼ÓÔØÈ¨ÖØÊ§°Ü: Error(s) in loading state_dict for ResNet:
+ERROR 2025-03-25 19:59:31,321 breed_classifier Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½Ê§ï¿½ï¿½: Error(s) in loading state_dict for ResNet:
 	size mismatch for fc.3.weight: copying a param with shape torch.Size([12, 512]) from checkpoint, the shape in current model is torch.Size([512, 512]).
 	size mismatch for fc.3.bias: copying a param with shape torch.Size([12]) from checkpoint, the shape in current model is torch.Size([512]).
-INFO 2025-03-25 19:59:31,322 breed_classifier ³¢ÊÔ¼ÓÔØ²¿·ÖÈ¨ÖØ...
-INFO 2025-03-25 19:59:31,323 breed_classifier ¹ýÂËºó±£ÁôÁË122/124¸ö²ã
-INFO 2025-03-25 19:59:31,332 breed_classifier ³É¹¦Í¨¹ý¼ÓÔØ²¿·ÖÈ¨ÖØµÄ·½Ê½³õÊ¼»¯Ä£ÐÍ
-INFO 2025-03-25 19:59:31,333 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp2rpy8uux.jpg
-INFO 2025-03-25 19:59:31,360 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-WARNING 2025-03-25 19:59:31,399 breed_classifier Ô¤²âµÄÀàË÷Òý 507 ³¬³öÁËÓÐÐ§·¶Î§ 0-11
-INFO 2025-03-25 19:59:31,399 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.0094
-INFO 2025-03-25 20:02:02,880 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:02:02,881 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:02:02,881 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:02:03,032 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:02:03,033 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:02:03,033 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:02:03,034 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:02:03,034 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:02:03,036 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:02:03,044 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:02:03,045 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp3yh42hek.jpg
-INFO 2025-03-25 20:02:03,068 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-INFO 2025-03-25 20:02:03,107 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8707
-INFO 2025-03-25 20:02:06,653 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:02:06,654 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:02:06,654 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:02:06,801 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:02:06,801 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:02:06,801 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:02:06,801 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:02:06,801 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:02:06,804 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:02:06,812 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:02:06,813 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpkahr04ci.jpg
-INFO 2025-03-25 20:02:06,824 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-INFO 2025-03-25 20:02:06,854 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8707
-INFO 2025-03-25 20:02:11,203 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:02:11,204 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:02:11,205 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:02:11,348 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:02:11,348 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:02:11,349 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:02:11,349 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:02:11,349 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:02:11,350 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:02:11,357 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:02:11,358 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpnuqn1sv0.jpg
-INFO 2025-03-25 20:02:11,368 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (893, 893)
-INFO 2025-03-25 20:02:11,397 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¹þÊ¿Ææ, ÖÃÐÅ¶È: 0.3443
-INFO 2025-03-25 20:02:14,615 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:02:14,616 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:02:14,616 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:02:14,750 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:02:14,750 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:02:14,750 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:02:14,750 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:02:14,750 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:02:14,752 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:02:14,758 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:02:14,760 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpypk4aog0.jpg
-INFO 2025-03-25 20:02:14,772 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (893, 893)
-INFO 2025-03-25 20:02:14,801 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¹þÊ¿Ææ, ÖÃÐÅ¶È: 0.6794
-INFO 2025-03-25 20:02:18,545 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:02:18,545 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:02:18,546 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:02:18,702 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:02:18,702 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:02:18,702 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:02:18,703 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:02:18,703 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:02:18,705 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:02:18,713 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:02:18,714 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpmbn7zxc9.jpg
-INFO 2025-03-25 20:02:18,725 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-INFO 2025-03-25 20:02:18,757 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8707
-INFO 2025-03-25 20:02:33,230 views ÓÃ»§ 111 ´´½¨ÁË¹·¹·: id=1, name=12313
-INFO 2025-03-25 20:03:52,276 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:04:01,806 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:04:01,807 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:04:01,807 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:04:01,970 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:04:01,971 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:04:01,972 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:04:01,972 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:04:01,972 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:04:01,975 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:04:01,988 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:04:01,989 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpwlpq770f.jpg
-INFO 2025-03-25 20:04:02,001 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-INFO 2025-03-25 20:04:02,043 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8707
-INFO 2025-03-25 20:04:12,871 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:04:12,872 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:04:12,872 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:04:12,999 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:04:13,000 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:04:13,000 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:04:13,000 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:04:13,000 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:04:13,002 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:04:13,009 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:04:13,011 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpx61gp2_h.jpg
-INFO 2025-03-25 20:04:13,068 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-25 20:04:13,120 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¹þÊ¿Ææ, ÖÃÐÅ¶È: 0.6711
-INFO 2025-03-25 20:09:12,308 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:09:12,308 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:09:12,309 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:09:12,432 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:09:12,432 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:09:12,433 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:09:12,433 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:09:12,433 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:09:12,435 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:09:12,440 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:09:12,441 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpohzt25ze.jpg
-INFO 2025-03-25 20:09:12,447 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (1220, 915)
-INFO 2025-03-25 20:09:12,467 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: À­²¼À­¶à, ÖÃÐÅ¶È: 0.1962
-INFO 2025-03-25 20:10:45,071 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 20:10:45,071 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 20:10:45,072 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 20:10:45,201 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 20:10:45,201 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 20:10:45,201 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 20:10:45,201 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 20:10:45,202 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 20:10:45,203 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 20:10:45,210 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 20:10:45,212 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpzcq5nxzd.jpg
-INFO 2025-03-25 20:10:45,222 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (860, 555)
-INFO 2025-03-25 20:10:45,253 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8707
-INFO 2025-03-25 20:10:48,655 views ÓÃ»§ 111 ´´½¨ÁË¹·¹·: id=2, name=111
-INFO 2025-03-25 20:15:34,761 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:16:40,837 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:29:47,072 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:30:35,086 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:30:56,683 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:31:17,188 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:35:24,852 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:35:57,179 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:36:23,452 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:40:15,052 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:41:39,488 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:42:15,288 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:42:48,987 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:45:28,462 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:45:35,692 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:46:20,463 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:46:47,113 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:46:58,586 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:47:12,610 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:47:18,066 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:49:45,986 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:50:22,975 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:50:40,667 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:51:12,004 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:53:38,616 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 20:53:50,046 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:01:36,568 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:01:50,965 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:01:54,974 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
+INFO 2025-03-25 19:59:31,322 breed_classifier ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ï¿½...
+INFO 2025-03-25 19:59:31,323 breed_classifier ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½122/124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 19:59:31,332 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½È¨ï¿½ØµÄ·ï¿½Ê½ï¿½ï¿½Ê¼ï¿½ï¿½Ä£ï¿½ï¿½
+INFO 2025-03-25 19:59:31,333 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp2rpy8uux.jpg
+INFO 2025-03-25 19:59:31,360 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+WARNING 2025-03-25 19:59:31,399 breed_classifier Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 507 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ 0-11
+INFO 2025-03-25 19:59:31,399 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.0094
+INFO 2025-03-25 20:02:02,880 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:02,881 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:02:02,881 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:02:03,032 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:02:03,033 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:02:03,033 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:03,034 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:03,034 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:03,036 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:03,044 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:02:03,045 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp3yh42hek.jpg
+INFO 2025-03-25 20:02:03,068 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+INFO 2025-03-25 20:02:03,107 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8707
+INFO 2025-03-25 20:02:06,653 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:06,654 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:02:06,654 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:02:06,801 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:02:06,801 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:02:06,801 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:06,801 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:06,801 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:06,804 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:06,812 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:02:06,813 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpkahr04ci.jpg
+INFO 2025-03-25 20:02:06,824 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+INFO 2025-03-25 20:02:06,854 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8707
+INFO 2025-03-25 20:02:11,203 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:11,204 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:02:11,205 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:02:11,348 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:02:11,348 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:02:11,349 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:11,349 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:11,349 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:11,350 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:11,357 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:02:11,358 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpnuqn1sv0.jpg
+INFO 2025-03-25 20:02:11,368 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (893, 893)
+INFO 2025-03-25 20:02:11,397 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ê¿ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.3443
+INFO 2025-03-25 20:02:14,615 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:14,616 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:02:14,616 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:02:14,750 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:02:14,750 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:02:14,750 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:14,750 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:14,750 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:14,752 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:14,758 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:02:14,760 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpypk4aog0.jpg
+INFO 2025-03-25 20:02:14,772 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (893, 893)
+INFO 2025-03-25 20:02:14,801 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ê¿ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.6794
+INFO 2025-03-25 20:02:18,545 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:18,545 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:02:18,546 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:02:18,702 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:02:18,702 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:02:18,702 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:02:18,703 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:18,703 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:18,705 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:02:18,713 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:02:18,714 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpmbn7zxc9.jpg
+INFO 2025-03-25 20:02:18,725 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+INFO 2025-03-25 20:02:18,757 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8707
+INFO 2025-03-25 20:02:33,230 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½: id=1, name=12313
+INFO 2025-03-25 20:03:52,276 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:04:01,806 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:04:01,807 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:04:01,807 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:04:01,970 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:04:01,971 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:04:01,972 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:04:01,972 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:01,972 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:01,975 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:01,988 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:04:01,989 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpwlpq770f.jpg
+INFO 2025-03-25 20:04:02,001 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+INFO 2025-03-25 20:04:02,043 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8707
+INFO 2025-03-25 20:04:12,871 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:04:12,872 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:04:12,872 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:04:12,999 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:04:13,000 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:04:13,000 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:04:13,000 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:13,000 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:13,002 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:04:13,009 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:04:13,011 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpx61gp2_h.jpg
+INFO 2025-03-25 20:04:13,068 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-25 20:04:13,120 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ê¿ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.6711
+INFO 2025-03-25 20:09:12,308 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:09:12,308 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:09:12,309 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:09:12,432 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:09:12,432 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:09:12,433 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:09:12,433 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:09:12,433 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:09:12,435 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:09:12,440 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:09:12,441 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpohzt25ze.jpg
+INFO 2025-03-25 20:09:12,447 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (1220, 915)
+INFO 2025-03-25 20:09:12,467 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.1962
+INFO 2025-03-25 20:10:45,071 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:10:45,071 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 20:10:45,072 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 20:10:45,201 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 20:10:45,201 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 20:10:45,201 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 20:10:45,201 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:10:45,202 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 20:10:45,203 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 20:10:45,210 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 20:10:45,212 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpzcq5nxzd.jpg
+INFO 2025-03-25 20:10:45,222 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (860, 555)
+INFO 2025-03-25 20:10:45,253 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8707
+INFO 2025-03-25 20:10:48,655 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½: id=2, name=111
+INFO 2025-03-25 20:15:34,761 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:16:40,837 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:29:47,072 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:30:35,086 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:30:56,683 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:31:17,188 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:35:24,852 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:35:57,179 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:36:23,452 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:40:15,052 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:41:39,488 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:42:15,288 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:42:48,987 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:45:28,462 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:45:35,692 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:46:20,463 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:46:47,113 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:46:58,586 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:47:12,610 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:47:18,066 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:49:45,986 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:50:22,975 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:50:40,667 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:51:12,004 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:53:38,616 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 20:53:50,046 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:01:36,568 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:01:50,965 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:01:54,974 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 WARNING 2025-03-25 21:02:43,656 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
 Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
@@ -746,79 +746,79 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x0000015327CE7A00>.
-INFO 2025-03-25 21:03:51,131 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:03:54,590 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:05:57,498 views ÓÃ»§ 123456 ¸üÐÂÁËÍ·Ïñ
-INFO 2025-03-25 21:06:04,967 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:06:15,083 views ÓÃ»§ 123456 ¸üÐÂÁËÍ·Ïñ
-INFO 2025-03-25 21:06:56,846 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 21:06:56,848 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 21:06:56,848 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 21:06:56,987 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 21:06:56,987 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 21:06:56,988 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 21:06:56,988 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 21:06:56,988 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 21:06:56,990 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 21:06:56,996 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 21:06:56,997 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmputcd4fko.jpg
-INFO 2025-03-25 21:06:57,003 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-25 21:06:57,028 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-25 21:07:31,706 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-25 21:07:49,877 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 21:07:49,877 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 21:07:49,877 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 21:07:49,995 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 21:07:49,995 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 21:07:49,996 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 21:07:49,996 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 21:07:49,996 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 21:07:49,998 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 21:07:50,004 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 21:07:50,005 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpaocet1lp.jpg
-INFO 2025-03-25 21:07:50,010 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-25 21:07:50,034 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-25 21:08:11,786 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 21:08:11,786 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 21:08:11,786 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 21:08:11,891 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 21:08:11,892 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 21:08:11,892 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 21:08:11,892 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 21:08:11,893 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 21:08:11,894 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 21:08:11,900 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 21:08:11,902 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpmirma855.jpg
-INFO 2025-03-25 21:08:11,907 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-25 21:08:11,924 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-25 21:08:33,223 views ÓÃ»§ 123456 ´´½¨ÁË¹·¹·: id=3, name=¹þ¹þ
-INFO 2025-03-25 21:40:59,361 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 21:40:59,361 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 21:40:59,362 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 21:40:59,486 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 21:40:59,486 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 21:40:59,486 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 21:40:59,487 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 21:40:59,487 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 21:40:59,489 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 21:40:59,495 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 21:40:59,497 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpngb06cqj.jpg
-INFO 2025-03-25 21:40:59,501 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-25 21:40:59,521 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-25 21:41:45,450 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-25 21:41:45,450 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-25 21:41:45,451 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-25 21:41:45,563 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-25 21:41:45,564 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-25 21:41:45,564 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-25 21:41:45,564 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-25 21:41:45,565 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-25 21:41:45,566 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-25 21:41:45,572 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-25 21:41:45,573 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp7g40tmvv.jpg
-INFO 2025-03-25 21:41:45,577 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-25 21:41:45,601 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-26 00:37:21,989 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
+INFO 2025-03-25 21:03:51,131 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:03:54,590 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:05:57,498 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
+INFO 2025-03-25 21:06:04,967 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:06:15,083 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
+INFO 2025-03-25 21:06:56,846 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:06:56,848 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 21:06:56,848 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 21:06:56,987 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 21:06:56,987 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 21:06:56,988 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:06:56,988 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:06:56,988 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:06:56,990 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 21:06:56,996 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 21:06:56,997 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmputcd4fko.jpg
+INFO 2025-03-25 21:06:57,003 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-25 21:06:57,028 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-25 21:07:31,706 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-25 21:07:49,877 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:07:49,877 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 21:07:49,877 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 21:07:49,995 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 21:07:49,995 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 21:07:49,996 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:07:49,996 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:07:49,996 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:07:49,998 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 21:07:50,004 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 21:07:50,005 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpaocet1lp.jpg
+INFO 2025-03-25 21:07:50,010 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-25 21:07:50,034 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-25 21:08:11,786 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:08:11,786 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 21:08:11,786 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 21:08:11,891 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 21:08:11,892 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 21:08:11,892 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:08:11,892 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:08:11,893 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:08:11,894 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 21:08:11,900 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 21:08:11,902 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpmirma855.jpg
+INFO 2025-03-25 21:08:11,907 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-25 21:08:11,924 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-25 21:08:33,223 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½: id=3, name=ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:40:59,361 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:40:59,361 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 21:40:59,362 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 21:40:59,486 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 21:40:59,486 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 21:40:59,486 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:40:59,487 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:40:59,487 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:40:59,489 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 21:40:59,495 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 21:40:59,497 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpngb06cqj.jpg
+INFO 2025-03-25 21:40:59,501 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-25 21:40:59,521 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-25 21:41:45,450 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:41:45,450 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-25 21:41:45,451 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-25 21:41:45,563 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-25 21:41:45,564 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-25 21:41:45,564 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-25 21:41:45,564 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:41:45,565 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-25 21:41:45,566 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-25 21:41:45,572 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-25 21:41:45,573 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp7g40tmvv.jpg
+INFO 2025-03-25 21:41:45,577 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-25 21:41:45,601 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-26 00:37:21,989 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 WARNING 2025-03-26 01:05:02,571 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
 Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
@@ -971,138 +971,138 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000002B4880AF5E0>.
-INFO 2025-03-26 21:23:10,260 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:23:10,262 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:23:10,262 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:23:10,476 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:23:10,476 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:23:10,476 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:23:10,476 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:23:10,476 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:23:10,479 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:23:10,488 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:23:10,490 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpq8bkq1we.jpg
-INFO 2025-03-26 21:23:10,555 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-26 21:23:10,639 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ²©ÃÀ, ÖÃÐÅ¶È: 0.4567
-INFO 2025-03-26 21:23:35,250 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-26 21:26:54,493 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-26 21:27:03,772 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:27:03,772 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:27:03,772 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:27:03,889 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:27:03,889 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:27:03,891 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:27:03,891 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:27:03,891 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:27:03,893 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:27:03,899 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:27:03,899 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp1r3amuai.jpg
-INFO 2025-03-26 21:27:03,946 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-26 21:27:03,985 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: Ñ©ÄÉÈð, ÖÃÐÅ¶È: 0.6500
-INFO 2025-03-26 21:27:20,233 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:27:20,233 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:27:20,235 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:27:20,349 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:27:20,349 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:27:20,349 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:27:20,349 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:27:20,349 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:27:20,351 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:27:20,358 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:27:20,359 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpcvf8fp22.jpg
-INFO 2025-03-26 21:27:20,396 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-26 21:27:20,428 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: Ñ©ÄÉÈð, ÖÃÐÅ¶È: 0.8233
-INFO 2025-03-26 21:27:27,962 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:27:27,962 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:27:27,962 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:27:28,084 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:27:28,084 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:27:28,084 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:27:28,084 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:27:28,084 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:27:28,085 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:27:28,091 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:27:28,091 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpx99lurfx.jpg
-INFO 2025-03-26 21:27:28,098 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (740, 555)
-INFO 2025-03-26 21:27:28,113 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.8677
-INFO 2025-03-26 21:35:27,505 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:35:27,505 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:35:27,507 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:35:27,631 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:35:27,632 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:35:27,632 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:35:27,632 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:35:27,632 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:35:27,634 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:35:27,641 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:35:27,642 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpe84yn67j.jpg
-INFO 2025-03-26 21:35:27,742 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 21:35:27,791 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ²Øéá, ÖÃÐÅ¶È: 0.9999
-INFO 2025-03-26 21:36:33,156 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 21:36:33,156 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 21:36:33,156 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 21:36:33,272 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 21:36:33,272 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 21:36:33,272 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 21:36:33,272 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 21:36:33,273 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 21:36:33,273 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 21:36:33,280 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 21:36:33,281 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpk2fv7gk9.jpg
-INFO 2025-03-26 21:36:33,370 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 21:36:33,419 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ±ßÄÁ, ÖÃÐÅ¶È: 0.9999
-INFO 2025-03-26 22:05:26,744 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 22:05:26,745 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 22:05:26,746 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 22:05:26,892 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 22:05:26,894 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 22:05:26,894 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 22:05:26,894 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 22:05:26,894 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 22:05:26,895 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 22:05:26,903 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 22:05:26,905 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpx2jftf5t.jpg
-INFO 2025-03-26 22:05:27,039 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 22:05:27,117 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÖÐ»ªÌïÔ°È®, ÖÃÐÅ¶È: 0.5312
-INFO 2025-03-26 22:05:49,347 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 22:05:49,347 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 22:05:49,347 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 22:05:49,478 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 22:05:49,478 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 22:05:49,478 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 22:05:49,480 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 22:05:49,480 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 22:05:49,482 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 22:05:49,488 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 22:05:49,490 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp_6x_m80o.jpg
-INFO 2025-03-26 22:05:49,603 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 22:05:49,663 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¿Â»ù, ÖÃÐÅ¶È: 0.3911
-INFO 2025-03-26 22:06:01,115 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 22:06:01,115 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 22:06:01,115 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 22:06:01,250 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 22:06:01,250 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 22:06:01,250 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 22:06:01,250 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 22:06:01,250 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 22:06:01,251 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 22:06:01,260 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 22:06:01,262 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp44s8wdcm.jpg
-INFO 2025-03-26 22:06:01,383 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 22:06:01,445 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¿Â»ù, ÖÃÐÅ¶È: 0.6546
-INFO 2025-03-26 22:06:15,524 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-26 22:06:15,525 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-26 22:06:15,525 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-26 22:06:15,662 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-26 22:06:15,662 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-26 22:06:15,662 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-26 22:06:15,663 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-26 22:06:15,663 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-26 22:06:15,665 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-26 22:06:15,672 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-26 22:06:15,674 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpn9k3mfp1.jpg
-INFO 2025-03-26 22:06:15,776 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (4096, 3072)
-INFO 2025-03-26 22:06:15,839 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ½ðÃ«È®, ÖÃÐÅ¶È: 0.8618
+INFO 2025-03-26 21:23:10,260 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:23:10,262 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:23:10,262 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:23:10,476 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:23:10,476 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:23:10,476 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:23:10,476 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:23:10,476 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:23:10,479 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:23:10,488 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:23:10,490 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpq8bkq1we.jpg
+INFO 2025-03-26 21:23:10,555 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-26 21:23:10,639 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.4567
+INFO 2025-03-26 21:23:35,250 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-26 21:26:54,493 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-26 21:27:03,772 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:03,772 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:27:03,772 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:03,889 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:03,889 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:27:03,891 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:03,891 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:03,891 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:03,893 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:03,899 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:27:03,899 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp1r3amuai.jpg
+INFO 2025-03-26 21:27:03,946 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-26 21:27:03,985 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: Ñ©ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.6500
+INFO 2025-03-26 21:27:20,233 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:20,233 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:27:20,235 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:20,349 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:20,349 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:27:20,349 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:20,349 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:20,349 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:20,351 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:20,358 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:27:20,359 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpcvf8fp22.jpg
+INFO 2025-03-26 21:27:20,396 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-26 21:27:20,428 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: Ñ©ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8233
+INFO 2025-03-26 21:27:27,962 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:27,962 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:27:27,962 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:27:28,084 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:27:28,084 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:27:28,084 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:27:28,084 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:28,084 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:28,085 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:27:28,091 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:27:28,091 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpx99lurfx.jpg
+INFO 2025-03-26 21:27:28,098 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (740, 555)
+INFO 2025-03-26 21:27:28,113 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8677
+INFO 2025-03-26 21:35:27,505 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:35:27,505 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:35:27,507 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:35:27,631 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:35:27,632 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:35:27,632 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:35:27,632 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:35:27,632 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:35:27,634 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:35:27,641 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:35:27,642 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpe84yn67j.jpg
+INFO 2025-03-26 21:35:27,742 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 21:35:27,791 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.9999
+INFO 2025-03-26 21:36:33,156 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:36:33,156 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 21:36:33,156 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 21:36:33,272 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 21:36:33,272 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 21:36:33,272 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 21:36:33,272 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:36:33,273 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 21:36:33,273 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 21:36:33,280 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 21:36:33,281 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpk2fv7gk9.jpg
+INFO 2025-03-26 21:36:33,370 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 21:36:33,419 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.9999
+INFO 2025-03-26 22:05:26,744 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:05:26,745 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 22:05:26,746 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 22:05:26,892 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 22:05:26,894 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 22:05:26,894 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:05:26,894 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:26,894 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:26,895 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:26,903 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 22:05:26,905 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpx2jftf5t.jpg
+INFO 2025-03-26 22:05:27,039 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 22:05:27,117 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Ð»ï¿½ï¿½ï¿½Ô°È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.5312
+INFO 2025-03-26 22:05:49,347 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:05:49,347 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 22:05:49,347 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 22:05:49,478 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 22:05:49,478 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 22:05:49,478 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:05:49,480 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:49,480 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:49,482 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 22:05:49,488 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 22:05:49,490 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp_6x_m80o.jpg
+INFO 2025-03-26 22:05:49,603 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 22:05:49,663 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Â»ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.3911
+INFO 2025-03-26 22:06:01,115 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:06:01,115 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 22:06:01,115 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 22:06:01,250 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 22:06:01,250 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 22:06:01,250 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:06:01,250 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:01,250 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:01,251 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:01,260 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 22:06:01,262 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp44s8wdcm.jpg
+INFO 2025-03-26 22:06:01,383 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 22:06:01,445 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½Â»ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.6546
+INFO 2025-03-26 22:06:15,524 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:06:15,525 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-26 22:06:15,525 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-26 22:06:15,662 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-26 22:06:15,662 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-26 22:06:15,662 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-26 22:06:15,663 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:15,663 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:15,665 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-26 22:06:15,672 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-26 22:06:15,674 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpn9k3mfp1.jpg
+INFO 2025-03-26 22:06:15,776 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (4096, 3072)
+INFO 2025-03-26 22:06:15,839 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ã«È®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8618
 WARNING 2025-03-27 12:37:32,314 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
 Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
@@ -1407,96 +1407,96 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x000001D227106CE0>.
-INFO 2025-03-27 12:44:38,159 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-27 12:44:38,161 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-27 12:44:38,162 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-27 12:44:38,402 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-27 12:44:38,402 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-27 12:44:38,402 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-27 12:44:38,403 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-27 12:44:38,403 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-27 12:44:38,406 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-27 12:44:38,416 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-27 12:44:38,417 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpxlzui9g7.jpg
-INFO 2025-03-27 12:44:38,499 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-27 12:44:38,605 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ²©ÃÀ, ÖÃÐÅ¶È: 0.7983
-INFO 2025-03-27 12:44:49,933 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:19:39,701 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:21:55,063 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:23:57,531 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:25:30,511 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:25:41,791 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:26:25,795 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:27:32,833 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:28:09,045 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 16:38:14,277 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-27 22:40:47,996 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-27 22:40:47,999 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-27 22:40:48,000 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-27 22:40:48,290 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-27 22:40:48,292 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-27 22:40:48,292 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-27 22:40:48,292 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-27 22:40:48,292 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-27 22:40:48,294 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-27 22:40:48,304 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-27 22:40:48,304 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmp9udwibl0.jpg
-INFO 2025-03-27 22:40:48,342 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (1429, 1072)
-INFO 2025-03-27 22:40:48,424 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¹þÊ¿Ææ, ÖÃÐÅ¶È: 0.3894
-INFO 2025-03-27 22:41:27,678 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-27 22:41:27,679 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-27 22:41:27,679 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-27 22:41:27,810 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-27 22:41:27,810 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-27 22:41:27,810 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-27 22:41:27,810 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-27 22:41:27,810 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-27 22:41:27,812 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-27 22:41:27,818 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-27 22:41:27,819 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmprzepyoks.jpg
-INFO 2025-03-27 22:41:27,878 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (3072, 2304)
-INFO 2025-03-27 22:41:27,921 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ¹þÊ¿Ææ, ÖÃÐÅ¶È: 0.1699
-INFO 2025-03-27 22:41:58,043 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-27 22:41:58,043 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-27 22:41:58,043 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-27 22:41:58,161 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-27 22:41:58,163 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-27 22:41:58,163 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-27 22:41:58,163 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-27 22:41:58,163 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-27 22:41:58,164 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-27 22:41:58,171 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-27 22:41:58,172 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmprm6fdp9h.jpg
-INFO 2025-03-27 22:41:58,196 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (2038, 1528)
-INFO 2025-03-27 22:41:58,230 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: Ñ©ÄÉÈð, ÖÃÐÅ¶È: 0.8756
-INFO 2025-03-27 22:42:27,524 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-27 22:42:27,524 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-27 22:42:27,524 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-27 22:42:27,641 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-27 22:42:27,641 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-27 22:42:27,641 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-27 22:42:27,642 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-27 22:42:27,642 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-27 22:42:27,644 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-27 22:42:27,650 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-27 22:42:27,652 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmprmncdzeb.jpg
-INFO 2025-03-27 22:42:27,667 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (1541, 1156)
-INFO 2025-03-27 22:42:27,694 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ²©ÃÀ, ÖÃÐÅ¶È: 0.9322
-INFO 2025-03-28 16:12:34,552 breed_classifier ³É¹¦¼ÓÔØÁË12ÖÖ¹·¹·Æ·ÖÖÃû
-INFO 2025-03-28 16:12:34,553 breed_classifier Ê¹ÓÃÉè±¸: cpu
-INFO 2025-03-28 16:12:34,553 breed_classifier ¼ÓÔØÄ£ÐÍ: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
-INFO 2025-03-28 16:12:34,787 breed_classifier ¼ÓÔØµÄÈ¨ÖØÀàÐÍ: <class 'collections.OrderedDict'>
-INFO 2025-03-28 16:12:34,787 breed_classifier ¼ì²âµ½state_dictÖÐµÄ¼üÓÐ'resnet.'Ç°×º£¬ÕýÔÚÒÆ³ýÇ°×º...
-INFO 2025-03-28 16:12:34,789 breed_classifier ÒÑ´¦Àístate_dict£¬ÒÆ³ýÁË'resnet.'Ç°×º£¬ÏÖÔÚÓÐ124¸ö¼ü
-INFO 2025-03-28 16:12:34,789 breed_classifier ¼ì²âµ½Sequential fc²ãÊä³öÌØÕ÷Êý: 12
-INFO 2025-03-28 16:12:34,789 breed_classifier Ä£ÐÍµÄÊä³öÀà±ðÊý: 12£¬±¾µØÀà±ðÊý: 12
-INFO 2025-03-28 16:12:34,792 breed_classifier ÒÑ´´½¨Sequential fc²ã£¬Êä³öÎ¬¶È: 12
-INFO 2025-03-28 16:12:34,800 breed_classifier ³É¹¦Í¨¹ýload_state_dict¼ÓÔØÄ£ÐÍÈ¨ÖØ
-INFO 2025-03-28 16:12:34,801 breed_classifier ¿ªÊ¼Ô¤²âÍ¼Ïñ: C:\Users\ljh\AppData\Local\Temp\tmpt0zx3phs.jpg
-INFO 2025-03-28 16:12:34,867 breed_classifier ³É¹¦´ò¿ªÍ¼Ïñ£¬³ß´ç: (2986, 2239)
-INFO 2025-03-28 16:12:34,945 breed_classifier Ä£ÐÍÔ¤²â³É¹¦£¬Æ·ÖÖ: ÈøÄ¦Ò®, ÖÃÐÅ¶È: 0.5083
-INFO 2025-03-28 16:12:51,199 views ÓÃ»§ 123456 »ñÈ¡ÁË¸öÈËÐÅÏ¢
-INFO 2025-03-29 10:44:13,607 views ÓÃ»§ 111 »ñÈ¡ÁË¸öÈËÐÅÏ¢
+INFO 2025-03-27 12:44:38,159 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 12:44:38,161 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-27 12:44:38,162 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 12:44:38,402 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-27 12:44:38,402 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-27 12:44:38,402 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 12:44:38,403 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 12:44:38,403 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 12:44:38,406 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-27 12:44:38,416 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-27 12:44:38,417 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpxlzui9g7.jpg
+INFO 2025-03-27 12:44:38,499 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-27 12:44:38,605 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.7983
+INFO 2025-03-27 12:44:49,933 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:19:39,701 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:21:55,063 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:23:57,531 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:25:30,511 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:25:41,791 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:26:25,795 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:27:32,833 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:28:09,045 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 16:38:14,277 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-27 22:40:47,996 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:40:47,999 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-27 22:40:48,000 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:40:48,290 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:40:48,292 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-27 22:40:48,292 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:40:48,292 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:40:48,292 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:40:48,294 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-27 22:40:48,304 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-27 22:40:48,304 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmp9udwibl0.jpg
+INFO 2025-03-27 22:40:48,342 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (1429, 1072)
+INFO 2025-03-27 22:40:48,424 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ê¿ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.3894
+INFO 2025-03-27 22:41:27,678 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:41:27,679 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-27 22:41:27,679 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:41:27,810 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:41:27,810 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-27 22:41:27,810 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:41:27,810 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:27,810 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:27,812 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:27,818 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-27 22:41:27,819 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmprzepyoks.jpg
+INFO 2025-03-27 22:41:27,878 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (3072, 2304)
+INFO 2025-03-27 22:41:27,921 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ê¿ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.1699
+INFO 2025-03-27 22:41:58,043 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:41:58,043 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-27 22:41:58,043 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:41:58,161 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:41:58,163 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-27 22:41:58,163 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:41:58,163 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:58,163 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:58,164 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-27 22:41:58,171 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-27 22:41:58,172 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmprm6fdp9h.jpg
+INFO 2025-03-27 22:41:58,196 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (2038, 1528)
+INFO 2025-03-27 22:41:58,230 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: Ñ©ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.8756
+INFO 2025-03-27 22:42:27,524 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:42:27,524 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-27 22:42:27,524 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-27 22:42:27,641 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-27 22:42:27,641 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-27 22:42:27,641 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-27 22:42:27,642 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:42:27,642 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-27 22:42:27,644 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-27 22:42:27,650 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-27 22:42:27,652 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmprmncdzeb.jpg
+INFO 2025-03-27 22:42:27,667 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (1541, 1156)
+INFO 2025-03-27 22:42:27,694 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Å¶ï¿½: 0.9322
+INFO 2025-03-28 16:12:34,552 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½Ö¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-28 16:12:34,553 breed_classifier Ê¹ï¿½ï¿½ï¿½è±¸: cpu
+INFO 2025-03-28 16:12:34,553 breed_classifier ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½: F:\study\blog\with-react-native-web\server\end\models\resnet18_dog_classifier.pth
+INFO 2025-03-28 16:12:34,787 breed_classifier ï¿½ï¿½ï¿½Øµï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: <class 'collections.OrderedDict'>
+INFO 2025-03-28 16:12:34,787 breed_classifier ï¿½ï¿½âµ½state_dictï¿½ÐµÄ¼ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ç°×º...
+INFO 2025-03-28 16:12:34,789 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½state_dictï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½'resnet.'Ç°×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½124ï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-28 16:12:34,789 breed_classifier ï¿½ï¿½âµ½Sequential fcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-28 16:12:34,789 breed_classifier Ä£ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 12
+INFO 2025-03-28 16:12:34,792 breed_classifier ï¿½Ñ´ï¿½ï¿½ï¿½Sequential fcï¿½ã£¬ï¿½ï¿½ï¿½Î¬ï¿½ï¿½: 12
+INFO 2025-03-28 16:12:34,800 breed_classifier ï¿½É¹ï¿½Í¨ï¿½ï¿½load_state_dictï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½È¨ï¿½ï¿½
+INFO 2025-03-28 16:12:34,801 breed_classifier ï¿½ï¿½Ê¼Ô¤ï¿½ï¿½Í¼ï¿½ï¿½: C:\Users\ljh\AppData\Local\Temp\tmpt0zx3phs.jpg
+INFO 2025-03-28 16:12:34,867 breed_classifier ï¿½É¹ï¿½ï¿½ï¿½Í¼ï¿½ñ£¬³ß´ï¿½: (2986, 2239)
+INFO 2025-03-28 16:12:34,945 breed_classifier Ä£ï¿½ï¿½Ô¤ï¿½ï¿½É¹ï¿½ï¿½ï¿½Æ·ï¿½ï¿½: ï¿½ï¿½Ä¦Ò®, ï¿½ï¿½ï¿½Å¶ï¿½: 0.5083
+INFO 2025-03-28 16:12:51,199 views ï¿½Ã»ï¿½ 123456 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+INFO 2025-03-29 10:44:13,607 views ï¿½Ã»ï¿½ 111 ï¿½ï¿½È¡ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 WARNING 2025-03-29 18:28:07,937 base view's DogDetailView raised exception during schema generation; use `getattr(self, 'swagger_fake_view', False)` to detect and short-circuit this
 Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2117, in get_prep_value
@@ -1801,3 +1801,23 @@ Traceback (most recent call last):
   File "C:\Users\ljh\AppData\Local\Programs\Python\Python310\lib\site-packages\django\db\models\fields\__init__.py", line 2119, in get_prep_value
     raise e.__class__(
 TypeError: Field 'id' expected a number but got <django.contrib.auth.models.AnonymousUser object at 0x00000227C6C01450>.
+ERROR 2025-03-30 00:29:12,201 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+ERROR 2025-03-30 00:33:37,848 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10049] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·ï¿½ï¿½Ð§ï¿½ï¿½
+ERROR 2025-03-30 00:34:57,671 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+ERROR 2025-03-30 00:49:17,629 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10049] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ö·ï¿½ï¿½Ð§ï¿½ï¿½
+WARNING 2025-03-30 00:50:54,920 mqtt_client ï¿½ï¿½âµ½MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0.0.0.0ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½localhostï¿½ï¿½ï¿½ï¿½
+INFO 2025-03-30 00:50:54,926 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½: localhost:1883
+ERROR 2025-03-30 00:50:59,015 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+INFO 2025-03-30 00:51:32,924 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½: localhost:1883
+ERROR 2025-03-30 00:51:37,001 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+INFO 2025-03-30 00:53:35,460 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½: localhost:1883
+INFO 2025-03-30 00:53:37,516 mqtt_client MQTTï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ localhost:1883
+INFO 2025-03-30 00:53:37,516 mqtt_client ï¿½Ñ³É¹ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: stm32/dht11
+WARNING 2025-04-02 12:23:18,083 mqtt_client MQTTï¿½Ë¿ï¿½ 1883 ï¿½Ñ±ï¿½Õ¼ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+INFO 2025-04-02 12:23:18,083 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªMQTTï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ localhost:1883...
+INFO 2025-04-02 12:23:18,083 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½: localhost:1883
+ERROR 2025-04-02 12:23:22,213 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
+WARNING 2025-04-02 12:26:50,505 mqtt_client MQTTï¿½Ë¿ï¿½ 1883 ï¿½Ñ±ï¿½Õ¼ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½MQTTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+INFO 2025-04-02 12:26:50,505 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªMQTTï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ localhost:1883...
+INFO 2025-04-02 12:26:50,505 mqtt_client ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½MQTTï¿½ï¿½ï¿½ï¿½: localhost:1883
+ERROR 2025-04-02 12:26:54,591 mqtt_client MQTTï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: [WinError 10061] ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½

@@ -169,11 +169,11 @@ SWAGGER_SETTINGS = {
 }
 
 # MQTT配置
-MQTT_BROKER_HOST = 'localhost'
+MQTT_BROKER_HOST = 'localhost'  # 修改为监听所有网络接口
 MQTT_BROKER_PORT = 1883
-MQTT_TOPIC = 'stm32/data'
-MQTT_CLIENT_ID = 'django_server'
-MQTT_KEEPALIVE = 60
+MQTT_TOPIC = 'stm32/dht11'  # 修改为示例文件中的主题
+MQTT_CLIENT_ID = 'python-mqtt-server'
+MQTT_KEEPALIVE = 60 
 MQTT_USERNAME = ''  # 如有需要设置
 MQTT_PASSWORD = ''  # 如有需要设置
 

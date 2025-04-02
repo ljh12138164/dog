@@ -1,33 +1,47 @@
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Drawer } from 'expo-router/drawer';
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Tabs } from "expo-router";
+import { Platform } from "react-native";
 
 export default function Layout() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
-        <Drawer.Screen
-          name='index' // This is the name of the page and must match the url from root
-          options={{
-            drawerLabel: '主页',
-            title: 'overview',
-          }}
-        />
-        <Drawer.Screen
-          name='stock' // This is the name of the page and must match the url from root
-          options={{
-            drawerLabel: '仓库',
-            title: 'overview',
-          }}
-        />
-
-        <Drawer.Screen
-          name='user' // This is the name of the page and must match the url from root
-          options={{
-            drawerLabel: '个人',
-            title: 'overview',
-          }}
-        />
-      </Drawer>
-    </GestureHandlerRootView>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: Platform.select({
+          ios: {
+            // 在iOS上使用半透明背景
+            position: 'absolute',
+          },
+          default: {},
+        }),
+      }}
+    >
+      <Tabs.Screen
+          name='index'
+        options={{
+          title: '首页',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name='home' size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name='stock'
+        options={{
+          title: '仓库',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="warehouse" size={size} color={color} />)
+        }}
+      />
+      <Tabs.Screen
+        name='user'
+        options={{
+          title: '我的',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name='person' size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }

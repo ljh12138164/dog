@@ -1,8 +1,4 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -46,9 +42,9 @@ export default function RootLayout() {
       <QueryClientProvider client={queryClient}>
         <Toast />
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='+not-found' options={{ title: 'Not Found' }} />
-          <Stack.Screen name='index' options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
         </Stack>
       </QueryClientProvider>
     </ThemeProvider>

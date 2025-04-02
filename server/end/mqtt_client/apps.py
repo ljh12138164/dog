@@ -12,6 +12,8 @@ class MqttClientConfig(AppConfig):
             # 导入mqtt_client必须在这里进行，以避免循环导入
             from .mqtt_client import mqtt_client
             # 在生产环境中，可以自动启动MQTT客户端
-            # mqtt_client.connect()
-            # 对于开发环境，我们提供一个API端点来手动启动和停止MQTT客户端
-            pass
+            try:
+                mqtt_client.connect()
+                print("MQTT客户端已自动启动")
+            except Exception as e:
+                print(f"MQTT客户端自动启动失败: {e}")
