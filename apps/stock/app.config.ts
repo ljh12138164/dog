@@ -60,7 +60,7 @@ export default (): ExpoConfig => ({
     typedRoutes: true,
   },
   extra: {
-    apiUrl: `http://${process.env.REACT_NATIVE_PACKAGER_HOSTNAME || '127.0.0.1'}:8000/api`,
+    apiUrl: `http://${process.env.REACT_NATIVE_PACKAGER_HOSTNAME || '127.0.0.1'}:8100/api`,
     appName: 'stock',
     debug: true,
   },

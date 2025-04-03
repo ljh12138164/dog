@@ -206,13 +206,6 @@ export default function Pets() {
         formData.append('image', file as any);
       }
 
-      // 打印FormData内容
-      if (Platform.OS === 'web') {
-        for (const pair of formData.entries()) {
-          console.log(`FormData内容: ${pair[0]}, 类型: ${typeof pair[1]}`);
-        }
-      }
-
       const result = await identifyBreedMutation.mutateAsync(formData);
 
       if (result && result.breed) {
@@ -238,7 +231,6 @@ export default function Pets() {
         }
       }
     } catch (error: any) {
-      console.error('识别失败');
       Toast.show({
         type: 'error',
         text1: '识别失败',
@@ -303,34 +295,21 @@ export default function Pets() {
             const response = await fetch(imageFile.uri);
             const blob = await response.blob();
             formData.append('image', blob, fileName);
-            console.log('添加狗狗: 使用Blob，文件名:', fileName);
           } else {
             // 文件对象
-            if (
-              typeof imageFile === 'object' &&
-              !(imageFile instanceof Blob) &&
-              !imageFile.name
-            ) {
+            if (typeof imageFile === 'object' && !(imageFile instanceof Blob) && !imageFile.name) {
               // 如果是自定义对象且没有名称，添加名称
               imageFile.name = fileName;
             }
             formData.append('image', imageFile as any);
-            console.log(
-              '添加狗狗: 使用文件对象，文件名:',
-              imageFile.name || fileName
-            );
           }
         } else {
           // React Native移动端
           formData.append('image', {
-            uri:
-              Platform.OS === 'android'
-                ? imageFile.uri
-                : imageFile.uri.replace('file://', ''),
+            uri: Platform.OS === 'android' ? imageFile.uri : imageFile.uri.replace('file://', ''),
             name: fileName,
             type: 'image/jpeg',
           } as any);
-          console.log('添加狗狗: 使用RN文件对象，文件名:', fileName);
         }
       }
 
@@ -344,9 +323,7 @@ export default function Pets() {
       setImage(null);
       setImageFile(null);
       setIdentifiedBreedInfo(null);
-    } catch (error) {
-      console.error('提交失败:', error);
-    }
+    } catch {}
   };
 
   // 渲染选择器
@@ -355,7 +332,7 @@ export default function Pets() {
       return (
         <select
           value={breed}
-          onChange={(e) => setBreed(e.target.value)}
+          onChange={e => setBreed(e.target.value)}
           style={{
             width: '100%',
             padding: 12,
@@ -368,8 +345,8 @@ export default function Pets() {
           }}
           disabled={identifying}
         >
-          <option value=''>请选择品种</option>
-          {breedOptions.map((option) => (
+          <option value="">请选择品种</option>
+          {breedOptions.map(option => (
             <option key={option} value={option}>
               {option}
             </option>
@@ -383,13 +360,13 @@ export default function Pets() {
       <>
         <Picker
           selectedValue={breed}
-          onValueChange={(itemValue) => {
+          onValueChange={itemValue => {
             setBreed(itemValue);
           }}
           style={styles.picker}
         >
-          <Picker.Item label='请选择品种' value='' />
-          {breedOptions.map((option) => (
+          <Picker.Item label="请选择品种" value="" />
+          {breedOptions.map(option => (
             <Picker.Item key={option} label={option} value={option} />
           ))}
         </Picker>
@@ -446,8 +423,8 @@ export default function Pets() {
             style={styles.input}
             value={name}
             onChangeText={setName}
-            placeholder='请输入狗狗名字'
-            placeholderTextColor='#A0A0A0'
+            placeholder="请输入狗狗名字"
+            placeholderTextColor="#A0A0A0"
           />
         </View>
 
@@ -455,11 +432,7 @@ export default function Pets() {
           <Text style={styles.label}>品种</Text>
           <View style={styles.breedInputContainer}>
             {identifying && (
-              <ActivityIndicator
-                size='small'
-                color='#0066CC'
-                style={{ marginRight: 10 }}
-              />
+              <ActivityIndicator size="small" color="#0066CC" style={{ marginRight: 10 }} />
             )}
             <View style={styles.pickerContainer}>{renderPicker()}</View>
           </View>
@@ -471,9 +444,9 @@ export default function Pets() {
             style={styles.input}
             value={height}
             onChangeText={setHeight}
-            placeholder='请输入狗狗身高'
-            placeholderTextColor='#A0A0A0'
-            keyboardType='numeric'
+            placeholder="请输入狗狗身高"
+            placeholderTextColor="#A0A0A0"
+            keyboardType="numeric"
           />
         </View>
 
@@ -483,9 +456,9 @@ export default function Pets() {
             style={styles.input}
             value={weight}
             onChangeText={setWeight}
-            placeholder='请输入狗狗体重'
-            placeholderTextColor='#A0A0A0'
-            keyboardType='numeric'
+            placeholder="请输入狗狗体重"
+            placeholderTextColor="#A0A0A0"
+            keyboardType="numeric"
           />
         </View>
 
@@ -499,7 +472,7 @@ export default function Pets() {
           disabled={addDogMutation.isPending || identifying}
         >
           {addDogMutation.isPending ? (
-            <ActivityIndicator color='#FFFFFF' />
+            <ActivityIndicator color="#FFFFFF" />
           ) : (
             <Text style={styles.submitButtonText}>保存</Text>
           )}

@@ -65,8 +65,7 @@ export const getUserFromLocalStorage = async (): Promise<User | null> => {
     if (userStr) {
       return JSON.parse(userStr);
     }
-  } catch (error) {
-    console.error('获取用户信息失败:', error);
+  } catch  {
   }
   return null;
 };

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 第三方应用
     'rest_framework',
+    'rest_framework.authtoken',  # Token认证
+    'rest_framework_simplejwt',  # JWT认证
     'corsheaders',
     'drf_yasg',
     # 自定义应用
     'users',
+    'inventory',  # 新增的库存管理应用
 ]
 
 MIDDLEWARE = [
@@ -54,10 +58,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'stocks_project.middleware.CSRFExemptMiddleware',  # 自定义CSRF豁免中间件
 ]
 
 # CORS配置
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# CSRF配置
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8100', 'http://127.0.0.1:8100', 'http://192.168.177.197:8100']
+CSRF_COOKIE_SECURE = False
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = None
+
+# 定义不需要CSRF验证的URL
+CSRF_EXEMPT_URLS = ['/api/login/', '/api/register/', '/api/token/', '/api/token/refresh/']
 
 ROOT_URLCONF = 'stocks_project.urls'
 
@@ -112,12 +128,39 @@ AUTH_PASSWORD_VALIDATORS = [
 # REST Framework配置
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT认证
+        'rest_framework.authentication.TokenAuthentication',  # Token认证
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+}
+
+# JWT配置
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'UPDATE_LAST_LOGIN': False,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+
+    'JTI_CLAIM': 'jti',
 }
 
 # 自定义用户模型
@@ -139,6 +182,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# 配置媒体文件
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

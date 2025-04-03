@@ -1,6 +1,6 @@
-# 股票系统后端
+# 仓库管理系统
 
-基于Django开发的股票系统后端，使用SQLite数据库，实现了基于RBAC（Role-Based Access Control）的用户权限框架。
+基于Django开发的仓库管理系统后端，使用SQLite数据库，实现了基于RBAC（Role-Based Access Control）的用户权限框架。
 
 ## 功能特性
 

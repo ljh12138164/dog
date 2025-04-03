@@ -23,7 +23,7 @@ const registerSchema = z
     password: z.string().min(6, '密码至少需要6个字符'),
     password2: z.string(),
   })
-  .refine((data) => data.password === data.password2, {
+  .refine(data => data.password === data.password2, {
     message: '两次输入的密码不一致',
     path: ['password2'],
   });
@@ -53,10 +53,9 @@ export default function RegisterScreen() {
   const onSubmit = (data: RegisterFormData) => {
     register.mutate(data, {
       onSuccess: () => {
-        console.log('注册成功');
         router.replace('/');
       },
-      onError: (error) => {
+      onError: error => {
         Toast.show({
           type: 'error',
           text1: '注册失败',
@@ -90,21 +89,19 @@ export default function RegisterScreen() {
             </Text>
             <Controller
               control={control}
-              name='username'
+              name="username"
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
                   style={[styles.input, errors.username && styles.inputError]}
-                  placeholder='请输入用户名'
+                  placeholder="请输入用户名"
                   value={value}
                   onChangeText={onChange}
                   onBlur={onBlur}
-                  autoCapitalize='none'
+                  autoCapitalize="none"
                 />
               )}
             />
-            {errors.username && (
-              <Text style={styles.errorText}>{errors.username.message}</Text>
-            )}
+            {errors.username && <Text style={styles.errorText}>{errors.username.message}</Text>}
           </View>
 
           <View style={styles.inputContainer}>
@@ -113,22 +110,20 @@ export default function RegisterScreen() {
             </Text>
             <Controller
               control={control}
-              name='email'
+              name="email"
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
                   style={[styles.input, errors.email && styles.inputError]}
-                  placeholder='请输入邮箱'
+                  placeholder="请输入邮箱"
                   value={value}
                   onChangeText={onChange}
                   onBlur={onBlur}
-                  autoCapitalize='none'
-                  keyboardType='email-address'
+                  autoCapitalize="none"
+                  keyboardType="email-address"
                 />
               )}
             />
-            {errors.email && (
-              <Text style={styles.errorText}>{errors.email.message}</Text>
-            )}
+            {errors.email && <Text style={styles.errorText}>{errors.email.message}</Text>}
           </View>
 
           <View style={styles.inputContainer}>
@@ -137,11 +132,11 @@ export default function RegisterScreen() {
             </Text>
             <Controller
               control={control}
-              name='password'
+              name="password"
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
                   style={[styles.input, errors.password && styles.inputError]}
-                  placeholder='请输入密码'
+                  placeholder="请输入密码"
                   value={value}
                   onChangeText={onChange}
                   onBlur={onBlur}
@@ -149,9 +144,7 @@ export default function RegisterScreen() {
                 />
               )}
             />
-            {errors.password && (
-              <Text style={styles.errorText}>{errors.password.message}</Text>
-            )}
+            {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
           </View>
 
           <View style={styles.inputContainer}>
@@ -160,11 +153,11 @@ export default function RegisterScreen() {
             </Text>
             <Controller
               control={control}
-              name='password2'
+              name="password2"
               render={({ field: { onChange, onBlur, value } }) => (
                 <TextInput
                   style={[styles.input, errors.password2 && styles.inputError]}
-                  placeholder='请再次输入密码'
+                  placeholder="请再次输入密码"
                   value={value}
                   onChangeText={onChange}
                   onBlur={onBlur}
@@ -172,9 +165,7 @@ export default function RegisterScreen() {
                 />
               )}
             />
-            {errors.password2 && (
-              <Text style={styles.errorText}>{errors.password2.message}</Text>
-            )}
+            {errors.password2 && <Text style={styles.errorText}>{errors.password2.message}</Text>}
           </View>
 
           <TouchableOpacity
@@ -183,7 +174,7 @@ export default function RegisterScreen() {
             disabled={isLoading}
           >
             {isLoading ? (
-              <ActivityIndicator color='#fff' />
+              <ActivityIndicator color="#fff" />
             ) : (
               <Text style={styles.buttonText}>注册</Text>
             )}

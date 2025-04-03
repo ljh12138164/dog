@@ -1,11 +1,5 @@
-import { View, Text } from 'react-native';
+import UserData from '@/components/user/userData';
 
-const Person = () => {
-  return (
-    <View>
-        <Text>我的111</Text>
-    </View>
-  );
-};
-
-export default Person;
+export default function UserScreen() {
+  return <UserData />;
+}

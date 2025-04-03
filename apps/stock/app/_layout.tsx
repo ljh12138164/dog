@@ -1,11 +1,10 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
-import Toast from 'react-native-toast-message';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 // 阻止启动画面自动隐藏
 SplashScreen.preventAutoHideAsync();
@@ -19,12 +18,17 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+/**
+ * ### 保护路由
+ */
+
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [fontsLoaded, fontError] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
+  // 确保字体加载完成再显示内容
   useEffect(() => {
     if (fontsLoaded || fontError) {
       // 字体加载完成或发生错误时，隐藏启动画面
@@ -32,21 +36,16 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, fontError]);
 
-  // 等待字体加载
+  // 如果字体未加载完成，返回空视图
   if (!fontsLoaded && !fontError) {
-    return null;
+    return <View />;
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <QueryClientProvider client={queryClient}>
-        <Toast />
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-        </Stack>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <PaperProvider>
+        <Slot />
+      </PaperProvider>
+    </QueryClientProvider>
   );
 }

@@ -1,9 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter, useSegments } from 'expo-router';
@@ -37,7 +33,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         const token = await AsyncStorage.getItem('auth_token');
         setIsAuthenticated(!!token);
       } catch (error) {
-        console.error('检查认证状态失败:', error);
         setIsAuthenticated(false);
       }
     };
@@ -92,11 +87,11 @@ export default function RootLayout() {
         <Toast />
         <AuthProvider>
           <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-            <Stack.Screen name='+not-found' options={{ title: 'Not Found' }} />
-            <Stack.Screen name='index' options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
+            <Stack.Screen name="index" options={{ headerShown: false }} />
             <Stack.Screen
-              name='detail/[id]'
+              name="detail/[id]"
               options={{
                 headerShown: true,
                 headerTitle: '',
