@@ -3,12 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import Protext from '../container/protext';
 
 // 懒加载组件
-const AdminLayout = lazy(() => import('../page/layout'));
+const AdminLayout = lazy(() => import('../page'));
 const Login = lazy(() => import('../page/login'));
 const Dashboard = lazy(() => import('../page/dashboard'));
 const Users = lazy(() => import('../page/users'));
 const Home = lazy(() => import('../page/home'));
-const AutoForm = lazy(() => import('../page/AutoForm'));
+const Create = lazy(() => import('../page/autoform/create'));
+const AutoForm = lazy(() => import('../page/autoform'));
 
 const router = createBrowserRouter([
   {
@@ -35,10 +36,14 @@ const router = createBrowserRouter([
         path: 'home',
         element: <Home />,
       },
-      // {
-      //   path: 'autoform',
-      //   element: <AutoForm />,
-      // },
+      {
+        path: 'autoform',
+        element: <AutoForm />,
+      },
+      {
+        path: 'autoform/create',
+        element: <Create />,
+      },
     ],
   },
 ]);

@@ -1,7 +1,12 @@
 import { Button, Form, Input, Modal, Select, Space, Table, Tag, message } from 'antd';
 import { useState } from 'react';
-import apiClient, { User, useUsers } from '../api/useAuth';
-import { CreateUserRequest, UpdateUserRequest, useCreateUser, useUpdateUser } from '../api/useUser';
+import apiClient, { User, useUsers } from '../../api/useAuth';
+import {
+  CreateUserRequest,
+  UpdateUserRequest,
+  useCreateUser,
+  useUpdateUser,
+} from '../../api/useUser';
 
 const { Option } = Select;
 

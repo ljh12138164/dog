@@ -118,7 +118,6 @@ const EmployeeScreen = () => {
     submitFeedback({
       title: feedbackTitle,
       description: feedbackDescription,
-      reporter: user?.id,
     });
 
     // 清空表单并关闭模态框

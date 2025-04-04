@@ -1885,3 +1885,36 @@ INFO 2025-04-03 17:02:56,763 mqtt_client 正在连接到MQTT代理: localhost:1883
 ERROR 2025-04-03 17:03:00,831 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
 INFO 2025-04-03 17:23:12,856 mqtt_client 正在连接到MQTT代理: localhost:1883
 ERROR 2025-04-03 17:23:16,945 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 10:00:14,992 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 10:00:19,103 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 10:12:00,544 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 10:12:04,654 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 11:19:36,548 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 11:19:40,643 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 12:38:29,074 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 12:38:33,151 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 13:58:17,541 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 13:58:21,665 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 14:02:13,096 mqtt_client 正在连接到MQTT代理: localhost:1883
+INFO 2025-04-04 14:02:15,151 mqtt_client MQTT客户端已连接到 localhost:1883
+INFO 2025-04-04 14:02:15,151 mqtt_client 已成功连接到MQTT代理，正在订阅主题: stm32/dht11
+INFO 2025-04-04 15:19:53,418 mqtt_client 正在连接到MQTT代理: localhost:1883
+INFO 2025-04-04 15:19:55,465 mqtt_client MQTT客户端已连接到 localhost:1883
+INFO 2025-04-04 15:19:55,465 mqtt_client 已成功连接到MQTT代理，正在订阅主题: stm32/dht11
+INFO 2025-04-04 17:31:41,579 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 17:31:45,679 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 17:35:50,167 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 17:35:54,267 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 17:43:39,162 mqtt_client 正在连接到MQTT代理: localhost:1883
+INFO 2025-04-04 17:43:41,219 mqtt_client MQTT客户端已连接到 localhost:1883
+INFO 2025-04-04 17:43:41,219 mqtt_client 已成功连接到MQTT代理，正在订阅主题: stm32/dht11
+INFO 2025-04-04 18:01:08,715 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 18:01:12,839 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 18:02:59,187 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 18:03:03,264 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 18:12:31,516 mqtt_client 正在连接到MQTT代理: localhost:1883
+INFO 2025-04-04 18:20:11,281 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 18:20:15,389 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+INFO 2025-04-04 18:22:49,930 mqtt_client 正在连接到MQTT代理: localhost:1883
+INFO 2025-04-04 18:23:24,347 mqtt_client 正在连接到MQTT代理: localhost:1883
+ERROR 2025-04-04 18:23:28,410 mqtt_client MQTT连接失败: [WinError 10061] 由于目标计算机积极拒绝，无法连接。

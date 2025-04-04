@@ -196,18 +196,18 @@ export const useCurrentUser = () => {
       const response = await apiClient.get<User>('/users/me/');
       return response.data;
     },
-    initialData: () => {
-      const userStr = localStorage.getItem('user');
-      if (userStr) {
-        try {
-          return JSON.parse(userStr) as User;
-        } catch {
-          return undefined;
-        }
-      }
-      return undefined;
-    },
-    enabled: !!localStorage.getItem('token'),
+    // initialData: () => {
+    //   const userStr = localStorage.getItem('user');
+    //   if (userStr) {
+    //     try {
+    //       return JSON.parse(userStr) as User;
+    //     } catch {
+    //       return undefined;
+    //     }
+    //   }
+    //   return undefined;
+    // },
+    // enabled: !!localStorage.getItem('token'),
   });
 };
 

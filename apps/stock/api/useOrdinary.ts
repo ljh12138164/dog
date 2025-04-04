@@ -127,16 +127,15 @@ export const useCompleteTask = () => {
 export const useEmployeeFeedbacks = () => {
   return useQuery<Feedback[]>({
     queryKey: ['employee-feedbacks'],
-    queryFn: () => get('/feedback/')
-  });
+    queryFn: () => get<Feedback[]>('/employee/feedback/')
+  }); //employee/feedback/
 };
 
 // 提交反馈
 export const useSubmitFeedback = () => {
   const queryClient = useQueryClient();
-  
   return useMutation<Feedback, Error, Feedback>({
-    mutationFn: (feedback) => post('/feedback/', feedback),
+    mutationFn: (feedback) => post<Feedback>('/employee/feedback/', feedback),
     onSuccess: () => {
       // 更新反馈列表
       queryClient.invalidateQueries({ queryKey: ['employee-feedbacks'] });

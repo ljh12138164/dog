@@ -65,7 +65,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [
             'id', 'created_at', 'updated_at', 'resolved_at', 
-            'reporter_name', 'handler_name'
+            'reporter_name', 'handler_name', 'reporter'
         ]
 
 

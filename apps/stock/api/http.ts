@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestCo
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
-export const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'http://127.0.0.1:8100/api/inventory';
+export const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'http://127.0.0.1:8100/api';
 export const API_TIMEOUT = 15000; // 15秒超时 
 
 // 创建axios实例

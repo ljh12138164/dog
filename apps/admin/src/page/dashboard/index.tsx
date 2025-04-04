@@ -1,5 +1,5 @@
 import { Card, Col, Row, Statistic } from 'antd';
-import { useCurrentUser } from '../api/useAuth';
+import { useCurrentUser } from '../../api/useAuth';
 
 const Dashboard = () => {
   const { data: user, isLoading } = useCurrentUser();

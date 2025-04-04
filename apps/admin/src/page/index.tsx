@@ -1,5 +1,6 @@
 import {
   DashboardOutlined,
+  FormOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -34,11 +35,11 @@ const AdminLayout = () => {
       icon: <UserOutlined />,
       label: '用户管理',
     },
-    // {
-    //   key: '/autoform',
-    //   icon: <FormOutlined />,
-    //   label: '自动表单',
-    // },
+    {
+      key: '/autoform',
+      icon: <FormOutlined />,
+      label: '自动表单',
+    },
   ];
 
   const userMenu = [
@@ -49,6 +50,7 @@ const AdminLayout = () => {
       onClick: handleLogout,
     },
   ];
+  if (!user) return;
 
   return (
     <Layout style={{ minHeight: '100vh', overflow: 'hidden' }}>

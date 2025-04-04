@@ -1,4 +1,4 @@
-import AutoFormBuilder from '../container/autoform/builder';
+import AutoFormBuilder from '../../../container/autoform/builder';
 
 const AutoForm = () => {
   return <AutoFormBuilder />;
