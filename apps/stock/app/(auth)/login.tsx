@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,11 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { useLogin } from '../../api/useAuth';
+import { useCurrentUser, useLogin } from '../../api/useAuth';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useRouter } from 'expo-router';
+import { Redirect, useRouter, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import Toast from 'react-native-toast-message';
 
@@ -34,8 +34,25 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 export default function LoginScreen() {
   const router = useRouter();
+  const params = useLocalSearchParams();
+  // 检查是否从密码修改页面跳转而来
+  const fromPasswordChange = params.fromPasswordChange === 'true';
+
   // 使用react-query的登录hook
   const { mutate: login, isPending } = useLogin(Toast);
+  const { data: user, isLoading: userLoading, refetch } = useCurrentUser();
+
+  // 如果是从密码修改跳转来的，需要显示提示消息
+  useEffect(() => {
+    if (fromPasswordChange) {
+      Toast.show({
+        type: 'success',
+        text1: '密码已更新',
+        text2: '请使用新密码登录',
+        visibilityTime: 4000,
+      });
+    }
+  }, [fromPasswordChange]);
 
   // 使用react-hook-form管理表单
   const {
@@ -65,6 +82,20 @@ export default function LoginScreen() {
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };
+
+  // 修改自动重定向逻辑，如果是从密码修改页面来的，不自动重定向
+  if (userLoading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+  // 只有在不是从密码修改页面跳转且用户已登录的情况下才自动重定向
+  if (user && !fromPasswordChange) {
+    return <Redirect href="/(tabs)" />;
+  }
 
   return (
     // 安卓端不使用KeyboardAvoidingView，直接用触摸关闭键盘

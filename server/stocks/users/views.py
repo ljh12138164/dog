@@ -288,15 +288,43 @@ class UserViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
     
     @swagger_auto_schema(
+        method='get',
         operation_summary="获取当前登录用户信息",
         operation_description="返回当前登录用户的详细信息，包括角色",
         responses={200: UserDetailSerializer()}
     )
-    @action(detail=False, methods=['get'])
+    @swagger_auto_schema(
+        method='put',
+        operation_summary="更新当前登录用户信息",
+        operation_description="使用PUT方法完整更新当前用户信息",
+        request_body=UserSerializer,
+        responses={
+            200: UserSerializer(),
+            400: "更新失败，数据无效"
+        }
+    )
+    @swagger_auto_schema(
+        method='patch',
+        operation_summary="部分更新当前登录用户信息",
+        operation_description="使用PATCH方法部分更新当前用户信息",
+        request_body=UserSerializer,
+        responses={
+            200: UserSerializer(),
+            400: "更新失败，数据无效"
+        }
+    )   
+    @action(detail=False, methods=['get', 'put', 'patch'])
     def me(self, request):
-        """获取当前登录用户信息"""
-        serializer = UserDetailSerializer(request.user)
-        return Response(serializer.data)
+        """获取或更新当前登录用户信息"""
+        if request.method == 'GET':
+            serializer = UserDetailSerializer(request.user)
+            return Response(serializer.data)
+        elif request.method in ['PUT', 'PATCH']:
+            serializer = UserSerializer(request.user, data=request.data, partial=request.method == 'PATCH')
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     @swagger_auto_schema(
         operation_summary="更新用户头像",
@@ -402,6 +430,50 @@ class UserViewSet(viewsets.ModelViewSet):
         """创建新用户"""
         # 不需要特殊处理email了，让它保持为空字符串
         return super().create(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        operation_summary="修改用户密码",
+        operation_description="修改当前登录用户的密码",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            required=['old_password', 'new_password', 'confirm_password'],
+            properties={
+                'old_password': openapi.Schema(type=openapi.TYPE_STRING, description='旧密码'),
+                'new_password': openapi.Schema(type=openapi.TYPE_STRING, description='新密码'),
+                'confirm_password': openapi.Schema(type=openapi.TYPE_STRING, description='确认新密码'),
+            }
+        ),
+        responses={
+            200: openapi.Schema(
+                type=openapi.TYPE_OBJECT,
+                properties={
+                    'detail': openapi.Schema(type=openapi.TYPE_STRING, description='密码修改成功')
+                }
+            ),
+            400: "密码修改失败，旧密码错误或新密码不匹配"
+        }
+    )
+    @action(detail=False, methods=['post'])
+    def change_password(self, request):
+        """修改当前用户密码"""
+        user = request.user
+        old_password = request.data.get('old_password')
+        new_password = request.data.get('new_password')
+        confirm_password = request.data.get('confirm_password')
+        
+        # 验证旧密码
+        if not user.check_password(old_password):
+            return Response({"detail": "旧密码不正确"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # 验证新密码
+        if new_password != confirm_password:
+            return Response({"detail": "两次输入的新密码不一致"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # 设置新密码
+        user.set_password(new_password)
+        user.save()
+        
+        return Response({"detail": "密码修改成功"}, status=status.HTTP_200_OK)
 
 
 class RoleViewSet(viewsets.ModelViewSet):

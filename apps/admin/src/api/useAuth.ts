@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 // API基础URL
 const API_URL = 'http://localhost:8100/api';
@@ -19,7 +19,7 @@ interface UserListResponse {
 }
 
 // 创建axios实例
-const apiClient = axios.create({
+export const apiClient = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
@@ -260,7 +260,6 @@ export const useRefreshToken = () => {
 
 // 获取用户列表钩子
 export const useUsers = () => {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   return useQuery({

@@ -11,6 +11,25 @@ export interface EnvironmentData {
   notes?: string;
 }
 
+// 定义传感器数据接口
+export interface SensorData {
+  id?: number;
+  temperature?: number | number[] | null;
+  humidity: number | number[];
+  light?: number | number[] | null;
+  timestamps?: string[];
+  timestamp?: string;
+  notes?: string;
+}
+
+// 定义图表数据响应接口
+export interface SensorChartResponse {
+  timestamps: string[];
+  temperature: (number | null)[];
+  humidity: number[];
+  light: number[];
+}
+
 export interface InventoryEvent {
   id?: number;
   event_type:
@@ -115,6 +134,41 @@ const generateInventoryReportApi = async (type: string = 'daily'): Promise<Inven
 
 const createInventoryReportApi = async (data: InventoryReport): Promise<InventoryReport> => {
   return post<InventoryReport>('/inventory-reports/', data);
+};
+
+// 传感器数据API请求函数
+const fetchSensorDataListApi = async (): Promise<SensorData[]> => {
+  return get<SensorData[]>('/sensor-data/');
+};
+
+const fetchSensorChartDataApi = async (params?: {
+  days?: number;
+  hours?: number;
+  interval?: number;
+  dense?: boolean;
+}): Promise<SensorChartResponse> => {
+  const queryParams = new URLSearchParams();
+  if (params?.days) queryParams.append('days', params.days.toString());
+  if (params?.hours) queryParams.append('hours', params.hours.toString());
+  if (params?.interval) queryParams.append('interval', params.interval.toString());
+  if (params?.dense) queryParams.append('dense', params.dense.toString());
+
+  const queryString = queryParams.toString();
+  const url = `/sensor-data/chart_data/${queryString ? `?${queryString}` : ''}`;
+
+  return get<SensorChartResponse>(url);
+};
+
+const fetchLatestSensorDataApi = async (): Promise<SensorData> => {
+  return get<SensorData>('/sensor-data/latest/');
+};
+
+const createSensorDataApi = async (data: SensorData): Promise<SensorData> => {
+  return post<SensorData>('/sensor-data/', data);
+};
+
+const addSensorDataApi = async (data: SensorData): Promise<SensorData> => {
+  return post<SensorData>('/sensor-data/add_data/', data);
 };
 
 // 获取环境数据列表的 Hook
@@ -316,6 +370,95 @@ export const useCreateInventoryReport = (toast: typeof Toast) => {
         type: 'error',
         text1: '创建失败',
         text2: error.response?.data?.detail || '创建自定义库存报告时出错',
+      });
+    },
+  });
+};
+
+// 获取传感器数据列表的 Hook
+export const useSensorDataList = () => {
+  return useQuery({
+    queryKey: ['sensor-data'],
+    queryFn: fetchSensorDataListApi,
+    staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
+  });
+};
+
+// 获取传感器数据图表数据的 Hook
+export const useSensorChartData = (params?: {
+  days?: number;
+  hours?: number;
+  interval?: number;
+  dense?: boolean;
+}) => {
+  return useQuery<SensorChartResponse>({
+    queryKey: ['sensor-chart-data', params],
+    queryFn: () => fetchSensorChartDataApi(params),
+    staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
+  });
+};
+
+// 获取最新传感器数据的 Hook
+export const useLatestSensorData = () => {
+  return useQuery({
+    queryKey: ['latest-sensor-data'],
+    queryFn: fetchLatestSensorDataApi,
+    staleTime: 1000 * 60, // 1分钟内不重新请求
+    refetchInterval: 1000 * 60, // 每分钟自动刷新
+  });
+};
+
+// 创建传感器数据的 Hook
+export const useCreateSensorData = (toast: typeof Toast) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: createSensorDataApi,
+    onSuccess: () => {
+      // 更新传感器数据列表缓存
+      queryClient.invalidateQueries({ queryKey: ['sensor-data'] });
+      queryClient.invalidateQueries({ queryKey: ['latest-sensor-data'] });
+      queryClient.invalidateQueries({ queryKey: ['sensor-chart-data'] });
+
+      toast.show({
+        type: 'success',
+        text1: '添加成功',
+        text2: '传感器数据已记录',
+      });
+    },
+    onError: (error: any) => {
+      toast.show({
+        type: 'error',
+        text1: '添加失败',
+        text2: error.response?.data?.detail || '记录传感器数据时出错',
+      });
+    },
+  });
+};
+
+// 添加传感器数据的 Hook
+export const useAddSensorData = (toast: typeof Toast) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: addSensorDataApi,
+    onSuccess: () => {
+      // 更新传感器数据列表缓存
+      queryClient.invalidateQueries({ queryKey: ['sensor-data'] });
+      queryClient.invalidateQueries({ queryKey: ['latest-sensor-data'] });
+      queryClient.invalidateQueries({ queryKey: ['sensor-chart-data'] });
+
+      toast.show({
+        type: 'success',
+        text1: '添加成功',
+        text2: '传感器数据已添加',
+      });
+    },
+    onError: (error: any) => {
+      toast.show({
+        type: 'error',
+        text1: '添加失败',
+        text2: error.response?.data?.detail || '添加传感器数据时出错',
       });
     },
   });

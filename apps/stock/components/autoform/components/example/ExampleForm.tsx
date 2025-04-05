@@ -9,7 +9,11 @@ const formSchema = z.object({
   // name: z.string().min(1, '名称最少需要1个字符').describe('名称'),
   // age: z.number({ message: '必须输入年龄' }).min(0, '年龄不能为负数'),
   // isActive: z.boolean({ message: '必须输入是否活跃' }),
-  birthDate: z.date(),
+  birthDate: z.array(
+    z.object({
+      age: z.number({ message: '必须输入年龄' }).min(0, '年龄不能为负数'),
+    }),
+  ),
   // gender: z.enum(['male', 'female', 'other'], { message: '必须输入性别' }),
 });
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Ingredient, InventoryOperation, Task, Feedback, EnvironmentData, InventoryEvent, InventoryReport
+from .models import Ingredient, InventoryOperation, Task, Feedback, EnvironmentData, InventoryEvent, InventoryReport, SensorData, Comment
 from users.serializers import UserSerializer
 
 
@@ -49,23 +49,54 @@ class TaskSerializer(serializers.ModelSerializer):
         ]
 
 
+class CommentSerializer(serializers.ModelSerializer):
+    """
+    评论序列化器
+    """
+    created_by_username = serializers.ReadOnlyField(source='created_by.username')
+    created_by_avatar = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Comment
+        fields = [
+            'id', 'feedback', 'content', 'created_by', 
+            'created_by_username', 'created_by_avatar', 'created_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'created_by_username', 'created_by_avatar']
+    
+    def get_created_by_avatar(self, obj):
+        if obj.created_by.avatar:
+            return obj.created_by.avatar.url
+        return None
+
+
+class FeedbackStatusSerializer(serializers.ModelSerializer):
+    """
+    反馈状态更新序列化器
+    """
+    class Meta:
+        model = Feedback
+        fields = ['status', 'resolution_notes']
+        
+
 class FeedbackSerializer(serializers.ModelSerializer):
     """
     异常反馈序列化器
     """
     reporter_name = serializers.ReadOnlyField(source='reporter.username')
     handler_name = serializers.ReadOnlyField(source='handler.username')
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = Feedback
         fields = [
             'id', 'title', 'description', 'status', 
             'reporter', 'reporter_name', 'handler', 'handler_name', 
-            'created_at', 'updated_at', 'resolved_at'
+            'created_at', 'updated_at', 'resolved_at', 'comments'
         ]
         read_only_fields = [
             'id', 'created_at', 'updated_at', 'resolved_at', 
-            'reporter_name', 'handler_name', 'reporter'
+            'reporter_name', 'handler_name', 'reporter', 'comments'
         ]
 
 
@@ -125,4 +156,14 @@ class InventoryReportSerializer(serializers.ModelSerializer):
             'id', 'report_type', 'report_type_display', 'title', 'start_date', 
             'end_date', 'summary', 'details', 'created_by', 'created_by_name', 'created_at'
         ]
-        read_only_fields = ['id', 'created_by_name', 'created_at', 'report_type_display'] 
+        read_only_fields = ['id', 'created_by_name', 'created_at', 'report_type_display']
+
+
+class SensorDataSerializer(serializers.ModelSerializer):
+    """
+    传感器数据序列化器
+    """
+    class Meta:
+        model = SensorData
+        fields = ['id', 'temperature', 'humidity', 'light', 'timestamp', 'created_at']
+        read_only_fields = ['id', 'created_at'] 

@@ -6,7 +6,8 @@ from .models import (
     Feedback,
     EnvironmentData,
     InventoryEvent,
-    InventoryReport
+    InventoryReport,
+    SensorData
 )
 
 
@@ -58,3 +59,15 @@ class InventoryReportAdmin(admin.ModelAdmin):
     list_display = ('title', 'report_type', 'start_date', 'end_date', 'created_by', 'created_at')
     list_filter = ('report_type', 'created_at')
     search_fields = ('title', 'summary')
+
+
+@admin.register(SensorData)
+class SensorDataAdmin(admin.ModelAdmin):
+    """
+    传感器数据管理
+    """
+    list_display = ('id', 'humidity', 'light', 'timestamp', 'created_at')
+    list_filter = ('timestamp',)
+    search_fields = ('timestamp',)
+    date_hierarchy = 'timestamp'
+    ordering = ('-timestamp',)

@@ -64,7 +64,6 @@ const Users = () => {
       email: user.email,
       phone: user.phone,
       user_type: user.user_type,
-      is_active: user.is_active,
     });
     setEditModalVisible(true);
   };
@@ -326,8 +325,8 @@ const Users = () => {
               <Option value="employee">普通员工</Option>
             </Select>
           </Form.Item>
-          <Form.Item label="状态" name="is_active" valuePropName="checked">
-            <Select>
+          <Form.Item label="状态" name="is_active">
+            <Select placeholder="请选择状态">
               <Option value={true}>启用</Option>
               <Option value={false}>禁用</Option>
             </Select>

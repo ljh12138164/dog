@@ -119,7 +119,7 @@ const Reports = () => {
 
   return (
     <View style={styles.container}>
-      <Card style={styles.card}>
+      {/* <Card style={styles.card}>
         <Card.Content>
           <Title>库存报告管理</Title>
 
@@ -179,7 +179,7 @@ const Reports = () => {
             <Text style={styles.emptyText}>暂无库存报告</Text>
           )}
         </Card.Content>
-      </Card>
+      </Card> */}
 
       {/* 生成报告对话框 */}
       <Portal>

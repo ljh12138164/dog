@@ -8,8 +8,10 @@ const Login = lazy(() => import('../page/login'));
 const Dashboard = lazy(() => import('../page/dashboard'));
 const Users = lazy(() => import('../page/users'));
 const Home = lazy(() => import('../page/home'));
-const Create = lazy(() => import('../page/autoform/create'));
-const AutoForm = lazy(() => import('../page/autoform'));
+const Feedback = lazy(() => import('../page/feekback'));
+const FeedbackDetail = lazy(() => import('../page/feekback/id'));
+// const Create = lazy(() => import('../page/autoform/create'));
+// const AutoForm = lazy(() => import('../page/autoform'));
 
 const router = createBrowserRouter([
   {
@@ -37,13 +39,21 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'autoform',
-        element: <AutoForm />,
+        path: 'feedback',
+        element: <Feedback />,
       },
       {
-        path: 'autoform/create',
-        element: <Create />,
+        path: 'feedback/:id',
+        element: <FeedbackDetail />,
       },
+      // {
+      //   path: 'autoform',
+      //   element: <AutoForm />,
+      // },
+      // {
+      //   path: 'autoform/create',
+      //   element: <Create />,
+      // },
     ],
   },
 ]);

@@ -1,13 +1,11 @@
-import * as React from 'react';
-import { View, TouchableOpacity, Text, Platform, StyleSheet } from 'react-native';
 import { AutoFormFieldProps } from '@autoform/react';
+import * as React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { Button, Platform, StyleSheet, View } from 'react-native';
+import DateTimePickerModal, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 
 export const DateField: React.FC<AutoFormFieldProps> = ({ id, inputProps, field }) => {
   const { control, formState } = useFormContext();
-  const [show, setShow] = React.useState(false);
-
   return (
     <Controller
       control={control}
@@ -15,38 +13,38 @@ export const DateField: React.FC<AutoFormFieldProps> = ({ id, inputProps, field 
         required: field.required,
       }}
       render={({ field: formField }) => {
-        const date = formField.value ? new Date(formField.value) : new Date();
-        const formattedDate = date.toLocaleDateString();
-        const errorMessage = formState.errors?.[formField.name];
-        const onChange = (_: any, selectedDate?: Date) => {
-          const currentDate = selectedDate || date;
-          setShow(Platform.OS === 'ios');
-          formField.onChange(currentDate.toISOString());
+        const [isDatePickerVisible, setDatePickerVisibility] = React.useState(false);
+        // const errorMessage = formState.errors?.[formField.name];
+
+        const showDatePicker = () => {
+          setDatePickerVisibility(true);
         };
 
-        const showDatepicker = () => {
-          setShow(true);
+        const hideDatePicker = () => {
+          setDatePickerVisibility(false);
         };
 
+        const handleConfirm = (event: DateTimePickerEvent, date?: Date) => {
+          console.warn('A date has been picked: ', date);
+          hideDatePicker();
+          formField.onChange(date?.toISOString() ?? '');
+        };
+
+        // 渲染不同平台的日期选择器
         return (
           <View>
-            <TouchableOpacity
-              style={[styles.input, errorMessage && styles.errorInput]}
-              onPress={showDatepicker}
-            >
-              <Text style={styles.dateText}>{formField.value ? formattedDate : '选择日期'}</Text>
-            </TouchableOpacity>
-            {show && (
-              <DateTimePicker
-                testID="dateTimePicker"
-                value={date}
+            <Button
+              title={formField.value ? formField.value : '选择日期'}
+              onPress={showDatePicker}
+            />
+            {isDatePickerVisible && (
+              <DateTimePickerModal
+                // isVisible={isDatePickerVisible}
                 mode="date"
-                display="default"
-                onChange={onChange}
-                {...inputProps}
+                value={formField.value ? new Date(formField.value) : new Date()}
+                onChange={handleConfirm}
               />
             )}
-            {/* {errorMessage && <Text style={styles.error}>{errorMessage}</Text>} */}
           </View>
         );
       }}
@@ -77,5 +75,40 @@ const styles = StyleSheet.create({
   },
   errorInput: {
     borderColor: 'red',
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    borderRadius: 8,
+    padding: 20,
+    width: '90%',
+    maxWidth: 400,
+  },
+  modalHeader: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  cancelButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 4,
+    backgroundColor: '#f5f5f5',
+  },
+  buttonText: {
+    fontSize: 16,
   },
 });

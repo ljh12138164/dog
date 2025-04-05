@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'expo-router';
 import { get, post } from './http';
 import Constants from 'expo-constants';
+import apiClient from './http';
 
 // 定义类型
 export interface LoginCredentials {
@@ -245,7 +246,7 @@ export const useLogin = (Toast: {
       // 延迟导航，确保数据保存完成
       setTimeout(() => {
         router.replace('/(tabs)');
-      }, 100);
+      }, 1000);
     },
     onError: (error: any) => {
       // 显示错误提示
@@ -301,9 +302,7 @@ export const useRegister = (Toast: {
 };
 
 // 登出Hook
-export const logout = async (Toast: any) => {
-
-};
+export const logout = async (Toast: any) => {};
 
 // 获取当前用户信息的函数
 export const getCurrentUser = async () => {
@@ -358,5 +357,118 @@ export const useCurrentUser = () => {
     retry: 1,
     staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
     refetchOnWindowFocus: false,
+  });
+};
+
+// 更新用户信息类型
+export interface UpdateUserInfoRequest {
+  username?: string;
+  email?: string;
+  phone?: string;
+}
+
+// 修改密码请求类型
+export interface ChangePasswordRequest {
+  old_password: string;
+  new_password: string;
+  confirm_password: string;
+}
+
+// 更新用户信息Hook
+export const useUpdateUserInfo = (Toast: {
+  show: (options: { type: string; text1: string; text2?: string }) => void;
+}) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (data: UpdateUserInfoRequest) => {
+      try {
+        // 直接使用PATCH方法更新当前用户信息
+        const updateResponse = await apiClient.patch('/users/me/', data);
+
+        // 更新本地用户数据
+        if (updateResponse.data) {
+          // 获取当前用户数据
+          const userDataStr = await AsyncStorage.getItem('user_data');
+          if (userDataStr) {
+            const userData = JSON.parse(userDataStr);
+            // 合并更新的数据
+            const updatedUserData = { ...userData, ...updateResponse.data } as AuthResponse['user'];
+            await AsyncStorage.setItem('user_data', JSON.stringify(updatedUserData));
+          }
+        }
+
+        return updateResponse.data;
+      } catch (error: any) {
+        console.error('更新用户信息失败:', error);
+        console.error('错误响应:', error.response?.data);
+        console.error('错误状态:', error.response?.status);
+        throw error;
+      }
+    },
+    onSuccess: () => {
+      // 刷新用户数据
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+
+      Toast.show({
+        type: 'success',
+        text1: '更新成功',
+        text2: '个人信息已更新',
+      });
+    },
+    onError: (error: any) => {
+      const errorMsg =
+        error.response?.data?.detail ||
+        error.response?.data?.username ||
+        error.response?.data?.email ||
+        error.response?.data?.phone ||
+        '更新用户信息失败';
+
+      Toast.show({
+        type: 'error',
+        text1: '更新失败',
+        text2: typeof errorMsg === 'object' ? JSON.stringify(errorMsg) : errorMsg,
+      });
+    },
+  });
+};
+
+// 修改密码Hook
+export const useChangePassword = (Toast: {
+  show: (options: { type: string; text1: string; text2?: string }) => void;
+}) => {
+  return useMutation({
+    mutationFn: async (data: ChangePasswordRequest) => {
+      try {
+        const response = await apiClient.post('/users/change_password/', data);
+
+        // 密码修改成功后，主动清除本地存储的token
+        // 这样可以确保用户需要重新登录
+        await clearAuthData();
+
+        return response.data;
+      } catch (error: any) {
+        console.error('修改密码失败:', error);
+        console.error('错误响应:', error.response?.data);
+        console.error('错误状态:', error.response?.status);
+        throw error;
+      }
+    },
+    onSuccess: () => {
+      Toast.show({
+        type: 'success',
+        text1: '密码修改成功',
+        text2: '请使用新密码登录',
+      });
+    },
+    onError: (error: any) => {
+      const errorMsg = error.response?.data?.detail || '修改密码失败';
+
+      Toast.show({
+        type: 'error',
+        text1: '修改失败',
+        text2: typeof errorMsg === 'object' ? JSON.stringify(errorMsg) : errorMsg,
+      });
+    },
   });
 };

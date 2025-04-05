@@ -2,15 +2,16 @@ import { useCurrentUser } from '@/api/useAuth';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-// 导入库存管理组件
-import { Dashboard, EventsManager, Reports } from '../../components/inventory';
+import { Dashboard, EventsManager, Reports } from '@/components/inventory';
+import { useLatestSensorData } from '@/api/useInventory';
 
 export default function InventoryManagerScreen() {
   const [activeTab, setActiveTab] = useState('dashboard');
+  // 使用传感器数据API替代WebSocket
+  const { data: sensorData, isLoading: isLoadingSensor } = useLatestSensorData();
   const { isLoading } = useCurrentUser();
 
-  if (isLoading) {
+  if (isLoading || isLoadingSensor) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#007aff" />
@@ -19,10 +20,42 @@ export default function InventoryManagerScreen() {
     );
   }
 
+  // 从数组格式获取单个值
+  const getTemperature = () => {
+    if (!sensorData) return 0;
+    if (Array.isArray(sensorData.temperature)) {
+      return sensorData.temperature[0] || 0;
+    }
+    return sensorData.temperature || 0;
+  };
+
+  const getHumidity = () => {
+    if (!sensorData) return 0;
+    if (Array.isArray(sensorData.humidity)) {
+      return sensorData.humidity[0] || 0;
+    }
+    return sensorData.humidity || 0;
+  };
+
+  const getLight = () => {
+    if (!sensorData || !sensorData.light) return null;
+    if (Array.isArray(sensorData.light)) {
+      return sensorData.light[0];
+    }
+    return sensorData.light;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>库存管理系统</Text>
+        {sensorData && (
+          <View style={styles.environmentInfo}>
+            <Text style={styles.environmentText}>温度: {getTemperature().toFixed(1)}°C</Text>
+            <Text style={styles.environmentText}>湿度: {getHumidity().toFixed(1)}%</Text>
+            {getLight() !== null && <Text style={styles.environmentText}>光照: {getLight()}</Text>}
+          </View>
+        )}
       </View>
 
       {/* 标签栏 */}
@@ -41,7 +74,7 @@ export default function InventoryManagerScreen() {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={[styles.tabItem, activeTab === 'issues' && styles.activeTab]}
           onPress={() => setActiveTab('issues')}
         >
@@ -53,7 +86,7 @@ export default function InventoryManagerScreen() {
           <Text style={[styles.tabText, activeTab === 'issues' && styles.activeTabText]}>
             异常处理
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <TouchableOpacity
           style={[styles.tabItem, activeTab === 'reports' && styles.activeTab]}
@@ -99,6 +132,16 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: 'bold',
     color: '#333',
+  },
+  environmentInfo: {
+    flexDirection: 'row',
+    marginTop: 8,
+    flexWrap: 'wrap',
+  },
+  environmentText: {
+    fontSize: 14,
+    color: '#666',
+    marginRight: 15,
   },
   tabBar: {
     flexDirection: 'row',

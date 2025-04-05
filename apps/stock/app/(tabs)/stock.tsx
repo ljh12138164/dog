@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
 import { useCurrentUser } from '@/api/useAuth';
 import {
+  Ingredient,
+  TaskItem,
+  useCompleteTask,
   useIngredientList,
   useInventoryOperation,
-  useTasks,
-  useCompleteTask,
   useSubmitFeedback,
-  FeedbackItem,
-  TaskItem,
-  Ingredient,
+  useTasks,
 } from '@/api/useEmployee';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { format } from 'date-fns';
+import React, { useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -23,8 +24,6 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { format } from 'date-fns';
 import Toast from 'react-native-toast-message';
 
 const EmployeeScreen = () => {
@@ -247,8 +246,7 @@ const EmployeeScreen = () => {
         <View style={styles.contentContainer}>
           {/* 个人工作台 */}
           <ScrollView>
-            {/* 待办任务部分 */}
-            <View style={styles.sectionContainer}>
+            {/* <View style={styles.sectionContainer}>
               <View style={styles.sectionHeader}>
                 <Text style={styles.sectionTitle}>待办任务</Text>
               </View>
@@ -298,8 +296,7 @@ const EmployeeScreen = () => {
                   <Text style={styles.emptyText}>暂无待办任务</Text>
                 </View>
               )}
-            </View>
-
+            </View> */}
             {/* 异常反馈按钮 */}
             <TouchableOpacity style={styles.feedbackButton} onPress={() => setModalVisible(true)}>
               <MaterialIcons name="feedback" size={24} color="#fff" />
@@ -413,6 +410,7 @@ const EmployeeScreen = () => {
           </View>
         </View>
       </Modal>
+      <Toast />
     </SafeAreaView>
   );
 };

@@ -1918,3 +1918,23 @@ ERROR 2025-04-04 18:20:15,389 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠
 INFO 2025-04-04 18:22:49,930 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
 INFO 2025-04-04 18:23:24,347 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
 ERROR 2025-04-04 18:23:28,410 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё
+WARNING 2025-04-04 21:32:19,553 mqtt_client MQTT╤к©з 1883 ря╠╩у╪сцё╛╪ыиХряспMQTT╢ЗюМ╥ЧнЯфВтзткпп
+INFO 2025-04-04 21:32:19,554 mqtt_client Ё╒йтвВн╙MQTT©м╩╖╤ка╛╫с╣╫ localhost:1883...
+INFO 2025-04-04 21:32:19,554 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
+ERROR 2025-04-04 21:32:23,651 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё
+WARNING 2025-04-04 21:33:32,095 mqtt_client MQTT╤к©з 1883 ря╠╩у╪сцё╛╪ыиХряспMQTT╢ЗюМ╥ЧнЯфВтзткпп
+INFO 2025-04-04 21:33:32,095 mqtt_client Ё╒йтвВн╙MQTT©м╩╖╤ка╛╫с╣╫ localhost:1883...
+INFO 2025-04-04 21:33:32,095 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
+ERROR 2025-04-04 21:33:36,181 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё
+WARNING 2025-04-04 21:51:35,837 mqtt_client MQTT╤к©з 1883 ря╠╩у╪сцё╛╪ыиХряспMQTT╢ЗюМ╥ЧнЯфВтзткпп
+INFO 2025-04-04 21:51:35,837 mqtt_client Ё╒йтвВн╙MQTT©м╩╖╤ка╛╫с╣╫ localhost:1883...
+INFO 2025-04-04 21:51:35,837 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
+ERROR 2025-04-04 21:51:39,960 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё
+WARNING 2025-04-04 22:00:19,218 mqtt_client MQTT╤к©з 1883 ря╠╩у╪сцё╛╪ыиХряспMQTT╢ЗюМ╥ЧнЯфВтзткпп
+INFO 2025-04-04 22:00:19,220 mqtt_client Ё╒йтвВн╙MQTT©м╩╖╤ка╛╫с╣╫ localhost:1883...
+INFO 2025-04-04 22:00:19,220 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
+ERROR 2025-04-04 22:00:23,322 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё
+WARNING 2025-04-04 22:13:10,381 mqtt_client MQTT╤к©з 1883 ря╠╩у╪сцё╛╪ыиХряспMQTT╢ЗюМ╥ЧнЯфВтзткпп
+INFO 2025-04-04 22:13:10,383 mqtt_client Ё╒йтвВн╙MQTT©м╩╖╤ка╛╫с╣╫ localhost:1883...
+INFO 2025-04-04 22:13:10,383 mqtt_client уЩтза╛╫с╣╫MQTT╢ЗюМ: localhost:1883
+ERROR 2025-04-04 22:13:14,484 mqtt_client MQTTа╛╫сй╖╟э: [WinError 10061] сисзд©╠Й╪фкЦ╩З╩Щ╪╚╬э╬Ьё╛нч╥╗а╛╫с║ё

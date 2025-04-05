@@ -1,9 +1,9 @@
 import {
   DashboardOutlined,
-  FormOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  MessageOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Button, Dropdown, Layout, Menu } from 'antd';
@@ -36,10 +36,15 @@ const AdminLayout = () => {
       label: '用户管理',
     },
     {
-      key: '/autoform',
-      icon: <FormOutlined />,
-      label: '自动表单',
+      key: '/feedback',
+      icon: <MessageOutlined />,
+      label: '反馈',
     },
+    // {
+    //   key: '/autoform',
+    //   icon: <FormOutlined />,
+    //   label: '自动表单',
+    // },
   ];
 
   const userMenu = [
@@ -60,6 +65,7 @@ const AdminLayout = () => {
         </div>
         <Menu
           theme="dark"
+          className="flex flex-col gap-4"
           mode="inline"
           selectedKeys={[location.pathname]}
           items={menuItems}

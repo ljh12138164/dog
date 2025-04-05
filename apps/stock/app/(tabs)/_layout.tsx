@@ -10,27 +10,24 @@ const getAllowedRoutes = (userType?: string) => {
     //
     case 'admin':
       return [
-        { name: 'index', title: '首页', icon: 'home' },
         { name: 'inventory-manager', title: '库存管理', icon: 'event-note' },
         { name: 'stock', title: '出入库', icon: 'assessment' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
     case 'procurement':
       return [
-        { name: 'index', title: '首页', icon: 'home' },
+        { name: 'procurement-manager', title: '首页', icon: 'home' },
         { name: 'stock', title: '库存管理', icon: 'inventory' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
     case 'inventory':
       return [
-        { name: 'index', title: '首页', icon: 'home' },
         { name: 'inventory-manager', title: '库存管理', icon: 'event-note' },
         { name: 'stock', title: '出入库', icon: 'assessment' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
     default:
       return [
-        { name: 'ordinary-user', title: '首页', icon: 'home' },
         { name: 'user', title: '我的', icon: 'person' },
         { name: 'text', title: '测试', icon: 'test' },
       ];

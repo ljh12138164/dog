@@ -7,7 +7,8 @@ from .views import (
     EmployeeFeedbackViewSet,
     EnvironmentDataViewSet,
     InventoryEventViewSet,
-    InventoryReportViewSet
+    InventoryReportViewSet,
+    SensorDataViewSet
 )
 
 # 创建路由器并注册视图集
@@ -19,6 +20,7 @@ router.register(r'employee/feedback', EmployeeFeedbackViewSet, basename='employe
 router.register(r'environment-data', EnvironmentDataViewSet)
 router.register(r'inventory-events', InventoryEventViewSet)
 router.register(r'inventory-reports', InventoryReportViewSet)
+router.register(r'sensor-data', SensorDataViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

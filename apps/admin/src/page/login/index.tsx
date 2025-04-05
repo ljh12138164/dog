@@ -1,7 +1,7 @@
 import { Button, Card, Form, Input, Typography } from 'antd';
-import { useCurrentUser, useLogin } from '../api/useAuth';
+import { useCurrentUser, useLogin } from '../../api/useAuth';
 import { useForm, Controller } from 'react-hook-form';
-import { LoginRequest } from '../api/useAuth';
+import { LoginRequest } from '../../api/useAuth';
 import { Navigate } from 'react-router';
 const { Title } = Typography;
 

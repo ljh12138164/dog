@@ -151,6 +151,7 @@ class Feedback(models.Model):
         null=True,
         blank=True
     )
+    resolution_notes = models.TextField(_('解决方案说明'), blank=True, null=True)
     created_at = models.DateTimeField(_('创建时间'), auto_now_add=True)
     updated_at = models.DateTimeField(_('更新时间'), auto_now=True)
     resolved_at = models.DateTimeField(_('解决时间'), null=True, blank=True)
@@ -162,6 +163,34 @@ class Feedback(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.get_status_display()}"
+
+
+class Comment(models.Model):
+    """
+    评论模型，用于反馈评论
+    """
+    feedback = models.ForeignKey(
+        Feedback,
+        on_delete=models.CASCADE,
+        verbose_name=_('反馈'),
+        related_name='comments'
+    )
+    content = models.TextField(_('评论内容'))
+    created_by = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_('评论人'),
+        related_name='comments'
+    )
+    created_at = models.DateTimeField(_('创建时间'), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('评论')
+        verbose_name_plural = _('评论')
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f"评论 by {self.created_by.username} on {self.feedback.title}"
 
 
 class EnvironmentData(models.Model):
@@ -270,3 +299,22 @@ class InventoryReport(models.Model):
 
     def __str__(self):
         return f"{self.get_report_type_display()}: {self.title} ({self.start_date} - {self.end_date})"
+
+
+class SensorData(models.Model):
+    """
+    传感器数据模型，用于存储从WebSocket接收到的传感器数据
+    """
+    temperature = models.FloatField(_('温度'), help_text='单位：摄氏度', null=True, blank=True)
+    humidity = models.FloatField(_('湿度'), help_text='单位：%')
+    light = models.FloatField(_('光照'), help_text='单位：lux')
+    timestamp = models.DateTimeField(_('时间戳'))
+    created_at = models.DateTimeField(_('创建时间'), auto_now_add=True)
+
+    class Meta:
+        verbose_name = _('传感器数据')
+        verbose_name_plural = _('传感器数据')
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return f"湿度: {self.humidity}%, 光照: {self.light} lux ({self.timestamp.strftime('%Y-%m-%d %H:%M')})"
