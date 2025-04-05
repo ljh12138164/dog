@@ -1,27 +1,29 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
-import { Card, Title, Paragraph, Button, ActivityIndicator, useTheme } from 'react-native-paper';
+import {
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-import { Dimensions } from 'react-native';
+import { ActivityIndicator, Button, Card, Paragraph, Title } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import {
-  useLatestEnvironmentData,
-  useEnvironmentChartData,
-  useCreateEnvironmentData,
+  SensorChartResponse,
   useLatestSensorData,
   useSensorChartData,
-  useCreateSensorData,
-  SensorChartResponse,
 } from '../../api/useInventory';
-import { useIngredientList } from '../../api/useEmployee';
-import { MaterialIcons } from '@expo/vector-icons';
+import { useStockData } from '../../api/websocket';
 
 const screenWidth = Dimensions.get('window').width;
 
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState<'day' | 'week' | 'month'>('day');
-  const [newTemp, setNewTemp] = useState('');
-  const [newHumidity, setNewHumidity] = useState('');
+  const [newThreshold, setNewThreshold] = useState('');
 
   // 获取传感器数据
   const { data: latestSensorData, isLoading: isLoadingSensor } = useLatestSensorData();
@@ -29,56 +31,76 @@ const Dashboard = () => {
     timeRange === 'day' ? { hours: 24 } : timeRange === 'week' ? { days: 7 } : { days: 30 },
   );
 
-  const { data: ingredients, isLoading: isLoadingIngredients } = useIngredientList();
-  const createEnvironmentData = useCreateEnvironmentData(Toast);
-  const createSensorData = useCreateSensorData(Toast);
+  // 使用WebSocket数据和阈值调整功能
+  const { socket, currentThreshold, thresholdUpdating, updateThreshold, data } = useStockData();
+
+  // const { data: ingredients, isLoading: isLoadingIngredients } = useIngredientList();
+  // const createEnvironmentData = useCreateEnvironmentData(Toast);
+  // const createSensorData = useCreateSensorData(Toast);
+  // 发送阈值调整命令
+  const handleThresholdSubmit = () => {
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+      Toast.show({
+        type: 'error',
+        text1: '连接错误',
+        text2: 'WebSocket连接未建立，无法发送命令',
+      });
+      return;
+    }
+
+    const thresholdValue = parseFloat(newThreshold);
+
+    // 添加数值验证
+    if (isNaN(thresholdValue) || thresholdValue < 0 || thresholdValue > 100) {
+      Toast.show({
+        type: 'error',
+        text1: '输入错误',
+        text2: '请输入有效的温度阈值 (0-100°C)',
+      });
+      return;
+    }
+
+    try {
+      // 直接构造并发送WebSocket命令，确保格式正确
+      const command = {
+        type: 'command',
+        setThreshold: thresholdValue,
+      };
+
+      socket.send(JSON.stringify(command));
+
+      // 成功后清空输入框
+      setNewThreshold('');
+
+      Toast.show({
+        type: 'success',
+        text1: '设置成功',
+        text2: `温度阈值调整命令已发送: ${thresholdValue}°C`,
+      });
+    } catch (error) {
+      console.error('发送阈值设置命令失败:', error);
+      Toast.show({
+        type: 'error',
+        text1: '发送失败',
+        text2: error instanceof Error ? error.message : '无法更新阈值',
+      });
+    }
+  };
 
   // 计算库存统计信息
-  const getInventoryStats = () => {
-    if (!ingredients) return { total: 0, normal: 0, low: 0, expired: 0, pendingCheck: 0 };
+  // const getInventoryStats = () => {
+  //   if (!ingredients) return { total: 0, normal: 0, low: 0, expired: 0, pendingCheck: 0 };
 
-    const stats = {
-      total: ingredients.length,
-      normal: ingredients.filter(i => i.status === 'normal').length,
-      low: ingredients.filter(i => i.status === 'low').length,
-      expired: ingredients.filter(i => i.status === 'expired').length,
-      pendingCheck: ingredients.filter(i => i.status === 'pending_check').length,
-    };
+  //   const stats = {
+  //     total: ingredients.length,
+  //     normal: ingredients.filter(i => i.status === 'normal').length,
+  //     low: ingredients.filter(i => i.status === 'low').length,
+  //     expired: ingredients.filter(i => i.status === 'expired').length,
+  //     pendingCheck: ingredients.filter(i => i.status === 'pending_check').length,
+  //   };
 
-    return stats;
-  };
-
-  const handleSubmitEnvironmentData = () => {
-    if (!newTemp || !newHumidity) {
-      Toast.show({
-        type: 'error',
-        text1: '输入错误',
-        text2: '请输入温度和湿度数值',
-      });
-      return;
-    }
-
-    const temp = parseFloat(newTemp);
-    const humidity = parseFloat(newHumidity);
-
-    if (isNaN(temp) || isNaN(humidity)) {
-      Toast.show({
-        type: 'error',
-        text1: '输入错误',
-        text2: '温度和湿度必须是数字',
-      });
-      return;
-    }
-
-    // 使用传感器数据API而不是环境数据API
-    createSensorData.mutate({
-      temperature: temp,
-      humidity: humidity,
-    });
-
-    setNewTemp('');
-    setNewHumidity('');
-  };
+  //   return stats;
+  // };
 
   // 准备图表数据
   const prepareChartData = () => {
@@ -142,8 +164,9 @@ const Dashboard = () => {
     };
   };
 
-  const inventoryStats = getInventoryStats();
+  // const inventoryStats = getInventoryStats();
   const chartDataFormatted = prepareChartData();
+  if (!data) return null;
 
   return (
     <ScrollView style={styles.container}>
@@ -155,46 +178,61 @@ const Dashboard = () => {
           ) : latestSensorData ? (
             <View style={styles.environmentDataContainer}>
               <View style={styles.dataItemBox}>
-                <Text style={styles.dataValue}>
-                  {typeof latestSensorData.temperature === 'object' &&
-                  Array.isArray(latestSensorData.temperature)
-                    ? latestSensorData.temperature[0] || 0
-                    : latestSensorData.temperature || 0}
-                  °C
-                </Text>
+                <Text style={styles.dataValue}>{data.temperature}°C</Text>
                 <Text style={styles.dataLabel}>温度</Text>
               </View>
               <View style={styles.dataItemBox}>
-                <Text style={styles.dataValue}>
-                  {typeof latestSensorData.humidity === 'object' &&
-                  Array.isArray(latestSensorData.humidity)
-                    ? latestSensorData.humidity[0] || 0
-                    : latestSensorData.humidity || 0}
-                  %
-                </Text>
+                <Text style={styles.dataValue}>{data.humidity}%</Text>
                 <Text style={styles.dataLabel}>湿度</Text>
               </View>
-              {latestSensorData.light !== undefined && (
+              {data.light !== undefined && (
                 <View style={styles.dataItemBox}>
-                  <Text style={styles.dataValue}>
-                    {typeof latestSensorData.light === 'object' &&
-                    Array.isArray(latestSensorData.light)
-                      ? latestSensorData.light[0] || 0
-                      : latestSensorData.light || 0}
-                  </Text>
+                  <Text style={styles.dataValue}>{data.light}</Text>
                   <Text style={styles.dataLabel}>光照</Text>
                 </View>
               )}
+              <View style={styles.connectionStatus}>
+                <Text style={[styles.statusText, socket ? styles.connected : styles.disconnected]}>
+                  {socket ? '设备已连接' : '设备未连接'}
+                </Text>
+              </View>
               <View style={styles.updateTimeContainer}>
                 <Text style={styles.updateTimeText}>
-                  更新时间:{' '}
-                  {new Date(
-                    typeof latestSensorData.timestamps === 'object' &&
-                    Array.isArray(latestSensorData.timestamps)
-                      ? latestSensorData.timestamps[0] || ''
-                      : latestSensorData.timestamp || '',
-                  ).toLocaleString()}
+                  更新时间: {new Date(data?.timestamp || '').toLocaleString()}
                 </Text>
+              </View>
+
+              {/* 温度阈值设置区域 */}
+              <View style={styles.thresholdContainer}>
+                <View style={styles.thresholdHeader}>
+                  <Text style={styles.thresholdTitle}>温度警报阈值</Text>
+                  <Text style={styles.thresholdValue}>
+                    {data.threshold !== null ? `${data.threshold}°C` : '加载中...'}
+                  </Text>
+                </View>
+                <View style={styles.thresholdInputContainer}>
+                  <TextInput
+                    style={styles.thresholdInput}
+                    placeholder="输入新阈值"
+                    keyboardType="numeric"
+                    value={newThreshold}
+                    onChangeText={setNewThreshold}
+                    editable={!thresholdUpdating && !!socket}
+                  />
+                  <Button
+                    mode="contained"
+                    onPress={handleThresholdSubmit}
+                    loading={thresholdUpdating}
+                    disabled={!socket || thresholdUpdating}
+                    style={[
+                      styles.thresholdButton,
+                      (!socket || thresholdUpdating) && styles.thresholdButtonDisabled,
+                    ]}
+                    color="#007aff"
+                  >
+                    设置
+                  </Button>
+                </View>
               </View>
             </View>
           ) : (
@@ -202,43 +240,6 @@ const Dashboard = () => {
           )}
         </Card.Content>
       </Card>
-      {/* 
-      <Card style={styles.card}>
-        <Card.Content>
-          <Title style={styles.cardTitle}>手动记录环境数据</Title>
-          <View style={styles.inputContainer}>
-            <View style={styles.inputRow}>
-              <Text style={styles.inputLabel}>温度 (°C):</Text>
-              <TextInput
-                style={styles.textInput}
-                keyboardType="numeric"
-                value={newTemp}
-                onChangeText={setNewTemp}
-                placeholder="输入温度"
-              />
-            </View>
-            <View style={styles.inputRow}>
-              <Text style={styles.inputLabel}>湿度 (%):</Text>
-              <TextInput
-                style={styles.textInput}
-                keyboardType="numeric"
-                value={newHumidity}
-                onChangeText={setNewHumidity}
-                placeholder="输入湿度"
-              />
-            </View>
-            <Button
-              mode="contained"
-              onPress={handleSubmitEnvironmentData}
-              loading={createSensorData.isPending}
-              style={styles.submitButton}
-              color="#2196F3"
-            >
-              提交数据
-            </Button>
-          </View>
-        </Card.Content>
-      </Card> */}
 
       <Card style={styles.card}>
         <Card.Content style={styles.cardContent}>
@@ -354,38 +355,6 @@ const Dashboard = () => {
           </View>
         </Card.Content>
       </Card>
-      {/* 
-      <Card style={styles.card}>
-        <Card.Content>
-          <Title style={styles.cardTitle}>库存概览</Title>
-          {isLoadingIngredients ? (
-            <ActivityIndicator animating={true} color="#2196F3" />
-          ) : (
-            <View style={styles.statsContainer}>
-              <View style={[styles.statItem, { backgroundColor: '#2196F3' }]}>
-                <Text style={styles.statValue}>{inventoryStats.total}</Text>
-                <Text style={styles.statLabel}>总数</Text>
-              </View>
-              <View style={[styles.statItem, { backgroundColor: '#4CAF50' }]}>
-                <Text style={styles.statValue}>{inventoryStats.normal}</Text>
-                <Text style={styles.statLabel}>正常</Text>
-              </View>
-              <View style={[styles.statItem, { backgroundColor: '#FF9800' }]}>
-                <Text style={styles.statValue}>{inventoryStats.low}</Text>
-                <Text style={styles.statLabel}>库存不足</Text>
-              </View>
-              <View style={[styles.statItem, { backgroundColor: '#F44336' }]}>
-                <Text style={styles.statValue}>{inventoryStats.expired}</Text>
-                <Text style={styles.statLabel}>已过期</Text>
-              </View>
-              <View style={[styles.statItem, { backgroundColor: '#9C27B0' }]}>
-                <Text style={styles.statValue}>{inventoryStats?.pendingCheck || 0}</Text>
-                <Text style={styles.statLabel}>待检查</Text>
-              </View>
-            </View>
-          )}
-        </Card.Content>
-      </Card> */}
     </ScrollView>
   );
 };
@@ -440,6 +409,68 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     marginTop: 4,
+  },
+  connectionStatus: {
+    width: '100%',
+    marginBottom: 12,
+    alignItems: 'flex-end',
+  },
+  statusText: {
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  connected: {
+    color: '#4CAF50',
+  },
+  disconnected: {
+    color: '#F44336',
+  },
+  thresholdContainer: {
+    width: '100%',
+    backgroundColor: '#f5f7fa',
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 5,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#e0e6ed',
+  },
+  thresholdHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  thresholdTitle: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#333',
+  },
+  thresholdValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FF9800',
+  },
+  thresholdInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  thresholdInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 4,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+    marginRight: 10,
+  },
+  thresholdButton: {
+    height: 40,
+    justifyContent: 'center',
+  },
+  thresholdButtonDisabled: {
+    opacity: 0.6,
   },
   inputContainer: {
     marginTop: 16,

@@ -7,69 +7,79 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-// OLED显示器参数
-#define SCREEN_WIDTH 128    // OLED显示器宽度，单位像素点
-#define SCREEN_HEIGHT 64    // OLED显示器高度，单位像素点
-#define OLED_RESET -1      // Reset引脚，-1表示使用Arduino的复位引脚
-#define SCREEN_ADDRESS 0x3C // OLED显示器的I2C地址
+// OLED显示屏幕
+#define SCREEN_WIDTH 128    // OLED显示屏幕的宽度
+#define SCREEN_HEIGHT 64    // OLED显示屏幕的高度
+#define OLED_RESET -1      // Reset按钮-1表示使用Arduino的16引脚
+#define SCREEN_ADDRESS 0x3C // OLED显示屏幕I2C地址
 
-// I2C引脚定义
+// I2C引脚
 #define SCL_PIN 22
 #define SDA_PIN 21
 
-// 创建显示器对象
+// 温度阈值
+// #define TEMP_THRESHOLD 30.0  // 温度阈值作为静态变量在静态判断时使用
+float tempThreshold = 30.0;  // 用户通过接口设置的温度阈值，在静态判断时使用
+
+// 屏幕显示静态信息
+void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm, bool running);
+
+// OLED显示屏幕
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-// WiFi设置  
+// WiFi连接
 const char* ssid = "PPX";  
 const char* password = "a1668692058";  
 
-// WebSocket服务器配置
-const char* wsHost = "192.168.177.197";  // 你的服务器IP
+// WebSocket连接
+const char* wsHost = "192.168.177.197";  // 目标IP
 const uint16_t wsPort = 8380;
-const char* wsPath = "/env";  // 使用该路径
+const char* wsPath = "/env";  // 使用路径
 
-// NTP服务器配置
+// NTP连接
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = 8 * 3600; // 中国时区UTC+8
 const int   daylightOffset_sec = 0;
 
-// 传感器引脚设置  
-#define DHT_PIN 17      // DHT11温湿度传感器引脚
-#define LIGHT_PIN 35    // 光照传感器引脚(ADC1_CH0)
-#define BUZZER_PIN 25   // 蜂鸣器引脚
-#define BUTTON_PIN 18   // 按钮按键引脚定义
+// 传感器连接
+#define DHT_PIN 17      // DHT11温湿度传感器连接
+#define LIGHT_PIN 35    // 光照强度传感器连接(ADC1_CH0)
+#define BUZZER_PIN 25   // 蜂鸣器连接
+#define BUTTON_PIN 18   // 按钮连接I2C
 #define DHT_TYPE DHT11  
 
-// 光照强度映射范围
+// ADC值范围
 #define LIGHT_MIN 0     // ADC最小值
-#define LIGHT_MAX 4095  // ADC最大值（12位ADC）
+#define LIGHT_MAX 4095  // ADC最大值12位ADC
 
-// 温度警报阈值
-#define TEMP_THRESHOLD 30.0  // 温度警报阈值（摄氏度）
-
-// 连接状态
+// 屏幕状态
 volatile bool wsConnected = false;
-bool isRunning = false;             // 监控运行状态标志，初始为停止
+bool isRunning = false;             // 运行状态标志，初始为停止
 unsigned long lastReconnectAttempt = 0;
 const unsigned long reconnectInterval = 5000;  // 重连间隔5秒
 unsigned long lastDataSendTime = 0;
-const unsigned long dataSendInterval = 1000*30;   // 数据发送间隔2秒
+const unsigned long dataSendInterval = 1000*30;   // 数据发送间隔2分钟
 
-unsigned long sensorErrorDisplayUntil = 0; // 用于短暂性显示错误信息
-unsigned long wifiReconnectDisplayUntil = 0; // 用于短暂性显示WiFi重连
-unsigned long lastDisplayUpdateTime = 0; // 用于停止状态下屏幕刷新
+unsigned long sensorErrorDisplayUntil = 0; // 传感器错误信息显示时间
+unsigned long wifiReconnectDisplayUntil = 0; // WiFi断开显示
+unsigned long lastDisplayUpdateTime = 0; // 停止状态显示时间
 
-// 按钮防抖变量
+// 按钮状态
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 50; // 50ms 防抖
-int lastButtonState = HIGH;      // 上次状态，初始为高
-int currentButtonState = HIGH;   // 当前稳定状态
+unsigned long debounceDelay = 50; // 50ms 去抖
+int lastButtonState = HIGH;      // 初始按钮状态
+int currentButtonState = HIGH;   // 之前稳定状态
 
-DHT dht(DHT_PIN, DHT_TYPE);  
-WebSocketsClient webSocket;  
+DHT dht(DHT_PIN, DHT_TYPE);
+WebSocketsClient webSocket;
 
-// 读取光照强度（返回0-100的百分比）
+// 收集并发送传感器数据和控制设备的函数
+void collectAndSendSensorData();
+
+// 强制采集并发送数据
+void forceCollectAndSendData();
+
+// 获取光照强度百分比0-100%
 int readLightLevel() {
     int rawValue = analogRead(LIGHT_PIN);
     int lightLevel = map(rawValue, LIGHT_MIN, LIGHT_MAX, 0, 100);
@@ -79,7 +89,7 @@ int readLightLevel() {
 
 // 控制蜂鸣器
 void controlBuzzer(float temperature) {
-    if (isRunning && !isnan(temperature) && temperature > TEMP_THRESHOLD) {
+    if (isRunning && !isnan(temperature) && temperature > tempThreshold) {
         digitalWrite(BUZZER_PIN, HIGH);
     } else {
         digitalWrite(BUZZER_PIN, LOW);
@@ -88,17 +98,65 @@ void controlBuzzer(float temperature) {
 
 // WebSocket事件处理函数
 void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
+    Serial.printf("[Debug] WebSocket事件类型: %d\n", type);
+    
     switch(type) {
         case WStype_DISCONNECTED:
             Serial.printf("[WebSocket] 事件: 断开连接!\n");
             wsConnected = false;
             break;
         case WStype_CONNECTED:
-            Serial.printf("[WebSocket] 事件: 连接成功，URL: %s\n", payload);
+            Serial.printf("[WebSocket] 事件: 连接成功URL: %s\n", payload);
             wsConnected = true;
             break;
         case WStype_TEXT:
-            Serial.printf("[WebSocket] 事件: 收到文本: %s\n", payload);
+            Serial.printf("[WebSocket] 事件: 收到消息: %s\n", payload);
+            // 处理收到的JSON消息
+            {
+                StaticJsonDocument<200> doc;
+                DeserializationError error = deserializeJson(doc, payload, length);
+                
+                if (!error) {
+                    // 判断是否有效命令
+                    Serial.println("[Debug] JSON解析成功，检查命令类型");
+                    
+                    if (doc.containsKey("type") && doc["type"] == "command") {
+                        Serial.println("[Debug] 收到命令类型消息");
+                        
+                        if (doc.containsKey("setThreshold") && doc["setThreshold"].is<float>()) {
+                            float newThreshold = doc["setThreshold"].as<float>();
+                            Serial.printf("[Debug] 收到温度阈值设置命令: %.1f\n", newThreshold);
+                            
+                            // 判断值是否在有效范围内
+                            if (newThreshold >= 0 && newThreshold <= 100) {
+                                tempThreshold = newThreshold;
+                                Serial.printf("[System] 温度阈值已更新为: %.1f°C\n", tempThreshold);
+                                
+                                // 返回确认消息
+                                StaticJsonDocument<100> response;
+                                response["type"] = "response";
+                                response["status"] = "success";
+                                response["message"] = "温度阈值已更新";
+                                response["newThreshold"] = tempThreshold;
+                                
+                                String jsonResponse;
+                                serializeJson(response, jsonResponse);
+                                Serial.printf("[Debug] 发送确认响应: %s\n", jsonResponse.c_str());
+                                webSocket.sendTXT(jsonResponse);
+                                
+                                // 强制采集并发送当前数据
+                                Serial.println("[Debug] 准备强制采集并发送数据");
+                                forceCollectAndSendData();
+                                Serial.println("[Debug] 强制数据发送流程完成");
+                            } else {
+                                Serial.println("[Error] 收到无效的温度阈值范围!");
+                            }
+                        }
+                    }
+                } else {
+                    Serial.println("[Error] 解析JSON消息失败!");
+                }
+            }
             break;
         case WStype_BIN:
             Serial.printf("[WebSocket] 收到二进制数据，长度: %u\n", length);
@@ -113,24 +171,172 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
         case WStype_FRAGMENT_FIN:
             break;
         case WStype_PING:
-            //Serial.println("[WebSocket] 事件: 收到 PING");
+            //Serial.println("[WebSocket] 收到 PING");
             break;
         case WStype_PONG:
-            //Serial.println("[WebSocket] 事件: 收到 PONG");
+            //Serial.println("[WebSocket] 收到 PONG");
             break;
+    }
+}
+
+// 强制采集并发送数据
+void forceCollectAndSendData() {
+    Serial.println("[Debug] 开始执行强制数据发送函数");
+    Serial.printf("[Debug] WebSocket连接状态: %s\n", wsConnected ? "已连接" : "未连接");
+    
+    if (wsConnected) {
+        float temperature = dht.readTemperature();  
+        float humidity = dht.readHumidity();  
+        int lightLevel = readLightLevel();
+        unsigned long currentMillis = millis();
+        
+        Serial.printf("[Debug] 读取传感器数据: 温度=%.1f, 湿度=%.1f\n", temperature, humidity);
+        
+        //判断是否有效
+        bool sensorOk = !isnan(temperature) && !isnan(humidity);
+        
+        if (!sensorOk) {
+            Serial.println("[Error] 强制采集时读取失败! 尝试重新读取...");
+            delay(100); // 短暂延迟后重试
+            temperature = dht.readTemperature();
+            humidity = dht.readHumidity();
+            sensorOk = !isnan(temperature) && !isnan(humidity);
+            
+            Serial.printf("[Debug] 重新读取传感器: 温度=%.1f, 湿度=%.1f, 状态=%s\n", 
+                         temperature, humidity, sensorOk ? "成功" : "失败");
+            
+            if (!sensorOk) {
+                // 即使读取失败，也尝试发送部分数据
+                temperature = 0;
+                humidity = 0;
+                Serial.println("[Debug] 使用默认值继续发送");
+            }
+        }
+        
+        // 无论如何都显示和发送数据
+        updateDisplay(temperature, humidity, lightLevel,
+                     isRunning && (temperature > tempThreshold), isRunning);
+        lastDisplayUpdateTime = currentMillis;
+        
+        // 发送
+        StaticJsonDocument<200> doc;
+        doc["temperature"] = sensorOk ? temperature : 0;
+        doc["humidity"] = sensorOk ? humidity : 0;
+        doc["light"] = lightLevel;
+        doc["alarm"] = (temperature > tempThreshold);
+        doc["threshold"] = tempThreshold;
+        doc["sensor_error"] = !sensorOk;  // 添加传感器错误标志
+        
+        // 获取之前时间
+        struct tm timeinfo;
+        if(getLocalTime(&timeinfo)) {
+            char timeString[30];
+            sprintf(timeString, "%04d-%02d-%02d %02d:%02d:%02d", 
+                    timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
+                    timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+            doc["timestamp"] = timeString;
+        }
+        
+        doc["type"] = "emit";
+        
+        String jsonString;
+        serializeJson(doc, jsonString);
+        
+        Serial.printf("[Debug] 准备发送数据: %s\n", jsonString.c_str());
+        
+        if (webSocket.sendTXT(jsonString)) {
+            Serial.println("[Data] 阈值更新后强制发送数据成功");
+        } else {
+            Serial.println("[Error] 强制发送数据失败!");
+        }
+    } else {
+        Serial.println("[Error] WebSocket未连接，尝试重新连接后发送数据");
+        
+        // 尝试重新连接WebSocket
+        if (WiFi.status() == WL_CONNECTED) {
+            Serial.println("[Debug] WiFi已连接，尝试重连WebSocket...");
+            webSocket.begin(wsHost, wsPort, wsPath);
+            delay(500); // 短暂等待连接
+            webSocket.loop(); // 处理一次WebSocket事件
+            
+            // 再次检查连接状态
+            if (wsConnected) {
+                Serial.println("[Debug] WebSocket重连成功，重新调用数据发送函数");
+                // 递归调用自身，但只能递归一次
+                forceCollectAndSendData();
+            } else {
+                Serial.println("[Error] WebSocket重连失败");
+            }
+        } else {
+            Serial.println("[Error] WiFi未连接，无法发送数据");
+        }
+    }
+}
+
+// 收集并发送传感器数据 (收集状态时发送)
+void collectAndSendSensorData() {
+    if (isRunning && wsConnected) {
+        float temperature = dht.readTemperature();  
+        float humidity = dht.readHumidity();  
+        int lightLevel = readLightLevel();
+        unsigned long currentMillis = millis();
+
+        bool sensorOk = true;
+        if (isnan(temperature) || isnan(humidity)) {  
+            Serial.println("[Error] 无法读取温湿度传感器!");  
+            sensorErrorDisplayUntil = currentMillis + 2000;
+            sensorOk = false;
+            return;
+        }  
+
+        controlBuzzer(temperature);
+
+        updateDisplay(temperature, humidity, lightLevel,
+                      sensorOk && (temperature > tempThreshold), isRunning);
+        lastDisplayUpdateTime = currentMillis;
+
+        if (sensorOk) {
+            StaticJsonDocument<200> doc;
+            doc["temperature"] = temperature;
+            doc["humidity"] = humidity;
+            doc["light"] = lightLevel;
+            doc["alarm"] = (temperature > tempThreshold);
+            doc["threshold"] = tempThreshold; // 也可以使用之前值
+            
+            // 获取之前时间
+            struct tm timeinfo;
+            if(getLocalTime(&timeinfo)) {
+                char timeString[30];
+                sprintf(timeString, "%04d-%02d-%02d %02d:%02d:%02d", 
+                        timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
+                        timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
+                doc["timestamp"] = timeString;
+            }
+            
+            doc["type"] = "emit";
+
+            String jsonString;
+            serializeJson(doc, jsonString);
+
+            if (webSocket.sendTXT(jsonString)) {
+                Serial.println("[Data] 收集并发送传感器数据成功");
+            } else {
+                Serial.println("[Error] WebSocket 收集并发送传感器数据失败或断开!");
+            }
+        }
     }
 }
 
 // 尝试重新连接WebSocket
 void tryReconnectWebSocket() {
     if (isRunning && WiFi.status() == WL_CONNECTED && !wsConnected && (millis() - lastReconnectAttempt > reconnectInterval)) {
-        Serial.println("[WebSocket] 重新外部连接...");
+        Serial.println("[WebSocket] 尝试重新连接...");
         webSocket.begin(wsHost, wsPort, wsPath);
         lastReconnectAttempt = millis();
     }
 }
 
-// 更新OLED显示
+// 屏幕显示
 void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm, bool running) {
     display.clearDisplay();
     display.setTextSize(1);
@@ -194,22 +400,22 @@ void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm
 }
 
 void setup() {  
-    Serial.begin(115200);  // 较高波特率以获得更好的调试输出
-    while (!Serial); // 等待串口连接 (可选)
-    Serial.println("\n[System] 初始化...");  
+    Serial.begin(115200);  // 选择串口
+    while (!Serial); // 等待串口初始化完成 (可选)
+    Serial.println("\n[System] 开始...");  
 
     // 初始化I2C
     Wire.begin(SDA_PIN, SCL_PIN);
     
-    // 初始化OLED显示器
+    // 初始化OLED屏幕
     if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
         Serial.println(F("[Error] SSD1306 初始化失败"));
         for(;;);
     }
     
-    // 设置显示器的对比度（可选）
+    // 设置OLED屏幕对比度，选择
     display.ssd1306_command(SSD1306_SETCONTRAST);
-    display.ssd1306_command(128); // 设置对比度为中等亮度
+    display.ssd1306_command(128); // 对比度为最大
     
     display.clearDisplay();
     display.setTextSize(1);
@@ -217,7 +423,7 @@ void setup() {
     display.setCursor(0,0);
     display.println("Initializing...");
     display.display();
-    delay(1000);  // 留出启动显示时间
+    delay(1000);  // 等待初始化完成显示
 
     // 初始化传感器
     dht.begin();
@@ -226,7 +432,7 @@ void setup() {
     digitalWrite(BUZZER_PIN, LOW);
     pinMode(BUTTON_PIN, INPUT_PULLUP); // 初始化按钮
 
-    // 连接到WiFi  
+    // 连接WiFi  
     Serial.print("[WiFi] 连接到: ");
     Serial.println(ssid);
     display.clearDisplay();
@@ -253,9 +459,9 @@ void setup() {
         display.println("WiFi Connected!");
         display.println(WiFi.localIP().toString());
         
-        // 配置NTP
+        // 连接NTP
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-        Serial.println("[NTP] 时间同步中...");
+        Serial.println("[NTP] 时间同步...");
         
         display.setCursor(0, 30); 
         display.println("Press button to start...");
@@ -267,25 +473,25 @@ void setup() {
         display.setCursor(0,0);
         display.println("WiFi Failed!");
         display.display();
-        while(1) delay(1000); // 暂时停止运行
+        while(1) delay(1000); // 长时间停止程序
     }
     
-    // 配置WebSocket
+    // 连接WebSocket
     webSocket.onEvent(webSocketEvent);
 
     webSocket.enableHeartbeat(15000, 5000, 2);
 
     webSocket.setReconnectInterval(5000);
 
-    Serial.println("[System] 初始化完成. 等待启动命令...");
-    // 确保初始屏幕是停止状态
-    updateDisplay(NAN, NAN, -1, false, isRunning); // 显示初始停止画面
+    Serial.println("[System] 开始... 等待屏幕状态...");
+    // 确保初始屏幕状态为停止状态
+    updateDisplay(NAN, NAN, -1, false, isRunning); // 显示初始停止状态
 }  
 
 void loop() {  
     unsigned long currentMillis = millis();
     
-    // 按钮防抖逻辑
+    // 按钮状态获取
     int reading = digitalRead(BUTTON_PIN);
     if (reading != lastButtonState) {
         lastDebounceTime = currentMillis;
@@ -293,119 +499,76 @@ void loop() {
     if ((currentMillis - lastDebounceTime) > debounceDelay) {
         if (reading != currentButtonState) {
             currentButtonState = reading;
-            if (currentButtonState == LOW) { // 检测到稳定按下状态
-                isRunning = !isRunning; // 切换状态
-                Serial.printf("[Control] 按钮按下，状态切换为: %s\n", isRunning ? "监控中" : "已停止");
+            if (currentButtonState == LOW) { // 稳定状态
+                isRunning = !isRunning; // 状态切换
+                Serial.printf("[Control] 按钮按下，状态切换为: %s\n", isRunning ? "运行" : "停止");
 
                 if (isRunning) {
-                    // 切换到运行
-                    Serial.println("[System] 开始监控...");
-                    // 尝试连接WebSocket (如果WiFi已连接)
+                    // 开始运行
+                    Serial.println("[System] 开始...");
+                    // 连接WebSocket (需要WiFi连接)
                     if (WiFi.status() == WL_CONNECTED) {
-                         Serial.println("[WebSocket] 首次初始连接...");
-                         webSocket.begin(wsHost, wsPort, wsPath); // 首次连接尝试初始
+                         Serial.println("[WebSocket] 连接...");
+                         webSocket.begin(wsHost, wsPort, wsPath); // 连接WebSocket
                          lastReconnectAttempt = currentMillis;
                     } else {
-                         Serial.println("[Warn] WiFi 未连接，无法连接 WebSocket");
-                         // isRunning 依然为 true, 等待 WiFi 恢复
+                         Serial.println("[Warn] WiFi未连接，无法连接 WebSocket");
+                         // isRunning 设为 true, 等待 WiFi 连接
                     }
                 } else {
-                    // 切换到停止
-                    Serial.println("[System] 停止监控...");
+                    // 停止运行
+                    Serial.println("[System] 停止...");
                     if (wsConnected) {
-                        webSocket.disconnect(); // 手动断开
-                        Serial.println("[WebSocket] 已手动断开");
+                        webSocket.disconnect(); // 断开连接
+                        Serial.println("[WebSocket] 断开连接");
                     }
-                    digitalWrite(BUZZER_PIN, LOW); // 关闭蜂鸣器
-                    wsConnected = false; // 确保状态同步
+                    digitalWrite(BUZZER_PIN, LOW); // 确保关闭蜂鸣器
+                    wsConnected = false; // 确保状态一致
                 }
-                 // 状态切换后即时更新显示
+                 // 状态变化时显示
                 updateDisplay(NAN, NAN, -1, false, isRunning);
                 lastDisplayUpdateTime = currentMillis;
             }
         }
     }
-    lastButtonState = reading; // 保存上次读取的状态
+    lastButtonState = reading; // 获取稳定状态
 
     if (isRunning) {
-        // 调用内部 webSocket.loop()
+        // 内部循环 webSocket.loop()
         webSocket.loop();
 
         if (WiFi.status() != WL_CONNECTED) {
-            Serial.println("[WiFi] Warn: 连接丢失! 等待自动重连后WebSocket将处理...");
+            Serial.println("[WiFi] Warn: 连接断开! 等待自动重连WebSocket...");
             wifiReconnectDisplayUntil = currentMillis + 2000;
-            // WiFi断开后WebSocket依然断开，关闭可能的警鸣
-            if(wsConnected) { // 如果 wsConnected 仍没有被回调事件改false
-                 wsConnected = false; // 手动改false，避免悖论发生
-                 Serial.println("[System] WiFi丢失，标记WebSocket为断开");
+            // WiFi断开WebSocket自动断开
+            if(wsConnected) { // 如果 wsConnected 没有收到断开信号为false
+                 wsConnected = false; // 断开信号为false阻止重复断开
+                 Serial.println("[System] WiFi断开WebSocket为断开");
             }
             digitalWrite(BUZZER_PIN, LOW);
         }
 
         if (WiFi.status() == WL_CONNECTED) {
-            tryReconnectWebSocket(); // 其会内部检查 isRunning 和 wsConnected
+            tryReconnectWebSocket(); // 内部循环 isRunning 和 wsConnected
         }
 
+        // 时间判断发送
         if (wsConnected && (currentMillis - lastDataSendTime >= dataSendInterval)) {
-            float temperature = dht.readTemperature();  
-            float humidity = dht.readHumidity();  
-            int lightLevel = readLightLevel();
-
-            bool sensorOk = true;
-            if (isnan(temperature) || isnan(humidity)) {  
-                Serial.println("[Error] 无法读取温湿度传感器!");  
-                sensorErrorDisplayUntil = currentMillis + 2000;
-                sensorOk = false;
-            }  
-
-            controlBuzzer(temperature);
-
-            updateDisplay(temperature, humidity, lightLevel,
-                          sensorOk && (temperature > TEMP_THRESHOLD), isRunning);
-            lastDisplayUpdateTime = currentMillis; // 更新显示时间戳
-
-            if (sensorOk && wsConnected) {
-                StaticJsonDocument<200> doc;
-                doc["temperature"] = temperature;
-                doc["humidity"] = humidity;
-                doc["light"] = lightLevel;
-                doc["alarm"] = (temperature > TEMP_THRESHOLD);
-                
-                // 添加实际时间戳
-                struct tm timeinfo;
-                if(getLocalTime(&timeinfo)) {
-                    char timeString[30];
-                    sprintf(timeString, "%04d-%02d-%02d %02d:%02d:%02d", 
-                            timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday,
-                            timeinfo.tm_hour, timeinfo.tm_min, timeinfo.tm_sec);
-                    doc["timestamp"] = timeString;
-                }
-                
-                doc["type"] = "emit";
-
-                String jsonString;
-                serializeJson(doc, jsonString);
-
-                if (wsConnected && webSocket.sendTXT(jsonString)) {
-                    //Serial.println("[Data] 发送: " + jsonString);
-                } else {
-                    Serial.println("[Error] WebSocket 发送失败或已断开!");
-                }
-            }
+            collectAndSendSensorData();
             lastDataSendTime = currentMillis;
         }
-        // 如果此时段没有发送数据，且WS未连接，仍应刷新一下屏幕
+        // 之前没有发送数据，WS断开应显示一个屏幕
         else if (currentMillis - lastDisplayUpdateTime > 1000) {
-             float temp_dummy = dht.readTemperature(true); // 尝试读取用来显示
+             float temp_dummy = dht.readTemperature(true); // 自动读取温度显示
              int light_dummy = readLightLevel();
              updateDisplay(temp_dummy, NAN, light_dummy, false, isRunning);
              lastDisplayUpdateTime = currentMillis;
         }
     } else {
-        // 停止状态逻辑
-        digitalWrite(BUZZER_PIN, LOW); // 确保蜂鸣器关闭
+        // 停止状态
+        digitalWrite(BUZZER_PIN, LOW); // 确保关闭蜂鸣器
 
-        // 周期性更新停止画面
+        // 之前没有发送数据，应显示停止状态
         if (currentMillis - lastDisplayUpdateTime > 1000) {
              updateDisplay(NAN, NAN, -1, false, isRunning);
              lastDisplayUpdateTime = currentMillis;

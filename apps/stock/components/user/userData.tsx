@@ -78,12 +78,17 @@ export default function UserData() {
 
   const handleLogout = async () => {
     await clearAuthData();
-    queryClient.invalidateQueries({ queryKey: ['user'] });
+    // 清除React Query缓存
+    queryClient.clear();
     Toast.show({
       type: 'success',
       text1: '退出登录成功',
     });
-    router.replace('/(auth)/login');
+    // 路由跳转时添加参数，与修改密码保持一致的处理方式
+    router.replace({
+      pathname: '/(auth)/login',
+      params: { fromLogout: 'true' },
+    });
   };
 
   // 处理选择和上传头像

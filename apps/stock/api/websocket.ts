@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { get } from './http';
 import { SensorData } from './useInventory';
 
@@ -17,6 +17,34 @@ const WS_URL = 'ws://localhost:8380/env';
 export const useStockData = (symbol?: string) => {
   const [data, setData] = useState<SensorData | null>(null);
   const [socket, setSocket] = useState<WebSocket | null>(null);
+  const [currentThreshold, setCurrentThreshold] = useState<number | null>(null);
+  const [thresholdUpdating, setThresholdUpdating] = useState(false);
+
+  // 发送阈值调整命令
+  const updateThreshold = useCallback(
+    (newThreshold: number) => {
+      if (!socket || socket.readyState !== WebSocket.OPEN) {
+        throw new Error('WebSocket连接未建立');
+      }
+
+      if (isNaN(newThreshold) || newThreshold < 0 || newThreshold > 100) {
+        throw new Error('无效的温度阈值 (0-100°C)');
+      }
+
+      // 发送阈值调整命令
+      const command = {
+        type: 'command',
+        setThreshold: newThreshold,
+      };
+
+      // 发送命令到WebSocket服务器
+      socket.send(JSON.stringify(command));
+      console.log('WebSocket发送命令:', command);
+
+      setThresholdUpdating(true);
+    },
+    [socket],
+  );
 
   useEffect(() => {
     let sockets: WebSocket | null = null;
@@ -34,12 +62,23 @@ export const useStockData = (symbol?: string) => {
           if (wsd.type === 'emit') {
             // 将WebSocket数据转换为SensorData格式 (使用数组格式)
             const sensorData: SensorData = {
-              temperature: wsd.temperature ? [wsd.temperature] : undefined,
-              humidity: [wsd.humidity || 0],
-              light: wsd.light ? [wsd.light] : undefined,
-              timestamps: wsd.timestamp ? [wsd.timestamp] : undefined,
+              temperature: wsd.temperature,
+              humidity: wsd.humidity,
+              light: wsd.light,
+              timestamp: wsd.timestamp,
+              threshold: wsd.threshold,
             };
+            console.log(sensorData);
             setData(sensorData);
+
+            // 如果有阈值信息，更新阈值状态
+            if (typeof wsd.threshold === 'number') {
+              setCurrentThreshold(wsd.threshold);
+            }
+          } else if (wsd.type === 'response' && wsd.status === 'success' && wsd.newThreshold) {
+            // 处理阈值更新响应
+            setCurrentThreshold(wsd.newThreshold);
+            setThresholdUpdating(false);
           }
         } catch (error) {
           console.error('WebSocket消息解析错误:', error);
@@ -54,5 +93,11 @@ export const useStockData = (symbol?: string) => {
     };
   }, [symbol]);
 
-  return { data, socket };
+  return {
+    data,
+    socket,
+    currentThreshold,
+    thresholdUpdating,
+    updateThreshold,
+  };
 };

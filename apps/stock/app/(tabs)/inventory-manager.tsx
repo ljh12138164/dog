@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Dashboard, EventsManager, Reports } from '@/components/inventory';
 import { useLatestSensorData } from '@/api/useInventory';
+import Toast from 'react-native-toast-message';
 
 export default function InventoryManagerScreen() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -108,6 +109,7 @@ export default function InventoryManagerScreen() {
         {activeTab === 'issues' && <EventsManager />}
         {activeTab === 'reports' && <Reports />}
       </View>
+      <Toast />
     </View>
   );
 }

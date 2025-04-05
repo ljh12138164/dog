@@ -27,10 +27,7 @@ const getAllowedRoutes = (userType?: string) => {
         { name: 'user', title: '我的', icon: 'person' },
       ];
     default:
-      return [
-        { name: 'user', title: '我的', icon: 'person' },
-        { name: 'text', title: '测试', icon: 'test' },
-      ];
+      return [{ name: 'user', title: '我的', icon: 'person' }];
   }
 };
 

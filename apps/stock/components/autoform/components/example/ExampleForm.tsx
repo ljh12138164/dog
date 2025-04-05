@@ -1,6 +1,6 @@
 import { ZodProvider } from '@autoform/zod';
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { z } from 'zod';
 import { AutoForm } from '../../AutoForm';
@@ -30,7 +30,7 @@ export const ExampleForm: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <AutoForm
         schema={schemaProvider}
         onSubmit={handleSubmit}
@@ -38,7 +38,7 @@ export const ExampleForm: React.FC = () => {
         withSubmit
       />
       <Toast />
-    </View>
+    </ScrollView>
   );
 };
 

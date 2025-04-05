@@ -19,6 +19,7 @@ export interface SensorData {
   light?: number | number[] | null;
   timestamps?: string[];
   timestamp?: string;
+  threshold?: number;
   notes?: string;
 }
 

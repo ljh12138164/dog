@@ -35,8 +35,9 @@ type LoginFormData = z.infer<typeof loginSchema>;
 export default function LoginScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  // 检查是否从密码修改页面跳转而来
+  // 检查是否从密码修改页面或正常退出登录跳转而来
   const fromPasswordChange = params.fromPasswordChange === 'true';
+  const fromLogout = params.fromLogout === 'true';
 
   // 使用react-query的登录hook
   const { mutate: login, isPending } = useLogin(Toast);
@@ -51,8 +52,10 @@ export default function LoginScreen() {
         text2: '请使用新密码登录',
         visibilityTime: 4000,
       });
+    } else if (fromLogout) {
+      // 普通退出登录时不需要特别提示，Toast已经在logout函数中显示了
     }
-  }, [fromPasswordChange]);
+  }, [fromPasswordChange, fromLogout]);
 
   // 使用react-hook-form管理表单
   const {
@@ -92,8 +95,8 @@ export default function LoginScreen() {
     );
   }
 
-  // 只有在不是从密码修改页面跳转且用户已登录的情况下才自动重定向
-  if (user && !fromPasswordChange) {
+  // 只有在不是从密码修改页面或退出登录跳转且用户已登录的情况下才自动重定向
+  if (user && !fromPasswordChange && !fromLogout) {
     return <Redirect href="/(tabs)" />;
   }
 
