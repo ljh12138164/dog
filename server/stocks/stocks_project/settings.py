@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # 自定义应用
     'users',
     'inventory',  # 新增的库存管理应用
+    'procurement',  # 添加采购管理应用
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # CSRF配置
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8100', 'http://127.0.0.1:8100', 'http://192.168.177.197:8100']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8100', 'http://127.0.0.1:8100', 'http://192.168.205.197:8100']
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False

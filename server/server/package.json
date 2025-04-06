@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "bun run src/index.ts"
+    "dev": "bun run src/index.ts --host 0.0.0.0"
   },
   "keywords": [],
   "author": "",

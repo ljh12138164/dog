@@ -8,7 +8,10 @@ from .views import (
     EnvironmentDataViewSet,
     InventoryEventViewSet,
     InventoryReportViewSet,
-    SensorDataViewSet
+    SensorDataViewSet,
+    MaterialRequestViewSet,
+    MaterialRequestItemViewSet,
+    InventoryViewSet
 )
 
 # 创建路由器并注册视图集
@@ -17,10 +20,13 @@ router.register(r'ingredients', IngredientViewSet)
 router.register(r'inventory-operations', InventoryOperationViewSet)
 router.register(r'employee/tasks', EmployeeTaskViewSet, basename='employee-task')
 router.register(r'employee/feedback', EmployeeFeedbackViewSet, basename='employee-feedback')
-router.register(r'environment-data', EnvironmentDataViewSet)
-router.register(r'inventory-events', InventoryEventViewSet)
-router.register(r'inventory-reports', InventoryReportViewSet)
+router.register(r'environment', EnvironmentDataViewSet)
+router.register(r'events', InventoryEventViewSet)
+router.register(r'reports', InventoryReportViewSet)
 router.register(r'sensor-data', SensorDataViewSet)
+router.register(r'material-requests', MaterialRequestViewSet)
+router.register(r'material-request-items', MaterialRequestItemViewSet)
+router.register(r'inventory', InventoryViewSet, basename='inventory')
 
 urlpatterns = [
     path('', include(router.urls)),

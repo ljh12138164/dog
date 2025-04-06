@@ -32,11 +32,8 @@ const Dashboard = () => {
   );
 
   // 使用WebSocket数据和阈值调整功能
-  const { socket, currentThreshold, thresholdUpdating, updateThreshold, data } = useStockData();
+  const { socket, thresholdUpdating, data } = useStockData();
 
-  // const { data: ingredients, isLoading: isLoadingIngredients } = useIngredientList();
-  // const createEnvironmentData = useCreateEnvironmentData(Toast);
-  // const createSensorData = useCreateSensorData(Toast);
   // 发送阈值调整命令
   const handleThresholdSubmit = () => {
     if (!socket || socket.readyState !== WebSocket.OPEN) {
@@ -86,21 +83,6 @@ const Dashboard = () => {
       });
     }
   };
-
-  // 计算库存统计信息
-  // const getInventoryStats = () => {
-  //   if (!ingredients) return { total: 0, normal: 0, low: 0, expired: 0, pendingCheck: 0 };
-
-  //   const stats = {
-  //     total: ingredients.length,
-  //     normal: ingredients.filter(i => i.status === 'normal').length,
-  //     low: ingredients.filter(i => i.status === 'low').length,
-  //     expired: ingredients.filter(i => i.status === 'expired').length,
-  //     pendingCheck: ingredients.filter(i => i.status === 'pending_check').length,
-  //   };
-
-  //   return stats;
-  // };
 
   // 准备图表数据
   const prepareChartData = () => {

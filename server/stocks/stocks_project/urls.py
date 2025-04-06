@@ -55,6 +55,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('users.urls')),
     path('api/', include('inventory.urls')),
+    path('api/', include('procurement.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('docs/', include_docs_urls(title='仓库系统 API 文档')),
     

@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
 export const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'http://127.0.0.1:8100/api';
-export const API_TIMEOUT = 15000; // 15秒超时 
+export const API_TIMEOUT = 15000; // 15秒超时
 
 // 创建axios实例
 const instance: AxiosInstance = axios.create({
@@ -20,12 +20,12 @@ const refreshAccessToken = async () => {
   if (!refreshToken) {
     throw new Error('No refresh token available');
   }
-  
+
   try {
     const response = await axios.post(`${API_BASE_URL}/token/refresh/`, {
-      refresh: refreshToken
+      refresh: refreshToken,
     });
-    
+
     const { access } = response.data;
     await AsyncStorage.setItem('access_token', access);
     return access;
@@ -42,17 +42,17 @@ instance.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
     // 从AsyncStorage获取JWT访问令牌
     const token = await AsyncStorage.getItem('access_token');
-    
+
     // 如果有token则添加到请求头
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    
+
     return config;
   },
   (error: AxiosError) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // 响应拦截器
@@ -62,24 +62,25 @@ instance.interceptors.response.use(
   },
   async (error: AxiosError) => {
     const originalRequest: any = error.config;
-    
+
     // 处理401错误（未授权）且不是刷新token的请求
-    if (error.response && 
-        error.response.status === 401 && 
-        !originalRequest._retry && 
-        originalRequest.url !== '/token/refresh/') {
-      
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      !originalRequest._retry &&
+      originalRequest.url !== '/token/refresh/'
+    ) {
       originalRequest._retry = true;
-      
+
       try {
         // 尝试刷新token
         const newAccessToken = await refreshAccessToken();
-        
+
         // 使用新token更新原始请求的headers
         if (originalRequest.headers) {
           originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         }
-        
+
         // 重试原始请求
         return instance(originalRequest);
       } catch (refreshError) {
@@ -90,9 +91,9 @@ instance.interceptors.response.use(
         return Promise.reject(refreshError);
       }
     }
-    
+
     return Promise.reject(error);
-  }
+  },
 );
 
 // 封装GET请求
@@ -140,6 +141,11 @@ export const put = async <T>(url: string, data?: object): Promise<T> => {
     const response = await instance.put<T>(url, data);
     return response.data;
   } catch (error) {
+    console.error(`PUT请求失败: ${url}`, error); // 打印错误详情
+    if (axios.isAxiosError(error) && error.response) {
+      console.error('状态码:', error.response.status);
+      console.error('响应数据:', error.response.data);
+    }
     throw error;
   }
 };

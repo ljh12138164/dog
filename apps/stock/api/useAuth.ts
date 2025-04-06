@@ -356,7 +356,6 @@ export const useCurrentUser = () => {
     queryFn: fetchCurrentUserApi,
     retry: 1,
     staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
-    refetchOnWindowFocus: false,
   });
 };
 

@@ -22,7 +22,7 @@ export default function TaskList() {
     if (!selectedTask) return;
 
     try {
-      await handleCompleteTask(selectedTask.id);
+      await handleCompleteTask(selectedTask?.id!);
       Alert.alert('成功', '任务已标记为已完成');
       hideDialog();
     } catch (error) {
@@ -77,7 +77,7 @@ export default function TaskList() {
               <List.Item
                 key={task.id}
                 title={task.title}
-                description={`截止日期: ${format(new Date(task.due_date), 'yyyy-MM-dd')}`}
+                description={`截止日期: ${task.due_date ? format(new Date(task.due_date), 'yyyy-MM-dd') : '未知'}`}
                 onPress={() => showTaskDetail(task)}
                 left={props => (
                   <List.Icon

@@ -5,7 +5,6 @@ import { StyleSheet, TextInput } from 'react-native';
 
 export const StringField: React.FC<AutoFormFieldProps> = ({ id, inputProps, field, error }) => {
   const { control, formState } = useFormContext();
-  console.log(field);
   return (
     <Controller
       control={control}

@@ -7,23 +7,25 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 // 根据用户类型获取允许访问的路由
 const getAllowedRoutes = (userType?: string) => {
   switch (userType) {
-    //
-    case 'admin':
+    case 'inventory':
       return [
         { name: 'inventory-manager', title: '库存管理', icon: 'event-note' },
-        { name: 'stock', title: '出入库', icon: 'assessment' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
     case 'procurement':
       return [
         { name: 'procurement-manager', title: '首页', icon: 'home' },
-        { name: 'stock', title: '库存管理', icon: 'inventory' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
-    case 'inventory':
+    case 'logistics':
       return [
         { name: 'inventory-manager', title: '库存管理', icon: 'event-note' },
-        { name: 'stock', title: '出入库', icon: 'assessment' },
+        // { name: 'stock', title: '出入库', icon: 'assessment' },
+        { name: 'user', title: '我的', icon: 'person' },
+      ];
+    case 'employee':
+      return [
+        { name: 'ordinary-user', title: '首页', icon: 'home' },
         { name: 'user', title: '我的', icon: 'person' },
       ];
     default:
@@ -45,7 +47,6 @@ export default function Layout() {
 
       // 如果当前路由不在允许列表中，重定向到首页
       if (currentRoute && !allowedRoutes.includes(currentRoute)) {
-        console.log(`用户 ${userType} 无权访问 ${currentRoute}，重定向到首页`);
         router.replace('/(tabs)');
       }
     }

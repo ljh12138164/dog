@@ -10,10 +10,10 @@ export interface StockData {
   timestamp: string;
   temperature?: number;
 }
-const API_URL = 'http://localhost:8100/api/sensor-data/latest/';
+const API_URL = 'http://192.168.205.197:8100/api/sensor-data/latest/';
 
 // WebSocket服务器配置 - 修正路径与服务器端匹配
-const WS_URL = 'ws://localhost:8380/env';
+const WS_URL = 'ws://192.168.205.197:8380/env';
 export const useStockData = (symbol?: string) => {
   const [data, setData] = useState<SensorData | null>(null);
   const [socket, setSocket] = useState<WebSocket | null>(null);
@@ -50,7 +50,7 @@ export const useStockData = (symbol?: string) => {
     let sockets: WebSocket | null = null;
 
     get<SensorData>(API_URL).then(data => {
-      setData(data);
+      setData({ ...data, threshold: 30 });
       // 定义数据监听器
       sockets = new WebSocket(WS_URL);
       sockets.onopen = () => {

@@ -152,7 +152,6 @@ function Index() {
             layout: 'horizontal',
             className: 'no-margin-form',
             onFinish: e => {
-              // console.log("onFinish", e);
               setValue(e);
             },
           }}

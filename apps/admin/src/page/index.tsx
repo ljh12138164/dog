@@ -4,6 +4,8 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   MessageOutlined,
+  ShopOutlined,
+  StockOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Button, Dropdown, Layout, Menu } from 'antd';
@@ -39,6 +41,16 @@ const AdminLayout = () => {
       key: '/feedback',
       icon: <MessageOutlined />,
       label: '反馈',
+    },
+    {
+      key: 'show',
+      icon: <ShopOutlined />,
+      label: '食材',
+    },
+    {
+      key: 'stock',
+      icon: <StockOutlined />,
+      label: '库存',
     },
     // {
     //   key: '/autoform',

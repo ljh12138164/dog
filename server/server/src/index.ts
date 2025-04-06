@@ -51,8 +51,6 @@ const frontendClients = new Set<WebSocket>();
 
 // 处理WebSocket连接
 wss.on('connection', (ws, request) => {
-  console.log('新连接已建立');
-
   // 客户端标识，默认为前端
   let isDevice = false;
 
@@ -69,15 +67,12 @@ wss.on('connection', (ws, request) => {
     try {
       // 解析接收到的JSON数据
       const data = JSON.parse(message.toString()) as WebSocketMessage;
-      console.log('收到数据:', data);
-
       if (data.type === 'emit') {
         // 这是来自ESP32设备的数据
         if (!isDevice) {
           isDevice = true;
           frontendClients.delete(ws);
           devices.add(ws);
-          console.log('识别为ESP32设备');
         }
 
         // 发送数据到Django API
@@ -94,7 +89,6 @@ wss.on('connection', (ws, request) => {
         });
       } else if (data.type === 'command') {
         // 这是来自前端的命令
-        console.log('收到命令:', data);
 
         // 转发命令给所有设备
         devices.forEach(device => {
@@ -104,7 +98,6 @@ wss.on('connection', (ws, request) => {
         });
       } else if (data.type === 'response') {
         // 这是来自设备的响应
-        console.log('收到设备响应:', data);
 
         // 转发响应给所有前端客户端
         frontendClients.forEach(client => {
@@ -121,10 +114,8 @@ wss.on('connection', (ws, request) => {
   // 处理连接关闭
   ws.on('close', () => {
     if (isDevice) {
-      console.log('设备已断开连接');
       devices.delete(ws);
     } else {
-      console.log('前端客户端已断开连接');
       frontendClients.delete(ws);
     }
   });
@@ -147,7 +138,6 @@ wss.on('connection', (ws, request) => {
 async function sendDataToDjangoAPI(data: SensorData) {
   try {
     const response = await axios.post(API_URL, data);
-    console.log('数据已成功保存到Django:', response.data);
   } catch (error) {
     console.error('发送数据到Django时出错:', error);
   }
@@ -155,15 +145,11 @@ async function sendDataToDjangoAPI(data: SensorData) {
 
 // 设置服务器监听端口
 const PORT = 8380;
-server.listen(PORT, () => {
-  console.log(`WebSocket服务器运行在 ws://0.0.0.0:${PORT}/env`);
-});
+server.listen(PORT, () => {});
 
 // 优雅地处理进程终止
 process.on('SIGINT', () => {
-  console.log('正在关闭服务器...');
   server.close(() => {
-    console.log('服务器已关闭');
     process.exit(0);
   });
 });

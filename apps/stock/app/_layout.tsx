@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import blueWhiteTheme from '../theme';
 
 // 阻止启动画面自动隐藏
 SplashScreen.preventAutoHideAsync();
@@ -43,7 +44,7 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PaperProvider>
+      <PaperProvider theme={blueWhiteTheme}>
         <Slot />
       </PaperProvider>
     </QueryClientProvider>

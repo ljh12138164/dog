@@ -282,8 +282,28 @@ class UserViewSet(viewsets.ModelViewSet):
             return UserAvatarSerializer
         return UserSerializer
     
+    def get_queryset(self):
+        """
+        根据查询参数过滤用户列表
+        支持按user_type过滤
+        """
+        queryset = User.objects.all()
+        
+        # 支持按user_type过滤
+        user_type = self.request.query_params.get('user_type', None)
+        if user_type is not None:
+            queryset = queryset.filter(user_type=user_type)
+            
+        return queryset
+    
     def get_permissions(self):
-        if self.action in ['create', 'list', 'destroy', 'update', 'partial_update']:
+        if self.action in ['create', 'destroy', 'update', 'partial_update']:
+            return [IsAdminUser()]
+        elif self.action == 'list':
+            # 允许管理员、库存管理员和物流管理员访问用户列表
+            # 特别是当查询参数有user_type=employee时
+            if self.request.user.user_type in ['admin', 'inventory', 'logistics','procurement']:
+                return [permissions.IsAuthenticated()]
             return [IsAdminUser()]
         return [permissions.IsAuthenticated()]
     

@@ -1,0 +1,302 @@
+.container {
+  flex: 1;
+  background-color: #f5f7fa;
+  height: 100%;
+  padding: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 食材列表组件样式 */
+.list-container {
+  width: 100%;
+  background-color: #f5f7fa;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.list-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.add-button {
+  background-color: #2ecc71;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.search-input {
+  width: 100%;
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.item-container {
+  background-color: white;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: #34495e;
+}
+
+.item-category {
+  color: #7f8c8d;
+  margin-bottom: 4px;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.badge-normal {
+  background-color: #3498db;
+}
+
+.badge-expired {
+  background-color: #e74c3c;
+}
+
+.badge-low {
+  background-color: #f39c12;
+}
+
+.badge-pending_check {
+  background-color: #9b59b6;
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.edit-button {
+  background-color: #3498db;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.loading-text {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.empty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.empty-text {
+  font-size: 16px;
+  color: #7f8c8d;
+}
+
+/* 表单样式 */
+.form-container {
+  padding: 20px;
+  background-color: #f5f7fa;
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.form-col {
+  flex: 1;
+}
+
+.form-col:first-child {
+  margin-right: 8px;
+}
+
+.form-col:last-child {
+  margin-left: 8px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.form-input-error {
+  border-color: #e74c3c;
+}
+
+.form-status-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.status-button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #ecf0f1;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.status-selected {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.cancel-button {
+  flex: 1;
+  background-color: #ecf0f1;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: center;
+  margin-right: 8px;
+  cursor: pointer;
+  border: none;
+  color: #34495e;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.submit-button {
+  flex: 2;
+  background-color: #2ecc71;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.disabled-button {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.error-container {
+  background-color: #fdedec;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}

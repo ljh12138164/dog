@@ -218,7 +218,6 @@ const AutoFormBuilder: React.FC = () => {
               antFormProps={{
                 layout: 'vertical',
                 onFinish: values => {
-                  console.log('表单数据:', values);
                   message.success('提交成功！');
                 },
               }}

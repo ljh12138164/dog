@@ -1,31 +1,23 @@
+import DateTimePicker from '@react-native-community/datetimepicker';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import {
-  Card,
-  Title,
   Button,
-  Divider,
-  List,
+  Chip,
   Dialog,
+  Paragraph,
   Portal,
   RadioButton,
   TextInput,
-  Paragraph,
-  ActivityIndicator,
-  Chip,
 } from 'react-native-paper';
-import { useTheme } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import {
-  useInventoryReports,
-  useGenerateInventoryReport,
-  useCreateInventoryReport,
   InventoryReport,
+  useCreateInventoryReport,
+  useGenerateInventoryReport,
 } from '../../api/useInventory';
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Reports = () => {
-  const theme = useTheme();
   const [isGenerateDialogVisible, setGenerateDialogVisible] = useState(false);
   const [isViewReportDialogVisible, setViewReportDialogVisible] = useState(false);
   const [isCreateDialogVisible, setCreateDialogVisible] = useState(false);
@@ -43,7 +35,7 @@ const Reports = () => {
   });
 
   // 获取数据
-  const { data: reports, isLoading } = useInventoryReports();
+  // const { data: reports, isLoading } = useInventoryReports();
   const generateReport = useGenerateInventoryReport(Toast);
   const createReport = useCreateInventoryReport(Toast);
 

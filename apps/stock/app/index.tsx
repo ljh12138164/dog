@@ -1,5 +1,5 @@
-import { Redirect, useSegments, useRouter } from 'expo-router';
-import React, { useEffect, useState } from 'react';
+import { Redirect } from 'expo-router';
+import React from 'react';
 import { useCurrentUser } from '../api/useAuth';
 
 // function useProtectedRoute() {

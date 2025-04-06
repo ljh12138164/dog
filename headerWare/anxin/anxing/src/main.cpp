@@ -7,79 +7,79 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-// OLEDÏÔÊ¾ÆÁÄ»
-#define SCREEN_WIDTH 128    // OLEDÏÔÊ¾ÆÁÄ»µÄ¿í¶È
-#define SCREEN_HEIGHT 64    // OLEDÏÔÊ¾ÆÁÄ»µÄ¸ß¶È
-#define OLED_RESET -1      // Reset°´Å¥-1±íÊ¾Ê¹ÓÃArduinoµÄ16Òý½Å
-#define SCREEN_ADDRESS 0x3C // OLEDÏÔÊ¾ÆÁÄ»I2CµØÖ·
+// OLEDï¿½ï¿½Ê¾ï¿½ï¿½Ä»
+#define SCREEN_WIDTH 128    // OLEDï¿½ï¿½Ê¾ï¿½ï¿½Ä»ï¿½Ä¿ï¿½ï¿½ï¿½
+#define SCREEN_HEIGHT 64    // OLEDï¿½ï¿½Ê¾ï¿½ï¿½Ä»ï¿½Ä¸ß¶ï¿½
+#define OLED_RESET -1      // Resetï¿½ï¿½Å¥-1ï¿½ï¿½Ê¾Ê¹ï¿½ï¿½Arduinoï¿½ï¿½16ï¿½ï¿½ï¿½ï¿½
+#define SCREEN_ADDRESS 0x3C // OLEDï¿½ï¿½Ê¾ï¿½ï¿½Ä»I2Cï¿½ï¿½Ö·
 
-// I2CÒý½Å
+// I2Cï¿½ï¿½ï¿½ï¿½
 #define SCL_PIN 22
 #define SDA_PIN 21
 
-// ÎÂ¶ÈãÐÖµ
-// #define TEMP_THRESHOLD 30.0  // ÎÂ¶ÈãÐÖµ×÷Îª¾²Ì¬±äÁ¿ÔÚ¾²Ì¬ÅÐ¶ÏÊ±Ê¹ÓÃ
-float tempThreshold = 30.0;  // ÓÃ»§Í¨¹ý½Ó¿ÚÉèÖÃµÄÎÂ¶ÈãÐÖµ£¬ÔÚ¾²Ì¬ÅÐ¶ÏÊ±Ê¹ÓÃ
+// ï¿½Â¶ï¿½ï¿½ï¿½Öµ
+// #define TEMP_THRESHOLD 30.0  // ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½ï¿½Îªï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½Ì¬ï¿½Ð¶ï¿½Ê±Ê¹ï¿½ï¿½
+float tempThreshold = 30.0;  // ï¿½Ã»ï¿½Í¨ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ú¾ï¿½Ì¬ï¿½Ð¶ï¿½Ê±Ê¹ï¿½ï¿½
 
-// ÆÁÄ»ÏÔÊ¾¾²Ì¬ÐÅÏ¢
+// ï¿½ï¿½Ä»ï¿½ï¿½Ê¾ï¿½ï¿½Ì¬ï¿½ï¿½Ï¢
 void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm, bool running);
 
-// OLEDÏÔÊ¾ÆÁÄ»
+// OLEDï¿½ï¿½Ê¾ï¿½ï¿½Ä»
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-// WiFiÁ¬½Ó
+// WiFiï¿½ï¿½ï¿½ï¿½
 const char* ssid = "PPX";  
 const char* password = "a1668692058";  
 
-// WebSocketÁ¬½Ó
-const char* wsHost = "192.168.177.197";  // Ä¿±êIP
+// WebSocketï¿½ï¿½ï¿½ï¿½
+const char* wsHost = "192.168.211.197";  // Ä¿ï¿½ï¿½IP
 const uint16_t wsPort = 8380;
-const char* wsPath = "/env";  // Ê¹ÓÃÂ·¾¶
+const char* wsPath = "/env";  // Ê¹ï¿½ï¿½Â·ï¿½ï¿½
 
-// NTPÁ¬½Ó
+// NTPï¿½ï¿½ï¿½ï¿½
 const char* ntpServer = "pool.ntp.org";
-const long  gmtOffset_sec = 8 * 3600; // ÖÐ¹úÊ±ÇøUTC+8
+const long  gmtOffset_sec = 8 * 3600; // ï¿½Ð¹ï¿½Ê±ï¿½ï¿½UTC+8
 const int   daylightOffset_sec = 0;
 
-// ´«¸ÐÆ÷Á¬½Ó
-#define DHT_PIN 17      // DHT11ÎÂÊª¶È´«¸ÐÆ÷Á¬½Ó
-#define LIGHT_PIN 35    // ¹âÕÕÇ¿¶È´«¸ÐÆ÷Á¬½Ó(ADC1_CH0)
-#define BUZZER_PIN 25   // ·äÃùÆ÷Á¬½Ó
-#define BUTTON_PIN 18   // °´Å¥Á¬½ÓI2C
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define DHT_PIN 17      // DHT11ï¿½ï¿½Êªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define LIGHT_PIN 35    // ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ADC1_CH0)
+#define BUZZER_PIN 25   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define BUTTON_PIN 18   // ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½I2C
 #define DHT_TYPE DHT11  
 
-// ADCÖµ·¶Î§
-#define LIGHT_MIN 0     // ADC×îÐ¡Öµ
-#define LIGHT_MAX 4095  // ADC×î´óÖµ12Î»ADC
+// ADCÖµï¿½ï¿½Î§
+#define LIGHT_MIN 0     // ADCï¿½ï¿½Ð¡Öµ
+#define LIGHT_MAX 4095  // ADCï¿½ï¿½ï¿½Öµ12Î»ADC
 
-// ÆÁÄ»×´Ì¬
+// ï¿½ï¿½Ä»×´Ì¬
 volatile bool wsConnected = false;
-bool isRunning = false;             // ÔËÐÐ×´Ì¬±êÖ¾£¬³õÊ¼ÎªÍ£Ö¹
+bool isRunning = false;             // ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Ê¼ÎªÍ£Ö¹
 unsigned long lastReconnectAttempt = 0;
-const unsigned long reconnectInterval = 5000;  // ÖØÁ¬¼ä¸ô5Ãë
+const unsigned long reconnectInterval = 5000;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½
 unsigned long lastDataSendTime = 0;
-const unsigned long dataSendInterval = 1000*30;   // Êý¾Ý·¢ËÍ¼ä¸ô2·ÖÖÓ
+const unsigned long dataSendInterval = 1000*30;   // ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Í¼ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½
 
-unsigned long sensorErrorDisplayUntil = 0; // ´«¸ÐÆ÷´íÎóÐÅÏ¢ÏÔÊ¾Ê±¼ä
-unsigned long wifiReconnectDisplayUntil = 0; // WiFi¶Ï¿ªÏÔÊ¾
-unsigned long lastDisplayUpdateTime = 0; // Í£Ö¹×´Ì¬ÏÔÊ¾Ê±¼ä
+unsigned long sensorErrorDisplayUntil = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ê¾Ê±ï¿½ï¿½
+unsigned long wifiReconnectDisplayUntil = 0; // WiFiï¿½Ï¿ï¿½ï¿½ï¿½Ê¾
+unsigned long lastDisplayUpdateTime = 0; // Í£Ö¹×´Ì¬ï¿½ï¿½Ê¾Ê±ï¿½ï¿½
 
-// °´Å¥×´Ì¬
+// ï¿½ï¿½Å¥×´Ì¬
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 50; // 50ms È¥¶¶
-int lastButtonState = HIGH;      // ³õÊ¼°´Å¥×´Ì¬
-int currentButtonState = HIGH;   // Ö®Ç°ÎÈ¶¨×´Ì¬
+unsigned long debounceDelay = 50; // 50ms È¥ï¿½ï¿½
+int lastButtonState = HIGH;      // ï¿½ï¿½Ê¼ï¿½ï¿½Å¥×´Ì¬
+int currentButtonState = HIGH;   // Ö®Ç°ï¿½È¶ï¿½×´Ì¬
 
 DHT dht(DHT_PIN, DHT_TYPE);
 WebSocketsClient webSocket;
 
-// ÊÕ¼¯²¢·¢ËÍ´«¸ÐÆ÷Êý¾ÝºÍ¿ØÖÆÉè±¸µÄº¯Êý
+// ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÝºÍ¿ï¿½ï¿½ï¿½ï¿½è±¸ï¿½Äºï¿½ï¿½ï¿½
 void collectAndSendSensorData();
 
-// Ç¿ÖÆ²É¼¯²¢·¢ËÍÊý¾Ý
+// Ç¿ï¿½Æ²É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void forceCollectAndSendData();
 
-// »ñÈ¡¹âÕÕÇ¿¶È°Ù·Ö±È0-100%
+// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½È°Ù·Ö±ï¿½0-100%
 int readLightLevel() {
     int rawValue = analogRead(LIGHT_PIN);
     int lightLevel = map(rawValue, LIGHT_MIN, LIGHT_MAX, 0, 100);
@@ -87,7 +87,7 @@ int readLightLevel() {
     return lightLevel;
 }
 
-// ¿ØÖÆ·äÃùÆ÷
+// ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½
 void controlBuzzer(float temperature) {
     if (isRunning && !isnan(temperature) && temperature > tempThreshold) {
         digitalWrite(BUZZER_PIN, HIGH);
@@ -96,73 +96,73 @@ void controlBuzzer(float temperature) {
     }
 }
 
-// WebSocketÊÂ¼þ´¦Àíº¯Êý
+// WebSocketï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
-    Serial.printf("[Debug] WebSocketÊÂ¼þÀàÐÍ: %d\n", type);
+    Serial.printf("[Debug] WebSocketï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½: %d\n", type);
     
     switch(type) {
         case WStype_DISCONNECTED:
-            Serial.printf("[WebSocket] ÊÂ¼þ: ¶Ï¿ªÁ¬½Ó!\n");
+            Serial.printf("[WebSocket] ï¿½Â¼ï¿½: ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½!\n");
             wsConnected = false;
             break;
         case WStype_CONNECTED:
-            Serial.printf("[WebSocket] ÊÂ¼þ: Á¬½Ó³É¹¦URL: %s\n", payload);
+            Serial.printf("[WebSocket] ï¿½Â¼ï¿½: ï¿½ï¿½ï¿½Ó³É¹ï¿½URL: %s\n", payload);
             wsConnected = true;
             break;
         case WStype_TEXT:
-            Serial.printf("[WebSocket] ÊÂ¼þ: ÊÕµ½ÏûÏ¢: %s\n", payload);
-            // ´¦ÀíÊÕµ½µÄJSONÏûÏ¢
+            Serial.printf("[WebSocket] ï¿½Â¼ï¿½: ï¿½Õµï¿½ï¿½ï¿½Ï¢: %s\n", payload);
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½JSONï¿½ï¿½Ï¢
             {
                 StaticJsonDocument<200> doc;
                 DeserializationError error = deserializeJson(doc, payload, length);
                 
                 if (!error) {
-                    // ÅÐ¶ÏÊÇ·ñÓÐÐ§ÃüÁî
-                    Serial.println("[Debug] JSON½âÎö³É¹¦£¬¼ì²éÃüÁîÀàÐÍ");
+                    // ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½
+                    Serial.println("[Debug] JSONï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     
                     if (doc.containsKey("type") && doc["type"] == "command") {
-                        Serial.println("[Debug] ÊÕµ½ÃüÁîÀàÐÍÏûÏ¢");
+                        Serial.println("[Debug] ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢");
                         
                         if (doc.containsKey("setThreshold") && doc["setThreshold"].is<float>()) {
                             float newThreshold = doc["setThreshold"].as<float>();
-                            Serial.printf("[Debug] ÊÕµ½ÎÂ¶ÈãÐÖµÉèÖÃÃüÁî: %.1f\n", newThreshold);
+                            Serial.printf("[Debug] ï¿½Õµï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %.1f\n", newThreshold);
                             
-                            // ÅÐ¶ÏÖµÊÇ·ñÔÚÓÐÐ§·¶Î§ÄÚ
+                            // ï¿½Ð¶ï¿½Öµï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Î§ï¿½ï¿½
                             if (newThreshold >= 0 && newThreshold <= 100) {
                                 tempThreshold = newThreshold;
-                                Serial.printf("[System] ÎÂ¶ÈãÐÖµÒÑ¸üÐÂÎª: %.1f¡ãC\n", tempThreshold);
+                                Serial.printf("[System] ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½Ñ¸ï¿½ï¿½ï¿½Îª: %.1fï¿½ï¿½C\n", tempThreshold);
                                 
-                                // ·µ»ØÈ·ÈÏÏûÏ¢
+                                // ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ï¢
                                 StaticJsonDocument<100> response;
                                 response["type"] = "response";
                                 response["status"] = "success";
-                                response["message"] = "ÎÂ¶ÈãÐÖµÒÑ¸üÐÂ";
+                                response["message"] = "ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½Ñ¸ï¿½ï¿½ï¿½";
                                 response["newThreshold"] = tempThreshold;
                                 
                                 String jsonResponse;
                                 serializeJson(response, jsonResponse);
-                                Serial.printf("[Debug] ·¢ËÍÈ·ÈÏÏìÓ¦: %s\n", jsonResponse.c_str());
+                                Serial.printf("[Debug] ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ó¦: %s\n", jsonResponse.c_str());
                                 webSocket.sendTXT(jsonResponse);
                                 
-                                // Ç¿ÖÆ²É¼¯²¢·¢ËÍµ±Ç°Êý¾Ý
-                                Serial.println("[Debug] ×¼±¸Ç¿ÖÆ²É¼¯²¢·¢ËÍÊý¾Ý");
+                                // Ç¿ï¿½Æ²É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+                                Serial.println("[Debug] ×¼ï¿½ï¿½Ç¿ï¿½Æ²É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                                 forceCollectAndSendData();
-                                Serial.println("[Debug] Ç¿ÖÆÊý¾Ý·¢ËÍÁ÷³ÌÍê³É");
+                                Serial.println("[Debug] Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                             } else {
-                                Serial.println("[Error] ÊÕµ½ÎÞÐ§µÄÎÂ¶ÈãÐÖµ·¶Î§!");
+                                Serial.println("[Error] ï¿½Õµï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµï¿½ï¿½Î§!");
                             }
                         }
                     }
                 } else {
-                    Serial.println("[Error] ½âÎöJSONÏûÏ¢Ê§°Ü!");
+                    Serial.println("[Error] ï¿½ï¿½ï¿½ï¿½JSONï¿½ï¿½Ï¢Ê§ï¿½ï¿½!");
                 }
             }
             break;
         case WStype_BIN:
-            Serial.printf("[WebSocket] ÊÕµ½¶þ½øÖÆÊý¾Ý£¬³¤¶È: %u\n", length);
+            Serial.printf("[WebSocket] ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½: %u\n", length);
             break;
         case WStype_ERROR:
-            Serial.printf("[WebSocket] ÊÂ¼þ: ´íÎó: %s\n", payload);
+            Serial.printf("[WebSocket] ï¿½Â¼ï¿½: ï¿½ï¿½ï¿½ï¿½: %s\n", payload);
             wsConnected = false;
             break;
         case WStype_FRAGMENT_TEXT_START:
@@ -171,18 +171,18 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
         case WStype_FRAGMENT_FIN:
             break;
         case WStype_PING:
-            //Serial.println("[WebSocket] ÊÕµ½ PING");
+            //Serial.println("[WebSocket] ï¿½Õµï¿½ PING");
             break;
         case WStype_PONG:
-            //Serial.println("[WebSocket] ÊÕµ½ PONG");
+            //Serial.println("[WebSocket] ï¿½Õµï¿½ PONG");
             break;
     }
 }
 
-// Ç¿ÖÆ²É¼¯²¢·¢ËÍÊý¾Ý
+// Ç¿ï¿½Æ²É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void forceCollectAndSendData() {
-    Serial.println("[Debug] ¿ªÊ¼Ö´ÐÐÇ¿ÖÆÊý¾Ý·¢ËÍº¯Êý");
-    Serial.printf("[Debug] WebSocketÁ¬½Ó×´Ì¬: %s\n", wsConnected ? "ÒÑÁ¬½Ó" : "Î´Á¬½Ó");
+    Serial.println("[Debug] ï¿½ï¿½Ê¼Ö´ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Íºï¿½ï¿½ï¿½");
+    Serial.printf("[Debug] WebSocketï¿½ï¿½ï¿½ï¿½×´Ì¬: %s\n", wsConnected ? "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" : "Î´ï¿½ï¿½ï¿½ï¿½");
     
     if (wsConnected) {
         float temperature = dht.readTemperature();  
@@ -190,44 +190,44 @@ void forceCollectAndSendData() {
         int lightLevel = readLightLevel();
         unsigned long currentMillis = millis();
         
-        Serial.printf("[Debug] ¶ÁÈ¡´«¸ÐÆ÷Êý¾Ý: ÎÂ¶È=%.1f, Êª¶È=%.1f\n", temperature, humidity);
+        Serial.printf("[Debug] ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Â¶ï¿½=%.1f, Êªï¿½ï¿½=%.1f\n", temperature, humidity);
         
-        //ÅÐ¶ÏÊÇ·ñÓÐÐ§
+        //ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§
         bool sensorOk = !isnan(temperature) && !isnan(humidity);
         
         if (!sensorOk) {
-            Serial.println("[Error] Ç¿ÖÆ²É¼¯Ê±¶ÁÈ¡Ê§°Ü! ³¢ÊÔÖØÐÂ¶ÁÈ¡...");
-            delay(100); // ¶ÌÔÝÑÓ³ÙºóÖØÊÔ
+            Serial.println("[Error] Ç¿ï¿½Æ²É¼ï¿½Ê±ï¿½ï¿½È¡Ê§ï¿½ï¿½! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½È¡...");
+            delay(100); // ï¿½ï¿½ï¿½ï¿½ï¿½Ó³Ùºï¿½ï¿½ï¿½ï¿½ï¿½
             temperature = dht.readTemperature();
             humidity = dht.readHumidity();
             sensorOk = !isnan(temperature) && !isnan(humidity);
             
-            Serial.printf("[Debug] ÖØÐÂ¶ÁÈ¡´«¸ÐÆ÷: ÎÂ¶È=%.1f, Êª¶È=%.1f, ×´Ì¬=%s\n", 
-                         temperature, humidity, sensorOk ? "³É¹¦" : "Ê§°Ü");
+            Serial.printf("[Debug] ï¿½ï¿½ï¿½Â¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Â¶ï¿½=%.1f, Êªï¿½ï¿½=%.1f, ×´Ì¬=%s\n", 
+                         temperature, humidity, sensorOk ? "ï¿½É¹ï¿½" : "Ê§ï¿½ï¿½");
             
             if (!sensorOk) {
-                // ¼´Ê¹¶ÁÈ¡Ê§°Ü£¬Ò²³¢ÊÔ·¢ËÍ²¿·ÖÊý¾Ý
+                // ï¿½ï¿½Ê¹ï¿½ï¿½È¡Ê§ï¿½Ü£ï¿½Ò²ï¿½ï¿½ï¿½Ô·ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 temperature = 0;
                 humidity = 0;
-                Serial.println("[Debug] Ê¹ÓÃÄ¬ÈÏÖµ¼ÌÐø·¢ËÍ");
+                Serial.println("[Debug] Ê¹ï¿½ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             }
         }
         
-        // ÎÞÂÛÈçºÎ¶¼ÏÔÊ¾ºÍ·¢ËÍÊý¾Ý
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ê¾ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         updateDisplay(temperature, humidity, lightLevel,
                      isRunning && (temperature > tempThreshold), isRunning);
         lastDisplayUpdateTime = currentMillis;
         
-        // ·¢ËÍ
+        // ï¿½ï¿½ï¿½ï¿½
         StaticJsonDocument<200> doc;
         doc["temperature"] = sensorOk ? temperature : 0;
         doc["humidity"] = sensorOk ? humidity : 0;
         doc["light"] = lightLevel;
         doc["alarm"] = (temperature > tempThreshold);
         doc["threshold"] = tempThreshold;
-        doc["sensor_error"] = !sensorOk;  // Ìí¼Ó´«¸ÐÆ÷´íÎó±êÖ¾
+        doc["sensor_error"] = !sensorOk;  // ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
         
-        // »ñÈ¡Ö®Ç°Ê±¼ä
+        // ï¿½ï¿½È¡Ö®Ç°Ê±ï¿½ï¿½
         struct tm timeinfo;
         if(getLocalTime(&timeinfo)) {
             char timeString[30];
@@ -242,38 +242,38 @@ void forceCollectAndSendData() {
         String jsonString;
         serializeJson(doc, jsonString);
         
-        Serial.printf("[Debug] ×¼±¸·¢ËÍÊý¾Ý: %s\n", jsonString.c_str());
+        Serial.printf("[Debug] ×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s\n", jsonString.c_str());
         
         if (webSocket.sendTXT(jsonString)) {
-            Serial.println("[Data] ãÐÖµ¸üÐÂºóÇ¿ÖÆ·¢ËÍÊý¾Ý³É¹¦");
+            Serial.println("[Data] ï¿½ï¿½Öµï¿½ï¿½ï¿½Âºï¿½Ç¿ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³É¹ï¿½");
         } else {
-            Serial.println("[Error] Ç¿ÖÆ·¢ËÍÊý¾ÝÊ§°Ü!");
+            Serial.println("[Error] Ç¿ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½!");
         }
     } else {
-        Serial.println("[Error] WebSocketÎ´Á¬½Ó£¬³¢ÊÔÖØÐÂÁ¬½Óºó·¢ËÍÊý¾Ý");
+        Serial.println("[Error] WebSocketÎ´ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         
-        // ³¢ÊÔÖØÐÂÁ¬½ÓWebSocket
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WebSocket
         if (WiFi.status() == WL_CONNECTED) {
-            Serial.println("[Debug] WiFiÒÑÁ¬½Ó£¬³¢ÊÔÖØÁ¬WebSocket...");
+            Serial.println("[Debug] WiFiï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WebSocket...");
             webSocket.begin(wsHost, wsPort, wsPath);
-            delay(500); // ¶ÌÔÝµÈ´ýÁ¬½Ó
-            webSocket.loop(); // ´¦ÀíÒ»´ÎWebSocketÊÂ¼þ
+            delay(500); // ï¿½ï¿½ï¿½ÝµÈ´ï¿½ï¿½ï¿½ï¿½ï¿½
+            webSocket.loop(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½WebSocketï¿½Â¼ï¿½
             
-            // ÔÙ´Î¼ì²éÁ¬½Ó×´Ì¬
+            // ï¿½Ù´Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
             if (wsConnected) {
-                Serial.println("[Debug] WebSocketÖØÁ¬³É¹¦£¬ÖØÐÂµ÷ÓÃÊý¾Ý·¢ËÍº¯Êý");
-                // µÝ¹éµ÷ÓÃ×ÔÉí£¬µ«Ö»ÄÜµÝ¹éÒ»´Î
+                Serial.println("[Debug] WebSocketï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Íºï¿½ï¿½ï¿½");
+                // ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ÜµÝ¹ï¿½Ò»ï¿½ï¿½
                 forceCollectAndSendData();
             } else {
-                Serial.println("[Error] WebSocketÖØÁ¬Ê§°Ü");
+                Serial.println("[Error] WebSocketï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
             }
         } else {
-            Serial.println("[Error] WiFiÎ´Á¬½Ó£¬ÎÞ·¨·¢ËÍÊý¾Ý");
+            Serial.println("[Error] WiFiÎ´ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
     }
 }
 
-// ÊÕ¼¯²¢·¢ËÍ´«¸ÐÆ÷Êý¾Ý (ÊÕ¼¯×´Ì¬Ê±·¢ËÍ)
+// ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½Õ¼ï¿½×´Ì¬Ê±ï¿½ï¿½ï¿½ï¿½)
 void collectAndSendSensorData() {
     if (isRunning && wsConnected) {
         float temperature = dht.readTemperature();  
@@ -283,7 +283,7 @@ void collectAndSendSensorData() {
 
         bool sensorOk = true;
         if (isnan(temperature) || isnan(humidity)) {  
-            Serial.println("[Error] ÎÞ·¨¶ÁÈ¡ÎÂÊª¶È´«¸ÐÆ÷!");  
+            Serial.println("[Error] ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½ï¿½Êªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½!");  
             sensorErrorDisplayUntil = currentMillis + 2000;
             sensorOk = false;
             return;
@@ -301,9 +301,9 @@ void collectAndSendSensorData() {
             doc["humidity"] = humidity;
             doc["light"] = lightLevel;
             doc["alarm"] = (temperature > tempThreshold);
-            doc["threshold"] = tempThreshold; // Ò²¿ÉÒÔÊ¹ÓÃÖ®Ç°Öµ
+            doc["threshold"] = tempThreshold; // Ò²ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ö®Ç°Öµ
             
-            // »ñÈ¡Ö®Ç°Ê±¼ä
+            // ï¿½ï¿½È¡Ö®Ç°Ê±ï¿½ï¿½
             struct tm timeinfo;
             if(getLocalTime(&timeinfo)) {
                 char timeString[30];
@@ -319,24 +319,24 @@ void collectAndSendSensorData() {
             serializeJson(doc, jsonString);
 
             if (webSocket.sendTXT(jsonString)) {
-                Serial.println("[Data] ÊÕ¼¯²¢·¢ËÍ´«¸ÐÆ÷Êý¾Ý³É¹¦");
+                Serial.println("[Data] ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³É¹ï¿½");
             } else {
-                Serial.println("[Error] WebSocket ÊÕ¼¯²¢·¢ËÍ´«¸ÐÆ÷Êý¾ÝÊ§°Ü»ò¶Ï¿ª!");
+                Serial.println("[Error] WebSocket ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü»ï¿½Ï¿ï¿½!");
             }
         }
     }
 }
 
-// ³¢ÊÔÖØÐÂÁ¬½ÓWebSocket
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WebSocket
 void tryReconnectWebSocket() {
     if (isRunning && WiFi.status() == WL_CONNECTED && !wsConnected && (millis() - lastReconnectAttempt > reconnectInterval)) {
-        Serial.println("[WebSocket] ³¢ÊÔÖØÐÂÁ¬½Ó...");
+        Serial.println("[WebSocket] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
         webSocket.begin(wsHost, wsPort, wsPath);
         lastReconnectAttempt = millis();
     }
 }
 
-// ÆÁÄ»ÏÔÊ¾
+// ï¿½ï¿½Ä»ï¿½ï¿½Ê¾
 void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm, bool running) {
     display.clearDisplay();
     display.setTextSize(1);
@@ -400,22 +400,22 @@ void updateDisplay(float temperature, float humidity, int lightLevel, bool alarm
 }
 
 void setup() {  
-    Serial.begin(115200);  // Ñ¡Ôñ´®¿Ú
-    while (!Serial); // µÈ´ý´®¿Ú³õÊ¼»¯Íê³É (¿ÉÑ¡)
-    Serial.println("\n[System] ¿ªÊ¼...");  
+    Serial.begin(115200);  // Ñ¡ï¿½ñ´®¿ï¿½
+    while (!Serial); // ï¿½È´ï¿½ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Ñ¡)
+    Serial.println("\n[System] ï¿½ï¿½Ê¼...");  
 
-    // ³õÊ¼»¯I2C
+    // ï¿½ï¿½Ê¼ï¿½ï¿½I2C
     Wire.begin(SDA_PIN, SCL_PIN);
     
-    // ³õÊ¼»¯OLEDÆÁÄ»
+    // ï¿½ï¿½Ê¼ï¿½ï¿½OLEDï¿½ï¿½Ä»
     if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
-        Serial.println(F("[Error] SSD1306 ³õÊ¼»¯Ê§°Ü"));
+        Serial.println(F("[Error] SSD1306 ï¿½ï¿½Ê¼ï¿½ï¿½Ê§ï¿½ï¿½"));
         for(;;);
     }
     
-    // ÉèÖÃOLEDÆÁÄ»¶Ô±È¶È£¬Ñ¡Ôñ
+    // ï¿½ï¿½ï¿½ï¿½OLEDï¿½ï¿½Ä»ï¿½Ô±È¶È£ï¿½Ñ¡ï¿½ï¿½
     display.ssd1306_command(SSD1306_SETCONTRAST);
-    display.ssd1306_command(128); // ¶Ô±È¶ÈÎª×î´ó
+    display.ssd1306_command(128); // ï¿½Ô±È¶ï¿½Îªï¿½ï¿½ï¿½
     
     display.clearDisplay();
     display.setTextSize(1);
@@ -423,17 +423,17 @@ void setup() {
     display.setCursor(0,0);
     display.println("Initializing...");
     display.display();
-    delay(1000);  // µÈ´ý³õÊ¼»¯Íê³ÉÏÔÊ¾
+    delay(1000);  // ï¿½È´ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 
-    // ³õÊ¼»¯´«¸ÐÆ÷
+    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     dht.begin();
     pinMode(LIGHT_PIN, INPUT);
     pinMode(BUZZER_PIN, OUTPUT);
     digitalWrite(BUZZER_PIN, LOW);
-    pinMode(BUTTON_PIN, INPUT_PULLUP); // ³õÊ¼»¯°´Å¥
+    pinMode(BUTTON_PIN, INPUT_PULLUP); // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Å¥
 
-    // Á¬½ÓWiFi  
-    Serial.print("[WiFi] Á¬½Óµ½: ");
+    // ï¿½ï¿½ï¿½ï¿½WiFi  
+    Serial.print("[WiFi] ï¿½ï¿½ï¿½Óµï¿½: ");
     Serial.println(ssid);
     display.clearDisplay();
     display.setCursor(0,10);
@@ -443,7 +443,7 @@ void setup() {
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);  
     unsigned long wifiStart = millis();
-    while (WiFi.status() != WL_CONNECTED && millis() - wifiStart < 20000) { // 20Ãë³¬Ê±
+    while (WiFi.status() != WL_CONNECTED && millis() - wifiStart < 20000) { // 20ï¿½ë³¬Ê±
         delay(500);  
         Serial.print(".");
         display.print(".");
@@ -451,47 +451,47 @@ void setup() {
     }  
     
     if (WiFi.status() == WL_CONNECTED) {  
-        Serial.println("\n[WiFi] Á¬½Ó³É¹¦!");  
-        Serial.print("[WiFi] IP µØÖ·: ");
+        Serial.println("\n[WiFi] ï¿½ï¿½ï¿½Ó³É¹ï¿½!");  
+        Serial.print("[WiFi] IP ï¿½ï¿½Ö·: ");
         Serial.println(WiFi.localIP());
         display.clearDisplay();
         display.setCursor(0,0);
         display.println("WiFi Connected!");
         display.println(WiFi.localIP().toString());
         
-        // Á¬½ÓNTP
+        // ï¿½ï¿½ï¿½ï¿½NTP
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-        Serial.println("[NTP] Ê±¼äÍ¬²½...");
+        Serial.println("[NTP] Ê±ï¿½ï¿½Í¬ï¿½ï¿½...");
         
         display.setCursor(0, 30); 
         display.println("Press button to start...");
         display.display();
         delay(1000);
     } else {  
-        Serial.println("\n[Error] WiFi Á¬½ÓÊ§°Ü!");  
+        Serial.println("\n[Error] WiFi ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½!");  
         display.clearDisplay();
         display.setCursor(0,0);
         display.println("WiFi Failed!");
         display.display();
-        while(1) delay(1000); // ³¤Ê±¼äÍ£Ö¹³ÌÐò
+        while(1) delay(1000); // ï¿½ï¿½Ê±ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½
     }
     
-    // Á¬½ÓWebSocket
+    // ï¿½ï¿½ï¿½ï¿½WebSocket
     webSocket.onEvent(webSocketEvent);
 
     webSocket.enableHeartbeat(15000, 5000, 2);
 
     webSocket.setReconnectInterval(5000);
 
-    Serial.println("[System] ¿ªÊ¼... µÈ´ýÆÁÄ»×´Ì¬...");
-    // È·±£³õÊ¼ÆÁÄ»×´Ì¬ÎªÍ£Ö¹×´Ì¬
-    updateDisplay(NAN, NAN, -1, false, isRunning); // ÏÔÊ¾³õÊ¼Í£Ö¹×´Ì¬
+    Serial.println("[System] ï¿½ï¿½Ê¼... ï¿½È´ï¿½ï¿½ï¿½Ä»×´Ì¬...");
+    // È·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ä»×´Ì¬ÎªÍ£Ö¹×´Ì¬
+    updateDisplay(NAN, NAN, -1, false, isRunning); // ï¿½ï¿½Ê¾ï¿½ï¿½Ê¼Í£Ö¹×´Ì¬
 }  
 
 void loop() {  
     unsigned long currentMillis = millis();
     
-    // °´Å¥×´Ì¬»ñÈ¡
+    // ï¿½ï¿½Å¥×´Ì¬ï¿½ï¿½È¡
     int reading = digitalRead(BUTTON_PIN);
     if (reading != lastButtonState) {
         lastDebounceTime = currentMillis;
@@ -499,76 +499,76 @@ void loop() {
     if ((currentMillis - lastDebounceTime) > debounceDelay) {
         if (reading != currentButtonState) {
             currentButtonState = reading;
-            if (currentButtonState == LOW) { // ÎÈ¶¨×´Ì¬
-                isRunning = !isRunning; // ×´Ì¬ÇÐ»»
-                Serial.printf("[Control] °´Å¥°´ÏÂ£¬×´Ì¬ÇÐ»»Îª: %s\n", isRunning ? "ÔËÐÐ" : "Í£Ö¹");
+            if (currentButtonState == LOW) { // ï¿½È¶ï¿½×´Ì¬
+                isRunning = !isRunning; // ×´Ì¬ï¿½Ð»ï¿½
+                Serial.printf("[Control] ï¿½ï¿½Å¥ï¿½ï¿½ï¿½Â£ï¿½×´Ì¬ï¿½Ð»ï¿½Îª: %s\n", isRunning ? "ï¿½ï¿½ï¿½ï¿½" : "Í£Ö¹");
 
                 if (isRunning) {
-                    // ¿ªÊ¼ÔËÐÐ
-                    Serial.println("[System] ¿ªÊ¼...");
-                    // Á¬½ÓWebSocket (ÐèÒªWiFiÁ¬½Ó)
+                    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+                    Serial.println("[System] ï¿½ï¿½Ê¼...");
+                    // ï¿½ï¿½ï¿½ï¿½WebSocket (ï¿½ï¿½ÒªWiFiï¿½ï¿½ï¿½ï¿½)
                     if (WiFi.status() == WL_CONNECTED) {
-                         Serial.println("[WebSocket] Á¬½Ó...");
-                         webSocket.begin(wsHost, wsPort, wsPath); // Á¬½ÓWebSocket
+                         Serial.println("[WebSocket] ï¿½ï¿½ï¿½ï¿½...");
+                         webSocket.begin(wsHost, wsPort, wsPath); // ï¿½ï¿½ï¿½ï¿½WebSocket
                          lastReconnectAttempt = currentMillis;
                     } else {
-                         Serial.println("[Warn] WiFiÎ´Á¬½Ó£¬ÎÞ·¨Á¬½Ó WebSocket");
-                         // isRunning ÉèÎª true, µÈ´ý WiFi Á¬½Ó
+                         Serial.println("[Warn] WiFiÎ´ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ WebSocket");
+                         // isRunning ï¿½ï¿½Îª true, ï¿½È´ï¿½ WiFi ï¿½ï¿½ï¿½ï¿½
                     }
                 } else {
-                    // Í£Ö¹ÔËÐÐ
+                    // Í£Ö¹ï¿½ï¿½ï¿½ï¿½
                     Serial.println("[System] Í£Ö¹...");
                     if (wsConnected) {
-                        webSocket.disconnect(); // ¶Ï¿ªÁ¬½Ó
-                        Serial.println("[WebSocket] ¶Ï¿ªÁ¬½Ó");
+                        webSocket.disconnect(); // ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½
+                        Serial.println("[WebSocket] ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½");
                     }
-                    digitalWrite(BUZZER_PIN, LOW); // È·±£¹Ø±Õ·äÃùÆ÷
-                    wsConnected = false; // È·±£×´Ì¬Ò»ÖÂ
+                    digitalWrite(BUZZER_PIN, LOW); // È·ï¿½ï¿½ï¿½Ø±Õ·ï¿½ï¿½ï¿½ï¿½ï¿½
+                    wsConnected = false; // È·ï¿½ï¿½×´Ì¬Ò»ï¿½ï¿½
                 }
-                 // ×´Ì¬±ä»¯Ê±ÏÔÊ¾
+                 // ×´Ì¬ï¿½ä»¯Ê±ï¿½ï¿½Ê¾
                 updateDisplay(NAN, NAN, -1, false, isRunning);
                 lastDisplayUpdateTime = currentMillis;
             }
         }
     }
-    lastButtonState = reading; // »ñÈ¡ÎÈ¶¨×´Ì¬
+    lastButtonState = reading; // ï¿½ï¿½È¡ï¿½È¶ï¿½×´Ì¬
 
     if (isRunning) {
-        // ÄÚ²¿Ñ­»· webSocket.loop()
+        // ï¿½Ú²ï¿½Ñ­ï¿½ï¿½ webSocket.loop()
         webSocket.loop();
 
         if (WiFi.status() != WL_CONNECTED) {
-            Serial.println("[WiFi] Warn: Á¬½Ó¶Ï¿ª! µÈ´ý×Ô¶¯ÖØÁ¬WebSocket...");
+            Serial.println("[WiFi] Warn: ï¿½ï¿½ï¿½Ó¶Ï¿ï¿½! ï¿½È´ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½WebSocket...");
             wifiReconnectDisplayUntil = currentMillis + 2000;
-            // WiFi¶Ï¿ªWebSocket×Ô¶¯¶Ï¿ª
-            if(wsConnected) { // Èç¹û wsConnected Ã»ÓÐÊÕµ½¶Ï¿ªÐÅºÅÎªfalse
-                 wsConnected = false; // ¶Ï¿ªÐÅºÅÎªfalse×èÖ¹ÖØ¸´¶Ï¿ª
-                 Serial.println("[System] WiFi¶Ï¿ªWebSocketÎª¶Ï¿ª");
+            // WiFiï¿½Ï¿ï¿½WebSocketï¿½Ô¶ï¿½ï¿½Ï¿ï¿½
+            if(wsConnected) { // ï¿½ï¿½ï¿½ wsConnected Ã»ï¿½ï¿½ï¿½Õµï¿½ï¿½Ï¿ï¿½ï¿½Åºï¿½Îªfalse
+                 wsConnected = false; // ï¿½Ï¿ï¿½ï¿½Åºï¿½Îªfalseï¿½ï¿½Ö¹ï¿½Ø¸ï¿½ï¿½Ï¿ï¿½
+                 Serial.println("[System] WiFiï¿½Ï¿ï¿½WebSocketÎªï¿½Ï¿ï¿½");
             }
             digitalWrite(BUZZER_PIN, LOW);
         }
 
         if (WiFi.status() == WL_CONNECTED) {
-            tryReconnectWebSocket(); // ÄÚ²¿Ñ­»· isRunning ºÍ wsConnected
+            tryReconnectWebSocket(); // ï¿½Ú²ï¿½Ñ­ï¿½ï¿½ isRunning ï¿½ï¿½ wsConnected
         }
 
-        // Ê±¼äÅÐ¶Ï·¢ËÍ
+        // Ê±ï¿½ï¿½ï¿½Ð¶Ï·ï¿½ï¿½ï¿½
         if (wsConnected && (currentMillis - lastDataSendTime >= dataSendInterval)) {
             collectAndSendSensorData();
             lastDataSendTime = currentMillis;
         }
-        // Ö®Ç°Ã»ÓÐ·¢ËÍÊý¾Ý£¬WS¶Ï¿ªÓ¦ÏÔÊ¾Ò»¸öÆÁÄ»
+        // Ö®Ç°Ã»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½WSï¿½Ï¿ï¿½Ó¦ï¿½ï¿½Ê¾Ò»ï¿½ï¿½ï¿½ï¿½Ä»
         else if (currentMillis - lastDisplayUpdateTime > 1000) {
-             float temp_dummy = dht.readTemperature(true); // ×Ô¶¯¶ÁÈ¡ÎÂ¶ÈÏÔÊ¾
+             float temp_dummy = dht.readTemperature(true); // ï¿½Ô¶ï¿½ï¿½ï¿½È¡ï¿½Â¶ï¿½ï¿½ï¿½Ê¾
              int light_dummy = readLightLevel();
              updateDisplay(temp_dummy, NAN, light_dummy, false, isRunning);
              lastDisplayUpdateTime = currentMillis;
         }
     } else {
         // Í£Ö¹×´Ì¬
-        digitalWrite(BUZZER_PIN, LOW); // È·±£¹Ø±Õ·äÃùÆ÷
+        digitalWrite(BUZZER_PIN, LOW); // È·ï¿½ï¿½ï¿½Ø±Õ·ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        // Ö®Ç°Ã»ÓÐ·¢ËÍÊý¾Ý£¬Ó¦ÏÔÊ¾Í£Ö¹×´Ì¬
+        // Ö®Ç°Ã»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½Ó¦ï¿½ï¿½Ê¾Í£Ö¹×´Ì¬
         if (currentMillis - lastDisplayUpdateTime > 1000) {
              updateDisplay(NAN, NAN, -1, false, isRunning);
              lastDisplayUpdateTime = currentMillis;

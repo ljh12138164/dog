@@ -8,19 +8,19 @@
       "developmentClient": true,
       "distribution": "internal",
       "env": {
-        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.177.197"
+        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.205.197"
       }
     },
     "preview": {
       "distribution": "internal",
       "env": {
-        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.177.197"
+        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.205.197"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
-        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.177.197"
+        "REACT_NATIVE_PACKAGER_HOSTNAME": "192.168.205.197"
       }
     }
   },

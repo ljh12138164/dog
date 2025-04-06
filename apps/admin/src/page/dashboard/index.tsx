@@ -37,14 +37,12 @@ const Dashboard = () => {
     const ws = new WebSocket(socketUrl);
 
     ws.onopen = () => {
-      console.log('WebSocket连接已建立');
       setWsConnected(true);
     };
 
     ws.onmessage = event => {
       try {
         const data = JSON.parse(event.data);
-        console.log('收到WebSocket消息:', data);
 
         // 处理不同类型的消息
         if (data.type === 'emit') {
@@ -66,7 +64,6 @@ const Dashboard = () => {
     };
 
     ws.onclose = () => {
-      console.log('WebSocket连接已关闭');
       setWsConnected(false);
     };
 
@@ -132,7 +129,6 @@ const Dashboard = () => {
         setThreshold: thresholdValue,
       };
 
-      console.log('发送阈值设置命令:', command);
       socket.send(JSON.stringify(command));
 
       // 立即显示成功消息并更新状态，不等待响应

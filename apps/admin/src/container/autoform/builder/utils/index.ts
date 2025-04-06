@@ -31,32 +31,32 @@ export const getZodTypeByFieldType = (field: FieldType): string => {
  */
 export const generateZodCode = (fields: FieldType[]): string => {
   let code = 'const zodFormSchema = z.object({\n';
-  
+
   fields.forEach(field => {
     const fieldName = field.label.toLowerCase().replace(/\s+/g, '_');
     let fieldCode = `  ${fieldName}: z.${getZodTypeByFieldType(field)}()`;
-    
+
     if (field.required) {
       fieldCode += '.superRefine(fieldConfig({\n';
       fieldCode += `    description: '${field.placeholder || ''}',\n`;
-      
+
       if (field.type === 'input') {
         fieldCode += `    inputProps: {\n`;
         fieldCode += `      placeholder: '${field.placeholder || ''}',\n`;
         fieldCode += `    },\n`;
       }
-      
+
       fieldCode += '  }))';
     } else {
       fieldCode += '.optional()';
     }
-    
+
     code += `${fieldCode},\n`;
   });
-  
+
   code += '});\n\n';
   code += 'export const zodSchemaProvider = new ZodProvider(zodFormSchema);';
-  
+
   return code;
 };
 
@@ -65,18 +65,17 @@ export const generateZodCode = (fields: FieldType[]): string => {
  */
 export const generateZodSchema = (fields: FieldType[]): z.ZodObject<any> => {
   const schemaObj: Record<string, any> = {};
-  
+
   fields.forEach(field => {
     const fieldName = field.label.toLowerCase().replace(/\s+/g, '_');
     let zodType;
-    
+
     switch (field.type) {
       case 'input':
         zodType = z.string();
         break;
       case 'select':
       case 'radio':
-        console.log(field);
         if (field.options && field.options.length > 0) {
           const enumValues = field.options.map(opt => opt.value);
           zodType = z.enum(enumValues as [string, ...string[]]);
@@ -96,14 +95,14 @@ export const generateZodSchema = (fields: FieldType[]): z.ZodObject<any> => {
       default:
         zodType = z.string();
     }
-    
+
     if (!field.required) {
       zodType = zodType.optional();
     }
-    
+
     schemaObj[fieldName] = zodType;
   });
-  
+
   return z.object(schemaObj);
 };
 
@@ -113,4 +112,4 @@ export const generateZodSchema = (fields: FieldType[]): z.ZodObject<any> => {
 export const createZodProvider = (fields: FieldType[]): ZodProvider<z.ZodObject<any>> => {
   const schema = generateZodSchema(fields);
   return new ZodProvider(schema);
-}; 
+};

@@ -18,7 +18,7 @@ export enum ConnectionStatus {
 }
 
 // WebSocket服务器配置
-const WS_URL = 'ws://localhost:8380/stock';
+const WS_URL = 'ws://192.168.205.197:8380/stock';
 
 // 创建单例WebSocket实例
 let socket: WebSocket | null = null;
@@ -32,16 +32,15 @@ export const connectWebSocket = (): void => {
   }
 
   connectionStatus = ConnectionStatus.CONNECTING;
-  
+
   try {
     socket = new WebSocket(WS_URL);
-    
+
     socket.onopen = () => {
-      console.log('股票WebSocket连接已建立');
       connectionStatus = ConnectionStatus.CONNECTED;
     };
-    
-    socket.onmessage = (event) => {
+
+    socket.onmessage = event => {
       try {
         const data = JSON.parse(event.data) as StockData;
         // 通知所有监听者
@@ -50,19 +49,18 @@ export const connectWebSocket = (): void => {
         console.error('解析WebSocket消息时出错:', error);
       }
     };
-    
+
     socket.onclose = () => {
-      console.log('股票WebSocket连接已关闭');
       connectionStatus = ConnectionStatus.DISCONNECTED;
       socket = null;
-      
+
       // 尝试重新连接
       setTimeout(() => {
         connectWebSocket();
       }, 3000);
     };
-    
-    socket.onerror = (error) => {
+
+    socket.onerror = error => {
       console.error('股票WebSocket错误:', error);
       connectionStatus = ConnectionStatus.ERROR;
     };
@@ -88,16 +86,12 @@ export const getConnectionStatus = (): ConnectionStatus => {
 };
 
 // 添加数据监听器
-export const addStockDataListener = (
-  listener: (data: StockData) => void
-): void => {
+export const addStockDataListener = (listener: (data: StockData) => void): void => {
   listeners.push(listener);
 };
 
 // 移除数据监听器
-export const removeStockDataListener = (
-  listener: (data: StockData) => void
-): void => {
+export const removeStockDataListener = (listener: (data: StockData) => void): void => {
   listeners = listeners.filter(l => l !== listener);
 };
 
@@ -120,13 +114,15 @@ export const unsubscribeStock = (symbol: string): void => {
 };
 
 // React Hook，用于在组件中使用股票数据
-export const useStockData = (symbol?: string): {
+export const useStockData = (
+  symbol?: string,
+): {
   data: StockData | null;
   status: ConnectionStatus;
 } => {
   const [data, setData] = useState<StockData | null>(null);
   const [status, setStatus] = useState<ConnectionStatus>(connectionStatus);
-  
+
   useEffect(() => {
     // 定义数据监听器
     const handleData = (newData: StockData) => {
@@ -135,21 +131,21 @@ export const useStockData = (symbol?: string): {
         setData(newData);
       }
     };
-    
+
     // 连接WebSocket并添加监听器
     connectWebSocket();
     addStockDataListener(handleData);
-    
+
     // 如果指定了symbol，订阅该股票
     if (symbol) {
       subscribeStock(symbol);
     }
-    
+
     // 定期检查并更新连接状态
     const statusInterval = setInterval(() => {
       setStatus(getConnectionStatus());
     }, 1000);
-    
+
     // 清理函数
     return () => {
       removeStockDataListener(handleData);
@@ -159,6 +155,6 @@ export const useStockData = (symbol?: string): {
       clearInterval(statusInterval);
     };
   }, [symbol]);
-  
+
   return { data, status };
 };

@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { get, post, put } from './http';
 import Toast from 'react-native-toast-message';
+import { IngredientStatus } from './types';
 
 // 定义类型
 export interface EnvironmentData {
@@ -20,7 +21,6 @@ export interface SensorData {
   timestamps?: string[];
   timestamp?: string;
   threshold?: number;
-  notes?: string;
 }
 
 // 定义图表数据响应接口
@@ -59,7 +59,7 @@ export interface InventoryEvent {
 }
 
 export interface InventoryReport {
-  id?: number;
+  id: number;
   report_type: 'daily' | 'weekly' | 'monthly' | 'custom';
   title: string;
   start_date: string;
@@ -78,6 +78,39 @@ export interface ResolveEventData {
 
 export interface RejectEventData {
   reason: string;
+}
+
+// 定义入库操作接口
+export interface InventoryOperation {
+  id?: number;
+  name: string;
+  category: number;
+  expiry_date: string;
+  unit: string;
+  quantity: number;
+}
+// 库存操作类型
+export type InventoryOperationType = 'in' | 'out';
+
+// 库存操作接口
+export interface InventoryOperationes {
+  id?: number;
+  ingredient: number; // 食材ID
+  ingredient_name?: string; // 食材名称（API返回）
+  operation_type: InventoryOperationType;
+  quantity: number; // 数量
+  production_date?: string; // 生产日期
+  expiry_period?: string; // 保质期
+  operator?: number; // 操作员ID
+  operator_name?: string; // 操作员名称（API返回）
+  inspector?: number; // 入库检收人员ID
+  inspector_name?: string; // 检收人员名称（API返回）
+  notes?: string; // 备注
+  source?: string; // 操作来源
+  device_info?: string; // 设备信息
+  ip_address?: string; // IP地址
+  related_request?: number; // 关联出库申请ID
+  created_at?: string; // 创建时间
 }
 
 // API 请求函数
@@ -137,9 +170,20 @@ const createInventoryReportApi = async (data: InventoryReport): Promise<Inventor
   return post<InventoryReport>('/inventory-reports/', data);
 };
 
-// 传感器数据API请求函数
-const fetchSensorDataListApi = async (): Promise<SensorData[]> => {
-  return get<SensorData[]>('/sensor-data/');
+// 获取库存操作列表API
+const fetchInventoryOperationsApi = async (): Promise<InventoryOperation[]> => {
+  return get<InventoryOperation[]>('/ingredients/');
+};
+
+const fetchInventoryOperationsesApi = async (): Promise<InventoryOperationes[]> => {
+  return get<InventoryOperationes[]>('/inventory-operations/');
+};
+
+// 创建库存操作API（入库/出库）
+const createInventoryOperationApi = async (
+  data: InventoryOperation,
+): Promise<InventoryOperation> => {
+  return post<InventoryOperation>('/ingredients/', data);
 };
 
 const fetchSensorChartDataApi = async (params?: {
@@ -376,15 +420,6 @@ export const useCreateInventoryReport = (toast: typeof Toast) => {
   });
 };
 
-// 获取传感器数据列表的 Hook
-export const useSensorDataList = () => {
-  return useQuery({
-    queryKey: ['sensor-data'],
-    queryFn: fetchSensorDataListApi,
-    staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
-  });
-};
-
 // 获取传感器数据图表数据的 Hook
 export const useSensorChartData = (params?: {
   days?: number;
@@ -409,57 +444,45 @@ export const useLatestSensorData = () => {
   });
 };
 
-// 创建传感器数据的 Hook
-export const useCreateSensorData = (toast: typeof Toast) => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: createSensorDataApi,
-    onSuccess: () => {
-      // 更新传感器数据列表缓存
-      queryClient.invalidateQueries({ queryKey: ['sensor-data'] });
-      queryClient.invalidateQueries({ queryKey: ['latest-sensor-data'] });
-      queryClient.invalidateQueries({ queryKey: ['sensor-chart-data'] });
-
-      toast.show({
-        type: 'success',
-        text1: '添加成功',
-        text2: '传感器数据已记录',
-      });
-    },
-    onError: (error: any) => {
-      toast.show({
-        type: 'error',
-        text1: '添加失败',
-        text2: error.response?.data?.detail || '记录传感器数据时出错',
-      });
-    },
+// 获取库存操作列表的Hook
+export const useInventoryOperations = () => {
+  return useQuery({
+    queryKey: ['inventory-operations'],
+    queryFn: fetchInventoryOperationsApi,
+    staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
+  });
+};
+export const useInventoryOperationses = () => {
+  return useQuery({
+    queryKey: ['inventory-operationses'],
+    queryFn: fetchInventoryOperationsesApi,
+    staleTime: 1000 * 60 * 5, // 5分钟内不重新请求
   });
 };
 
-// 添加传感器数据的 Hook
-export const useAddSensorData = (toast: typeof Toast) => {
+// 创建库存操作的Hook（入库/出库）
+export const useCreateInventoryOperation = (toast: typeof Toast) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: addSensorDataApi,
-    onSuccess: () => {
-      // 更新传感器数据列表缓存
-      queryClient.invalidateQueries({ queryKey: ['sensor-data'] });
-      queryClient.invalidateQueries({ queryKey: ['latest-sensor-data'] });
-      queryClient.invalidateQueries({ queryKey: ['sensor-chart-data'] });
+    mutationFn: createInventoryOperationApi,
+    onSuccess: data => {
+      // 更新库存操作列表缓存
+      queryClient.invalidateQueries({ queryKey: ['inventory-operations'] });
+      // 更新库存列表缓存
+      queryClient.invalidateQueries({ queryKey: ['ingredients'] });
 
       toast.show({
         type: 'success',
-        text1: '添加成功',
-        text2: '传感器数据已添加',
+        text1: `入库成功`,
+        text2: `${data.name || '食材'} 入库操作已完成`,
       });
     },
     onError: (error: any) => {
       toast.show({
         type: 'error',
-        text1: '添加失败',
-        text2: error.response?.data?.detail || '添加传感器数据时出错',
+        text1: '操作失败',
+        text2: error.response?.data?.detail || '库存操作时出错',
       });
     },
   });

@@ -15,8 +15,7 @@ export default (): ExpoConfig => ({
     bundleIdentifier: 'com.ljh.stock', // 添加这一行
     infoPlist: {
       NSCameraUsageDescription: '此应用需要访问您的相机以拍摄头像照片。',
-      NSPhotoLibraryUsageDescription:
-        '此应用需要访问您的照片库以选择头像图片。',
+      NSPhotoLibraryUsageDescription: '此应用需要访问您的照片库以选择头像图片。',
     },
   },
   // build: {
@@ -39,6 +38,14 @@ export default (): ExpoConfig => ({
   },
   plugins: [
     'expo-router',
+    [
+      'expo-camera',
+      {
+        cameraPermission: '允许$(PRODUCT_NAME)访问您的相机。',
+        microphonePermission: '允许$(PRODUCT_NAME)访问您的麦克风。',
+        recordAudioAndroid: true,
+      },
+    ],
     [
       'expo-splash-screen',
       {

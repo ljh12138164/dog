@@ -1,13 +1,18 @@
 import { useCurrentUser } from '@/api/useAuth';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Dashboard, EventsManager, Reports } from '@/components/inventory';
 import { useLatestSensorData } from '@/api/useInventory';
+import { Dashboard, OperationRecords, Reports } from '@/components/inventory';
+import MaterialRequestList from '@/components/procurement/MaterialRequestList';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useState } from 'react';
+import { ActivityIndicator, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Toast from 'react-native-toast-message';
+import BlueWhiteSegmentedButtons from '../../components/common/BlueWhiteSegmentedButtons';
+
+// 创建一个QueryClient实例
+const queryClient = new QueryClient();
 
 export default function InventoryManagerScreen() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState<string>('dashboard');
   // 使用传感器数据API替代WebSocket
   const { data: sensorData, isLoading: isLoadingSensor } = useLatestSensorData();
   const { isLoading } = useCurrentUser();
@@ -46,71 +51,53 @@ export default function InventoryManagerScreen() {
     return sensorData.light;
   };
 
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return <Dashboard />;
+      case 'events':
+        return <OperationRecords />;
+      case 'reports':
+        return <Reports />;
+      case 'list':
+        return <MaterialRequestList />;
+      default:
+        return <Dashboard />;
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>库存管理系统</Text>
-        {sensorData && (
-          <View style={styles.environmentInfo}>
-            <Text style={styles.environmentText}>温度: {getTemperature().toFixed(1)}°C</Text>
-            <Text style={styles.environmentText}>湿度: {getHumidity().toFixed(1)}%</Text>
-            {getLight() !== null && <Text style={styles.environmentText}>光照: {getLight()}</Text>}
-          </View>
-        )}
-      </View>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>库存管理系统</Text>
+          {sensorData && (
+            <View style={styles.environmentInfo}>
+              <Text style={styles.environmentText}>温度: {getTemperature().toFixed(1)}°C</Text>
+              <Text style={styles.environmentText}>湿度: {getHumidity().toFixed(1)}%</Text>
+              {getLight() !== null && (
+                <Text style={styles.environmentText}>光照: {getLight()}</Text>
+              )}
+            </View>
+          )}
+        </View>
 
-      {/* 标签栏 */}
-      <View style={styles.tabBar}>
-        <TouchableOpacity
-          style={[styles.tabItem, activeTab === 'dashboard' && styles.activeTab]}
-          onPress={() => setActiveTab('dashboard')}
-        >
-          <MaterialIcons
-            name="dashboard"
-            size={24}
-            color={activeTab === 'dashboard' ? '#007aff' : '#555'}
-          />
-          <Text style={[styles.tabText, activeTab === 'dashboard' && styles.activeTabText]}>
-            仪表盘
-          </Text>
-        </TouchableOpacity>
+        <BlueWhiteSegmentedButtons
+          value={activeTab}
+          onValueChange={setActiveTab}
+          buttons={[
+            { value: 'dashboard', label: '总览' },
+            { value: 'list', label: '出库申请' },
+            { value: 'events', label: '出入库操作' },
+            // { value: 'reports', label: '报表' },
+          ]}
+          style={styles.segmentedButtons}
+        />
 
-        {/* <TouchableOpacity
-          style={[styles.tabItem, activeTab === 'issues' && styles.activeTab]}
-          onPress={() => setActiveTab('issues')}
-        >
-          <MaterialIcons
-            name="warning"
-            size={24}
-            color={activeTab === 'issues' ? '#007aff' : '#555'}
-          />
-          <Text style={[styles.tabText, activeTab === 'issues' && styles.activeTabText]}>
-            异常处理
-          </Text>
-        </TouchableOpacity> */}
-
-        <TouchableOpacity
-          style={[styles.tabItem, activeTab === 'reports' && styles.activeTab]}
-          onPress={() => setActiveTab('reports')}
-        >
-          <MaterialIcons
-            name="assessment"
-            size={24}
-            color={activeTab === 'reports' ? '#007aff' : '#555'}
-          />
-          <Text style={[styles.tabText, activeTab === 'reports' && styles.activeTabText]}>
-            报告
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.content}>
-        {activeTab === 'dashboard' && <Dashboard />}
-        {activeTab === 'issues' && <EventsManager />}
-        {activeTab === 'reports' && <Reports />}
-      </View>
-      <Toast />
-    </View>
+        <View style={styles.content}>{renderContent()}</View>
+        <Toast />
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 }
 
@@ -145,31 +132,8 @@ const styles = StyleSheet.create({
     color: '#666',
     marginRight: 15,
   },
-  tabBar: {
-    flexDirection: 'row',
-    backgroundColor: '#ffffff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
-  },
-  tabItem: {
-    flex: 1,
-    paddingVertical: 12,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#007aff',
-  },
-  tabText: {
-    marginLeft: 5,
-    fontSize: 14,
-    color: '#555',
-  },
-  activeTabText: {
-    color: '#007aff',
-    fontWeight: '500',
+  segmentedButtons: {
+    marginBottom: 16,
   },
   content: {
     flex: 1,

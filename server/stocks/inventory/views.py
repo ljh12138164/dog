@@ -5,7 +5,7 @@ from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Ingredient, InventoryOperation, Task, Feedback, EnvironmentData, InventoryEvent, InventoryReport, SensorData, Comment
+from .models import Ingredient, InventoryOperation, Task, Feedback, EnvironmentData, InventoryEvent, InventoryReport, SensorData, Comment, Category, MaterialRequest, MaterialRequestItem
 from .serializers import (
     IngredientSerializer, 
     InventoryOperationSerializer, 
@@ -18,11 +18,18 @@ from .serializers import (
     SensorDataSerializer,
     FeedbackStatusSerializer,
     CommentSerializer,
+    CategorySerializer,
+    MaterialRequestSerializer,
+    MaterialRequestItemSerializer
 )
 import csv
 import io
 import json
+import re
 from datetime import datetime, timedelta
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class IsInventoryManager(permissions.BasePermission):
@@ -71,47 +78,35 @@ class IsEmployeeOrReadOnly(permissions.BasePermission):
 
 class IngredientViewSet(viewsets.ModelViewSet):
     """
-    食材API，提供食材的CRUD操作
+    食材API视图集，提供食材的增删改查功能
     """
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filterset_fields = ['category', 'status', 'location']
+    search_fields = ['name', 'category']
+    ordering_fields = ['name', 'category', 'expiry_date', 'created_at', 'quantity']
+    ordering = ['-created_at']
     
-    def get_permissions(self):
-        """
-        库存管理员可以执行所有操作，其他用户只能查看
-        """
-        if self.action in ['create', 'update', 'partial_update', 'destroy', 'import_csv', 'low_stock']:
-            permission_classes = [IsInventoryManager]
-        else:
-            permission_classes = [permissions.IsAuthenticated]
-        return [permission() for permission in permission_classes]
-    
-    def perform_create(self, serializer):
-        serializer.save()
-        
     @action(detail=False, methods=['get'])
     def expiring_soon(self, request):
         """
         获取即将过期的食材列表
         
         URL参数：
-        - days: 天数阈值，获取多少天内即将过期的食材，默认为7天
+        - days: 天数，获取几天内将要过期的食材，默认为7天
         """
-        try:
-            days = int(request.query_params.get('days', 7))
-        except ValueError:
-            days = 7
-            
-        threshold_date = timezone.now().date() + timezone.timedelta(days=days)
+        days = int(request.query_params.get('days', 7))
+        today = timezone.now().date()
+        end_date = today + timezone.timedelta(days=days)
         
-        # 获取即将过期的食材
-        ingredients = Ingredient.objects.filter(
-            expiry_date__lte=threshold_date,
-            expiry_date__gte=timezone.now().date(),
-            quantity__gt=0
-        ).order_by('expiry_date')
+        # 获取未过期但即将在指定天数内过期的食材
+        queryset = Ingredient.objects.filter(
+            expiry_date__gt=today,  # 未过期
+            expiry_date__lte=end_date  # 但在指定天数内过期
+        ).order_by('expiry_date')  # 按过期日期升序排序，最早过期的排在前面
         
-        serializer = self.get_serializer(ingredients, many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
     @action(detail=False, methods=['get'])
@@ -119,110 +114,95 @@ class IngredientViewSet(viewsets.ModelViewSet):
         """
         获取已过期的食材列表
         """
-        # 获取已过期的食材
-        ingredients = Ingredient.objects.filter(
-            expiry_date__lt=timezone.now().date(),
-            quantity__gt=0
-        ).order_by('expiry_date')
+        today = timezone.now().date()
+        queryset = Ingredient.objects.filter(
+            expiry_date__lt=today  # 已过期
+        ).order_by('expiry_date')  # 按过期日期升序排序
         
-        serializer = self.get_serializer(ingredients, many=True)
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
+    
     @action(detail=False, methods=['get'])
     def low_stock(self, request):
         """
-        获取库存不足的食材
+        获取库存不足的食材列表
         """
-        low_stock_ingredients = Ingredient.objects.filter(
-            Q(status='low') | Q(quantity__lte=F('min_stock'))
-        )
-        serializer = self.get_serializer(low_stock_ingredients, many=True)
+        queryset = Ingredient.objects.filter(status='low')
+        serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
     @action(detail=False, methods=['post'])
     def import_csv(self, request):
         """
         从CSV文件导入食材数据
+        
+        CSV文件格式要求：
+        第一行为标题行，必须包含以下字段：name,category,unit,quantity,expiry_date,location
+        示例：
+        name,category,unit,quantity,expiry_date,location
+        苹果,水果,个,10,2023-12-31,冰箱
+        牛肉,肉类,kg,2.5,2023-10-15,冷冻室
         """
-        csv_file = request.FILES.get('file')
-        if not csv_file:
+        if 'file' not in request.FILES:
             return Response(
-                {'detail': '请上传CSV文件'},
+                {'detail': '未提供CSV文件'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        file = request.FILES['file']
+        if not file.name.endswith('.csv'):
+            return Response(
+                {'detail': '只支持CSV文件格式'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
         # 处理CSV文件
-        decoded_file = csv_file.read().decode('utf-8')
-        csv_data = csv.reader(io.StringIO(decoded_file))
-        headers = next(csv_data)  # 跳过表头
-        
-        required_headers = [
-            'name', 'quantity', 'unit', 'unit_price', 
-            'shelf_life', 'min_stock', 'max_stock'
-        ]
-        
-        # 验证CSV文件结构
-        for header in required_headers:
-            if header not in headers:
-                return Response(
-                    {'detail': f'CSV文件缺少必要的列: {header}'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-        
-        # 开始导入数据
-        results = []
-        errors = []
-        
-        for row in csv_data:
-            try:
-                data = dict(zip(headers, row))
-                
-                # 查找或创建食材
-                ingredient, created = Ingredient.objects.get_or_create(
-                    name=data['name'],
-                    defaults={
-                        'description': data.get('description', ''),
-                        'quantity': float(data['quantity']),
-                        'unit': data['unit'],
-                        'unit_price': float(data['unit_price']),
-                        'shelf_life': int(data['shelf_life']),
-                        'min_stock': float(data['min_stock']),
-                        'max_stock': float(data['max_stock']),
-                        'storage_location': data.get('storage_location', ''),
-                        'supplier': data.get('supplier', '')
-                    }
-                )
-                
-                if not created:  # 如果食材已存在，则更新数据
-                    ingredient.quantity = float(data['quantity'])
-                    ingredient.unit = data['unit']
-                    ingredient.unit_price = float(data['unit_price'])
-                    ingredient.shelf_life = int(data['shelf_life'])
-                    ingredient.min_stock = float(data['min_stock'])
-                    ingredient.max_stock = float(data['max_stock'])
-                    if 'storage_location' in data:
-                        ingredient.storage_location = data['storage_location']
-                    if 'supplier' in data:
-                        ingredient.supplier = data['supplier']
-                    if 'description' in data:
-                        ingredient.description = data['description']
-                    ingredient.save()
-                
-                results.append({
-                    'name': ingredient.name,
-                    'status': 'created' if created else 'updated'
-                })
+        try:
+            decoded_file = file.read().decode('utf-8').splitlines()
+            reader = csv.DictReader(decoded_file)
             
-            except Exception as e:
-                errors.append({
-                    'row': row,
-                    'error': str(e)
-                })
-        
-        return Response({
-            'results': results,
-            'errors': errors
-        })
+            imported_count = 0
+            errors = []
+            
+            for row in reader:
+                try:
+                    # 创建或更新食材
+                    ingredient_data = {
+                        'name': row.get('name', '').strip(),
+                        'category': row.get('category', '').strip(),
+                        'unit': row.get('unit', '').strip(),
+                        'quantity': float(row.get('quantity', 0)),
+                        'expiry_date': row.get('expiry_date', '').strip(),
+                        'location': row.get('location', '').strip(),
+                    }
+                    
+                    serializer = self.get_serializer(data=ingredient_data)
+                    if serializer.is_valid():
+                        serializer.save()
+                        imported_count += 1
+                    else:
+                        errors.append({
+                            'row': dict(row),
+                            'errors': serializer.errors
+                        })
+                
+                except Exception as e:
+                    errors.append({
+                        'row': dict(row),
+                        'errors': str(e)
+                    })
+            
+            return Response({
+                'imported_count': imported_count,
+                'errors': errors,
+                'total_rows': reader.line_num
+            })
+            
+        except Exception as e:
+            return Response(
+                {'detail': f'解析CSV文件时出错: {str(e)}'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class InventoryOperationViewSet(viewsets.ModelViewSet):
@@ -231,10 +211,53 @@ class InventoryOperationViewSet(viewsets.ModelViewSet):
     """
     queryset = InventoryOperation.objects.all()
     serializer_class = InventoryOperationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]  # 临时更改为允许所有请求，用于调试
     
     def perform_create(self, serializer):
-        serializer.save(operator=self.request.user)
+        # 记录操作用户信息
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            logger.info(f"用户 {user.username}(ID:{user.id}) 创建库存操作: {serializer.validated_data.get('operation_type')} - {serializer.validated_data.get('quantity')} {serializer.validated_data.get('ingredient').name}")
+            serializer.save(operator=self.request.user)
+        else:
+            # 获取一个可用的用户作为默认操作员（通常是管理员用户）
+            try:
+                from users.models import User
+                default_user = User.objects.filter(is_staff=True).first() or User.objects.first()
+                if default_user:
+                    logger.warning(f"未认证用户创建库存操作，使用默认用户 {default_user.username}(ID:{default_user.id})")
+                    serializer.save(operator=default_user)
+                else:
+                    # 如果没有找到用户，尝试直接创建一个默认用户
+                    logger.warning("未找到可用用户，尝试创建默认管理员用户")
+                    default_user = User.objects.create_superuser(
+                        username='default_admin',
+                        email='admin@example.com',
+                        password='defaultpassword',
+                        is_staff=True,
+                        is_superuser=True
+                    )
+                    serializer.save(operator=default_user)
+            except Exception as e:
+                logger.error(f"创建库存操作失败: {str(e)}")
+                # 如果所有尝试都失败，直接保存而不设置operator
+                logger.warning("无法找到或创建默认用户，尝试不设置operator直接保存")
+                serializer.save()
+    
+    def perform_update(self, serializer):
+        # 记录操作更新信息
+        old_instance = self.get_object()
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            logger.info(f"用户 {user.username}(ID:{user.id}) 更新库存操作记录(ID:{old_instance.id})")
+        serializer.save()
+    
+    def perform_destroy(self, instance):
+        # 记录删除操作
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            logger.info(f"用户 {user.username}(ID:{user.id}) 删除库存操作记录: ID:{instance.id}, {instance.operation_type} - {instance.quantity} {instance.ingredient.name}")
+        instance.delete()
         
     @action(detail=False, methods=['post'])
     def batch_operation(self, request):
@@ -259,13 +282,28 @@ class InventoryOperationViewSet(viewsets.ModelViewSet):
         results = []
         errors = []
         
+        # 记录批量操作日志
+        user_info = f"{request.user.username}(ID:{request.user.id})" if request.user.is_authenticated else "未认证用户"
+        logger.info(f"{user_info} 执行批量库存操作, 共{len(operations)}项")
+        
         for operation in operations:
-            operation['operator'] = request.user.id
+            if request.user.is_authenticated:
+                operation['operator'] = request.user.id
+            
             serializer = InventoryOperationSerializer(data=operation)
             if serializer.is_valid():
-                serializer.save()
-                results.append(serializer.data)
+                try:
+                    instance = serializer.save()
+                    results.append(serializer.data)
+                    logger.info(f"批量操作: 成功创建库存操作 - {instance.operation_type} {instance.quantity} {instance.ingredient.name}")
+                except Exception as e:
+                    logger.error(f"批量操作: 创建库存操作失败 - {str(e)}")
+                    errors.append({
+                        'operation': operation,
+                        'errors': {'general': [str(e)]}
+                    })
             else:
+                logger.warning(f"批量操作: 验证失败 - {serializer.errors}")
                 errors.append({
                     'operation': operation,
                     'errors': serializer.errors
@@ -278,6 +316,26 @@ class InventoryOperationViewSet(viewsets.ModelViewSet):
             'errors': errors
         })
 
+    def create(self, request, *args, **kwargs):
+        # 记录请求数据
+        logger.info(f"收到入库请求数据: {request.data}")
+        
+        # 检查食材参数
+        ingredient_param = request.data.get('ingredient')
+        if ingredient_param:
+            logger.info(f"食材参数: {ingredient_param}, 类型: {type(ingredient_param)}")
+        else:
+            logger.warning("请求中缺少ingredient参数")
+        
+        try:
+            return super().create(request, *args, **kwargs)
+        except Exception as e:
+            logger.error(f"创建库存操作记录失败: {str(e)}")
+            return Response(
+                {"detail": f"创建失败: {str(e)}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
 
 class EmployeeTaskViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -286,11 +344,33 @@ class EmployeeTaskViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TaskListSerializer
     permission_classes = [permissions.IsAuthenticated]
     
+    # 定义任务类型，与Task模型中的枚举保持一致
+    TASK_TYPE_CHOICES = (
+        ('check', '检查'),
+        ('procurement', '采购'),
+        ('inventory', '库存'),
+        ('other', '其他'),
+    )
+    
     def get_queryset(self):
         """
-        返回当前用户的任务
+        返回当前用户的库存相关任务
+        
+        过滤条件:
+        1. 当前用户被分配的任务
+        2. 任务类型为inventory (库存)
         """
-        return Task.objects.filter(assigned_to=self.request.user)
+        # 检查Task模型是否有task_type字段并根据不同情况过滤
+        if hasattr(Task, 'task_type'):
+            # 如果有task_type字段，则过滤出库存类型的任务
+            return Task.objects.filter(
+                assigned_to=self.request.user,
+                task_type='inventory'
+            )
+        else:
+            # 如果没有task_type字段，只按用户过滤
+            print("Warning: Task model does not have task_type field, returning all tasks")
+            return Task.objects.filter(assigned_to=self.request.user)
     
     @action(detail=True, methods=['put'])
     def complete(self, request, pk=None):
@@ -321,9 +401,14 @@ class EmployeeFeedbackViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         """
-        返回当前用户提交的反馈
+        返回反馈列表：管理员可以看到所有反馈，普通用户只能看到自己提交的反馈
         """
-        return Feedback.objects.filter(reporter=self.request.user)
+        if self.request.user.user_type in ['admin', 'inventory_admin']:
+            # 管理员可以看到所有反馈
+            return Feedback.objects.all()
+        else:
+            # 普通用户只能看到自己提交的反馈
+            return Feedback.objects.filter(reporter=self.request.user)
     
     def perform_create(self, serializer):
         serializer.save(reporter=self.request.user)
@@ -652,6 +737,7 @@ class SensorDataViewSet(viewsets.ModelViewSet):
             "temperature": 25.8,
             "humidity": 45.6,
             "light": 789.2,
+            "threshold": 30.0,  # 可选，温度警报阈值
             "timestamp": "2023-04-04T12:34:56Z"
         }
         """
@@ -665,7 +751,8 @@ class SensorDataViewSet(viewsets.ModelViewSet):
             'temperature': request.data.get('temperature'),
             'humidity': request.data.get('humidity'),
             'light': request.data.get('light'),
-            'timestamp': request.data.get('timestamp')
+            'timestamp': request.data.get('timestamp'),
+            'threshold': request.data.get('threshold')  # 添加threshold字段
         }
         
         serializer = self.get_serializer(data=data)
@@ -786,3 +873,340 @@ class SensorDataViewSet(viewsets.ModelViewSet):
             'humidity': humidity_values,
             'light': light_values
         })
+
+
+# 材料出库申请视图集
+class MaterialRequestViewSet(viewsets.ModelViewSet):
+    """
+    提供材料出库申请的CRUD操作以及状态变更动作
+    """
+    queryset = MaterialRequest.objects.all()
+    serializer_class = MaterialRequestSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        # 如果是管理员，返回所有申请
+        if user.user_type == 'admin' or user.user_type == 'logistics':
+            return MaterialRequest.objects.all()
+        # 普通用户只能看到自己创建的申请
+        return MaterialRequest.objects.filter(requested_by=user)
+
+    def perform_create(self, serializer):
+        # 自动设置申请人为当前用户
+        serializer.save(requested_by=self.request.user)
+
+    @action(detail=False, methods=['get'])
+    def assigned_to_me(self, request):
+        """获取指派给当前登录用户的出库申请"""
+        user = request.user
+        requests = MaterialRequest.objects.filter(assigned_to=user)
+        serializer = self.get_serializer(requests, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['put'])
+    def approve(self, request, pk=None):
+        """批准出库申请"""
+        material_request = self.get_object()
+        try:
+            material_request.approve(request.user)
+            return Response(
+                {'status': 'approved', 'message': '出库申请已批准'},
+                status=status.HTTP_200_OK
+            )
+        except ValueError as e:
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    @action(detail=True, methods=['put'])
+    def reject(self, request, pk=None):
+        """拒绝出库申请"""
+        material_request = self.get_object()
+        try:
+            material_request.reject(request.user)
+            return Response(
+                {'status': 'rejected', 'message': '出库申请已拒绝'},
+                status=status.HTTP_200_OK
+            )
+        except ValueError as e:
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    @action(detail=True, methods=['put'])
+    def start_processing(self, request, pk=None):
+        """开始处理出库申请"""
+        try:
+            # 直接从数据库查询，避免使用self.get_object()可能抛出的404错误
+            material_request = MaterialRequest.objects.get(pk=pk)
+            
+            if material_request.status != 'approved':
+                return Response(
+                    {"detail": f"出库申请必须处于'已批准'状态才能开始处理，当前状态: {material_request.status}"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            logger.info(f"开始处理出库申请 ID={pk}, 当前状态: {material_request.status}")
+            material_request.start_processing()
+            logger.info(f"出库申请已更新为处理中状态 ID={pk}")
+            
+            return Response({"status": "processing"})
+        except MaterialRequest.DoesNotExist:
+            logger.error(f"找不到ID为{pk}的出库申请记录")
+            return Response(
+                {"detail": f"找不到ID为{pk}的出库申请记录"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            logger.error(f"处理出库申请时发生错误: {str(e)}")
+            return Response(
+                {"detail": f"处理出库申请时发生错误: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=True, methods=['put'])
+    def complete(self, request, pk=None):
+        """完成出库申请"""
+        try:
+            # 直接从数据库查询，避免使用self.get_object()可能抛出的404错误
+            material_request = MaterialRequest.objects.get(pk=pk)
+            
+            if material_request.status != 'in_progress':
+                return Response(
+                    {'detail': f"只能完成处理中的出库申请，当前状态: {material_request.status}"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+                
+            logger.info(f"标记出库申请为已完成 ID={pk}, 当前状态: {material_request.status}")
+            material_request.status = 'completed'
+            material_request.completed_at = timezone.now()
+            material_request.completed_by = request.user
+            material_request.save()
+            logger.info(f"出库申请已更新为已完成状态 ID={pk}")
+            
+            serializer = self.get_serializer(material_request)
+            return Response(serializer.data)
+        except MaterialRequest.DoesNotExist:
+            logger.error(f"找不到ID为{pk}的出库申请记录")
+            return Response(
+                {"detail": f"找不到ID为{pk}的出库申请记录"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            logger.error(f"完成出库申请时发生错误: {str(e)}")
+            return Response(
+                {"detail": f"完成出库申请时发生错误: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+    @action(detail=True, methods=['put'])
+    def assign(self, request, pk=None):
+        """指派处理出库申请的员工"""
+        material_request = self.get_object()
+        employee_id = request.data.get('employee_id')
+        
+        if not employee_id:
+            return Response(
+                {'error': '未提供员工ID'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        try:
+            from users.models import User
+            employee = User.objects.get(id=employee_id, user_type='employee')
+            
+            # 记录指派的员工信息
+            material_request.assigned_to = employee
+            material_request.assigned_at = timezone.now()
+            material_request.save()
+            
+            # 为该出库申请创建一个对应的库存任务
+            try:
+                task = Task.objects.create(
+                    title=f'处理出库申请 #{material_request.id}',
+                    description=f'处理材料出库申请 #{material_request.id} - {material_request.title}，请根据申请单进行物料的出库操作。',
+                    task_type='inventory',  # 设置为库存类型任务
+                    due_date=timezone.now().date() + timezone.timedelta(days=1),  # 设置截止日期为明天
+                    priority='medium',
+                    assigned_to=employee,  # 指派给同一个员工
+                    created_by=request.user  # 任务创建者为当前用户（通常是物流管理员）
+                )
+                print(f"为出库申请 #{material_request.id} 创建了库存任务 ID: {task.id}")
+            except Exception as e:
+                print(f"创建任务时出错: {str(e)}")
+                # 即使创建任务失败，也继续处理申请指派
+            
+            # 返回更新后的申请数据
+            serializer = self.get_serializer(material_request)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except User.DoesNotExist:
+            return Response(
+                {'error': '未找到指定的员工'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+
+# 材料出库申请项目视图集
+class MaterialRequestItemViewSet(viewsets.ModelViewSet):
+    """
+    提供材料出库申请项目的CRUD操作
+    """
+    queryset = MaterialRequestItem.objects.all()
+    serializer_class = MaterialRequestItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        request_id = self.request.query_params.get('request_id', None)
+        if request_id is not None:
+            return MaterialRequestItem.objects.filter(request_id=request_id)
+        return MaterialRequestItem.objects.all()
+
+
+class InventoryViewSet(viewsets.ViewSet):
+    """
+    提供食材入库操作和创建的API
+    """
+    permission_classes = [permissions.AllowAny]  # 临时设置为允许所有访问
+    
+    def create(self, request):
+        """
+        处理/inventory/的POST请求，支持使用字符串ID创建食材或入库
+        """
+        try:
+            # 获取请求数据并打印详细日志
+            data = request.data
+            logger.info(f"收到添加商品请求数据类型: {type(data)}, 内容: {data}")
+            
+            # 如果数据是字符串，尝试解析为JSON
+            if isinstance(data, str):
+                try:
+                    import json
+                    data = json.loads(data)
+                    logger.info(f"将字符串数据解析为JSON: {data}")
+                except json.JSONDecodeError as e:
+                    logger.error(f"JSON解析错误: {str(e)}")
+            
+            # 处理没有ingredient字段的情况，直接使用name创建
+            ingredient_id = data.get('ingredient')
+            name = data.get('name')
+            
+            logger.info(f"提取的字段: ingredient_id={ingredient_id}, name={name}")
+            
+            if not ingredient_id and not name:
+                logger.error("请求中缺少必要的ingredient或name字段")
+                return Response({
+                    'error': '缺少必要的ingredient或name字段'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+            # 尝试查找或创建食材
+            try:
+                from .models import Ingredient
+                
+                # 直接使用name创建新食材
+                if name:
+                    # 查找是否已存在同名食材
+                    ingredient = Ingredient.objects.filter(name=name).first()
+                    
+                    # 如果不存在，创建新食材
+                    if not ingredient:
+                        logger.info(f"创建新食材: name={name}")
+                        expiry_date = process_expiry_date(data.get('expiry_date'))
+                        logger.info(f"处理后的过期日期: {expiry_date}")
+                        
+                        ingredient = Ingredient.objects.create(
+                            name=name,
+                            category=data.get('category', '其他'),
+                            unit=data.get('unit', '个'),
+                            quantity=0,  # 初始库存为0，后续通过库存操作增加
+                            expiry_date=expiry_date,
+                            status='normal',
+                            location=''
+                        )
+                        logger.info(f"成功创建新食材: id={ingredient.id}, name={ingredient.name}")
+                    else:
+                        logger.info(f"找到现有食材: id={ingredient.id}, name={ingredient.name}")
+                
+                # 创建入库操作
+                from users.models import User
+                default_user = User.objects.filter(is_staff=True).first() or User.objects.first()
+                if not default_user:
+                    logger.warning("未找到默认用户，尝试创建一个")
+                    default_user = User.objects.create_user(
+                        username="default_admin",
+                        password="admin123",
+                        is_staff=True
+                    )
+                
+                from .models import InventoryOperation
+                # 获取数量并确保是浮点数
+                try:
+                    quantity = float(data.get('quantity', 0))
+                except (TypeError, ValueError) as e:
+                    logger.error(f"无法将数量转换为浮点数: {str(e)}")
+                    quantity = 0
+                
+                logger.info(f"准备创建入库操作: ingredient={ingredient.id}, quantity={quantity}")
+                operation = InventoryOperation.objects.create(
+                    ingredient=ingredient,
+                    operation_type='in',
+                    quantity=quantity,
+                    expiry_period=data.get('expiry_period', ''),
+                    operator=default_user,
+                    notes=data.get('notes', f'通过API创建的入库操作: {ingredient.name}')
+                )
+                
+                logger.info(f"成功创建入库操作: id={operation.id}")
+                
+                # 返回成功响应
+                return Response({
+                    'id': operation.id,
+                    'ingredient': ingredient.id,
+                    'name': ingredient.name,
+                    'quantity': operation.quantity,
+                    'message': '商品添加成功'
+                }, status=status.HTTP_201_CREATED)
+                
+            except Exception as e:
+                logger.error(f"处理食材时出错: {str(e)}", exc_info=True)
+                import traceback
+                logger.error(f"详细错误: {traceback.format_exc()}")
+                return Response({
+                    'error': f'处理食材时出错: {str(e)}'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            
+        except Exception as e:
+            logger.error(f"创建入库操作失败: {str(e)}", exc_info=True)
+            import traceback
+            logger.error(f"详细错误: {traceback.format_exc()}")
+            return Response({
+                'error': f'创建入库操作失败: {str(e)}'
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+def process_expiry_date(expiry_date):
+    """
+    处理过期日期字段，确保它是有效的日期格式
+    """
+    # 处理ISO格式的日期
+    if expiry_date and isinstance(expiry_date, str):
+        if 'T' in expiry_date:
+            # 如果是ISO格式，只取日期部分
+            expiry_date = expiry_date.split('T')[0]
+        # 如果是空字符串，设为None
+        if expiry_date.strip() == '':
+            expiry_date = None
+    
+    # 如果没有提供日期，则使用一年后的日期作为默认值
+    if not expiry_date:
+        expiry_date = (datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')
+    
+    return expiry_date

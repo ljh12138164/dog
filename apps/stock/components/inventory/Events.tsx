@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
-import {
-  Card,
-  Title,
-  Button,
-  DataTable,
-  Searchbar,
-  Modal,
-  TextInput,
-  ActivityIndicator,
-  Menu,
-  Divider,
-  Chip,
-} from 'react-native-paper';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, Chip, Modal, TextInput, Title } from 'react-native-paper';
 import Toast from 'react-native-toast-message';
-import {
-  useInventoryEvents,
-  useCreateInventoryEvent,
-  useResolveInventoryEvent,
-  useRejectInventoryEvent,
-  InventoryEvent,
-} from '../../api/useInventory';
 import { useIngredientList } from '../../api/useEmployee';
+import {
+  InventoryEvent,
+  useCreateInventoryEvent,
+  useInventoryEvents,
+  useRejectInventoryEvent,
+  useResolveInventoryEvent,
+} from '../../api/useInventory';
 
 const EventsManager = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,7 +17,6 @@ const EventsManager = () => {
   const [isResolveModalVisible, setResolveModalVisible] = useState(false);
   const [isRejectModalVisible, setRejectModalVisible] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<InventoryEvent | null>(null);
-  const [statusMenuVisible, setStatusMenuVisible] = useState(false);
   const [filterStatus, setFilterStatus] = useState<string | null>(null);
 
   // 表单状态
@@ -179,198 +166,8 @@ const EventsManager = () => {
     });
   };
 
-  // 获取事件状态标签的样式
-  const getStatusChipStyle = (status: string) => {
-    switch (status) {
-      case 'pending':
-        return { backgroundColor: '#FFC107' };
-      case 'processing':
-        return { backgroundColor: '#2196F3' };
-      case 'resolved':
-        return { backgroundColor: '#4CAF50' };
-      case 'rejected':
-        return { backgroundColor: '#F44336' };
-      default:
-        return { backgroundColor: '#9E9E9E' };
-    }
-  };
-
   return (
     <View style={styles.container}>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Title>库存事件管理</Title>
-
-          <View style={styles.filterContainer}>
-            <Searchbar
-              placeholder="搜索事件..."
-              onChangeText={setSearchQuery}
-              value={searchQuery}
-              style={styles.searchBar}
-            />
-
-            <View style={styles.statusFilterContainer}>
-              <Text>状态筛选: </Text>
-              <Button
-                onPress={() => setStatusMenuVisible(true)}
-                mode="outlined"
-                style={styles.filterButton}
-              >
-                {filterStatus
-                  ? filterStatus === 'pending'
-                    ? '待处理'
-                    : filterStatus === 'processing'
-                      ? '处理中'
-                      : filterStatus === 'resolved'
-                        ? '已解决'
-                        : filterStatus === 'rejected'
-                          ? '已拒绝'
-                          : '全部'
-                  : '全部'}
-              </Button>
-
-              <Menu
-                visible={statusMenuVisible}
-                onDismiss={() => setStatusMenuVisible(false)}
-                anchor={<View />}
-                style={styles.statusMenu}
-              >
-                <Menu.Item
-                  onPress={() => {
-                    setFilterStatus(null);
-                    setStatusMenuVisible(false);
-                  }}
-                  title="全部"
-                />
-                <Divider />
-                <Menu.Item
-                  onPress={() => {
-                    setFilterStatus('pending');
-                    setStatusMenuVisible(false);
-                  }}
-                  title="待处理"
-                />
-                <Menu.Item
-                  onPress={() => {
-                    setFilterStatus('processing');
-                    setStatusMenuVisible(false);
-                  }}
-                  title="处理中"
-                />
-                <Menu.Item
-                  onPress={() => {
-                    setFilterStatus('resolved');
-                    setStatusMenuVisible(false);
-                  }}
-                  title="已解决"
-                />
-                <Menu.Item
-                  onPress={() => {
-                    setFilterStatus('rejected');
-                    setStatusMenuVisible(false);
-                  }}
-                  title="已拒绝"
-                />
-              </Menu>
-            </View>
-
-            <Button
-              mode="contained"
-              onPress={() => setCreateModalVisible(true)}
-              style={styles.createButton}
-            >
-              创建事件
-            </Button>
-          </View>
-
-          {isLoading ? (
-            <ActivityIndicator animating={true} style={styles.loader} />
-          ) : (
-            <ScrollView style={styles.tableContainer}>
-              <DataTable>
-                <DataTable.Header>
-                  <DataTable.Title>标题</DataTable.Title>
-                  <DataTable.Title>类型</DataTable.Title>
-                  <DataTable.Title>状态</DataTable.Title>
-                  <DataTable.Title>创建时间</DataTable.Title>
-                  <DataTable.Title>操作</DataTable.Title>
-                </DataTable.Header>
-
-                {filteredEvents.length === 0 ? (
-                  <DataTable.Row>
-                    <DataTable.Cell>暂无数据</DataTable.Cell>
-                    <DataTable.Cell>{''}</DataTable.Cell>
-                    <DataTable.Cell>{''}</DataTable.Cell>
-                    <DataTable.Cell>{''}</DataTable.Cell>
-                    <DataTable.Cell>{''}</DataTable.Cell>
-                  </DataTable.Row>
-                ) : (
-                  filteredEvents.map(event => (
-                    <DataTable.Row key={event.id}>
-                      <DataTable.Cell>{event.title}</DataTable.Cell>
-                      <DataTable.Cell>{event.event_type_display}</DataTable.Cell>
-                      <DataTable.Cell>
-                        <Chip
-                          style={getStatusChipStyle(event.status || 'pending')}
-                          textStyle={styles.chipText}
-                        >
-                          {event.status_display}
-                        </Chip>
-                      </DataTable.Cell>
-                      <DataTable.Cell>
-                        {new Date(event.created_at || '').toLocaleDateString()}
-                      </DataTable.Cell>
-                      <DataTable.Cell>
-                        <View style={styles.actionButtons}>
-                          <Button
-                            mode="text"
-                            compact
-                            onPress={() => {
-                              Alert.alert(
-                                event.title,
-                                `${event.description}\n\n创建者: ${event.reported_by_name}\n创建时间: ${new Date(event.created_at || '').toLocaleString()}`,
-                                [{ text: '关闭' }],
-                              );
-                            }}
-                          >
-                            查看
-                          </Button>
-
-                          {event.status === 'pending' && (
-                            <>
-                              <Button
-                                mode="text"
-                                compact
-                                onPress={() => {
-                                  setSelectedEvent(event);
-                                  setResolveModalVisible(true);
-                                }}
-                              >
-                                解决
-                              </Button>
-                              <Button
-                                mode="text"
-                                compact
-                                onPress={() => {
-                                  setSelectedEvent(event);
-                                  setRejectModalVisible(true);
-                                }}
-                              >
-                                拒绝
-                              </Button>
-                            </>
-                          )}
-                        </View>
-                      </DataTable.Cell>
-                    </DataTable.Row>
-                  ))
-                )}
-              </DataTable>
-            </ScrollView>
-          )}
-        </Card.Content>
-      </Card>
-
       {/* 创建事件模态框 */}
       <Modal
         visible={isCreateModalVisible}
