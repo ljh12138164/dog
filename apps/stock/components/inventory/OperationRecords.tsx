@@ -14,7 +14,7 @@ import { useInventoryOperationses } from '../../api/useInventory';
 
 export default function OperationRecords() {
   const { data: operations = [], isLoading, refetch } = useInventoryOperationses();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, ] = useState('');
   const [refreshing, setRefreshing] = useState(false);
   const [selectedOperation, setSelectedOperation] = useState<InventoryOperation | null>(null);
   const [detailsVisible, setDetailsVisible] = useState(false);

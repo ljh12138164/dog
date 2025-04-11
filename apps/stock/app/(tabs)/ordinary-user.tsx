@@ -1,5 +1,6 @@
-import { OperationRecords } from '@/components/inventory';
+
 import Join from '@/components/ordinary/join';
+import TaskList from '@/components/ordinary/TaskList';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import BlueWhiteSegmentedButtons from '../../components/common/BlueWhiteSegmentedButtons';
@@ -17,7 +18,7 @@ export default function OrdinaryUser() {
       case 'feedback':
         return <FeedbackForm />;
       case 'inventory':
-        return <OperationRecords />;
+        return <TaskList />;
       default:
         return <InventoryOperations />;
     }

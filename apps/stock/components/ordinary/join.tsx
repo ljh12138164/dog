@@ -382,12 +382,7 @@ export default function Join() {
                   </View>
                 </View>
 
-                <View style={styles.formRow}>
-                  <Text style={styles.label}>当前库存:</Text>
-                  <Text style={styles.value}>
-                    {ingredient.quantity} {ingredient.unit}
-                  </Text>
-                </View>
+              
 
                 <TextInput
                   label="数量"

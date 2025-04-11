@@ -194,16 +194,7 @@ export default function MaterialRequestForm({ onSuccess }: { onSuccess?: () => v
                         库存: {ingredient.quantity} {ingredient.unit} | 分类: {ingredient.category}
                       </Text>
                     </View>
-                    <Badge
-                      style={[
-                        styles.badge,
-                        ingredient.status === 'expired' && styles.expiredBadge,
-                        ingredient.status === 'low' && styles.lowBadge,
-                        ingredient.status === 'pending_check' && styles.pendingBadge,
-                      ]}
-                    >
-                      {ingredient.status}
-                    </Badge>
+              
                   </TouchableOpacity>
                 ))}
               </ScrollView>

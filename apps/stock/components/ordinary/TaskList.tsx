@@ -30,29 +30,6 @@ export default function TaskList() {
     }
   };
 
-  const renderPriorityChip = (priority: string) => {
-    let color = '';
-    switch (priority) {
-      case 'high':
-        color = '#f44336'; // 红色
-        break;
-      case 'medium':
-        color = '#ff9800'; // 橙色
-        break;
-      case 'low':
-        color = '#4caf50'; // 绿色
-        break;
-      default:
-        color = '#9e9e9e'; // 灰色
-    }
-
-    return (
-      <Chip style={{ backgroundColor: color }}>
-        {priority === 'high' ? '高' : priority === 'medium' ? '中' : '低'}
-      </Chip>
-    );
-  };
-
   if (isLoadingTasks) {
     return (
       <View style={styles.loadingContainer}>
@@ -84,9 +61,6 @@ export default function TaskList() {
                     {...props}
                     icon={task.status === 'completed' ? 'check-circle' : 'clock-outline'}
                   />
-                )}
-                right={props => (
-                  <View style={styles.rightContent}>{renderPriorityChip(task.priority)}</View>
                 )}
               />
             ))

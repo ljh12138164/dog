@@ -13,6 +13,7 @@ import {
 import { useCurrentUser } from '../../api/useAuth';
 import { useLatestSensorData, useSensorChartData } from '../../api/useSensor';
 
+
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState<'day' | 'week' | 'month'>('day');
   const { data: user, isLoading: userLoading } = useCurrentUser();
@@ -27,6 +28,12 @@ const Dashboard = () => {
   const [threshold, setThreshold] = useState<number | null>(null);
   const [wsConnected, setWsConnected] = useState(false);
   const [form] = Form.useForm();
+  
+  // 摄像头和RFID状态
+  const [cameraImage, setCameraImage] = useState<string | null>(null);
+  const [rfidEvents, setRfidEvents] = useState<Array<{cardId: string, timestamp: string}>>([]);
+  const [lastRfidCard, setLastRfidCard] = useState<string | null>(null);
+  const [photoResistorValue, setPhotoResistorValue] = useState<number | null>(null);
 
   // 初始化WebSocket连接
   useEffect(() => {
@@ -50,6 +57,16 @@ const Dashboard = () => {
           if (data.threshold !== undefined) {
             setThreshold(data.threshold);
           }
+          
+          // 更新光敏电阻数据
+          if (data.photo_resistor !== undefined) {
+            setPhotoResistorValue(data.photo_resistor);
+          }
+          
+          // 如果有RFID卡信息
+          if (data.rfid_card) {
+            setLastRfidCard(data.rfid_card);
+          }
         } else if (data.type === 'response' && data.status === 'success') {
           // 处理阈值更新响应
           if (data.message && data.message.includes('温度阈值')) {
@@ -57,6 +74,19 @@ const Dashboard = () => {
             setThreshold(data.newThreshold);
             setThresholdUpdating(false);
           }
+        } else if (data.type === 'camera') {
+          // 处理相机图像
+          setCameraImage(data.imageData);
+        } else if (data.type === 'rfid') {
+          // 处理RFID事件
+          setRfidEvents(prev => [
+            { cardId: data.cardId, timestamp: data.timestamp },
+            ...prev.slice(0, 4) // 只保留最近5条记录
+          ]);
+          setLastRfidCard(data.cardId);
+        } else if (data.type === 'video_frame') {
+          // 处理视频帧
+          setCameraImage(data.imageData);
         }
       } catch (error) {
         console.error('解析WebSocket消息失败:', error);
@@ -198,7 +228,7 @@ const Dashboard = () => {
       <h1>欢迎回来，{user?.username}</h1>
 
       <Row gutter={16} style={{ marginTop: 24 }}>
-        <Col span={12}>
+        <Col span={6}>
           <Card>
             <Statistic
               title="当前温度"
@@ -209,7 +239,7 @@ const Dashboard = () => {
             />
           </Card>
         </Col>
-        <Col span={12}>
+        <Col span={6}>
           <Card>
             <Statistic
               title="当前湿度"
@@ -217,6 +247,27 @@ const Dashboard = () => {
               suffix="%"
               loading={sensorLoading}
               precision={1}
+            />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <Statistic
+              title="环境光强度"
+              value={typeof latestSensorData?.light === 'number' ? latestSensorData.light : 0}
+              suffix="%"
+              loading={sensorLoading}
+              precision={0}
+            />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <Statistic
+              title="光敏电阻值"
+              value={photoResistorValue || 0}
+              loading={sensorLoading}
+              precision={0}
             />
           </Card>
         </Col>
@@ -243,7 +294,7 @@ const Dashboard = () => {
                       />
                     </div>
                   }
-                  value={threshold ?? '未知'}
+                  value={threshold ?? '30'}
                   suffix="°C"
                   precision={1}
                 />
@@ -280,6 +331,38 @@ const Dashboard = () => {
             </div>
           </Card>
         </Col>
+      </Row>
+
+      {/* 摄像头和RFID信息卡片 */}
+      <Row gutter={16} style={{ marginTop: 16 }}>
+        <Col span={24}>
+          <Card title="实时摄像头">
+            {cameraImage ? (
+              <div style={{ textAlign: 'center' }}>
+                <img 
+                  src={cameraImage} 
+                  alt="实时摄像头" 
+                  style={{ maxWidth: '100%', maxHeight: '300px' }}
+                />
+                <div style={{ marginTop: 8, fontSize: 12, color: '#999' }}>
+                  最后更新: {new Date().toLocaleTimeString()}
+                </div>
+              </div>
+            ) : (
+              <div style={{ 
+                height: 300, 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                backgroundColor: '#f5f5f5',
+                color: '#999'
+              }}>
+                等待图像...
+              </div>
+            )}
+          </Card>
+        </Col>
+ 
       </Row>
 
       <Card
