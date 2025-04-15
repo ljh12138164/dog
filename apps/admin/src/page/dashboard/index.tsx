@@ -70,7 +70,7 @@ const Dashboard = () => {
         } else if (data.type === 'response' && data.status === 'success') {
           // 处理阈值更新响应
           if (data.message && data.message.includes('温度阈值')) {
-            message.success(`温度阈值已成功更新为: ${data.newThreshold}°C`);
+            // message.success(`温度阈值已成功更新为: ${data.newThreshold}°C`);
             setThreshold(data.newThreshold);
             setThresholdUpdating(false);
           }
@@ -162,7 +162,7 @@ const Dashboard = () => {
       socket.send(JSON.stringify(command));
 
       // 立即显示成功消息并更新状态，不等待响应
-      message.success(`温度阈值已设置为: ${thresholdValue}°C`);
+      // message.success(`温度阈值已设置为: ${thresholdValue}°C`);
       setThreshold(thresholdValue);
       setThresholdUpdating(false);
 
@@ -333,8 +333,7 @@ const Dashboard = () => {
         </Col>
       </Row>
 
-      {/* 摄像头和RFID信息卡片 */}
-      <Row gutter={16} style={{ marginTop: 16 }}>
+      {/* <Row gutter={16} style={{ marginTop: 16 }}>
         <Col span={24}>
           <Card title="实时摄像头">
             {cameraImage ? (
@@ -363,7 +362,7 @@ const Dashboard = () => {
           </Card>
         </Col>
  
-      </Row>
+      </Row> */}
 
       <Card
         title={`环境数据走势 (${timeRange === 'day' ? '近24小时' : timeRange === 'week' ? '近7天' : '近30天'})`}

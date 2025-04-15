@@ -58,7 +58,7 @@ bool isRunning = false; // 运行状态标志，初始为停止
 unsigned long lastReconnectAttempt = 0;
 const unsigned long reconnectInterval = 5000; // 重连间隔5秒
 unsigned long lastDataSendTime = 0;
-const unsigned long dataSendInterval = 1000 * 30; // 数据发送间隔2分钟
+const unsigned long dataSendInterval = 1000 * 10; // 数据发送间隔2分钟
 
 unsigned long sensorErrorDisplayUntil = 0;   // 传感器错误信息显示时间
 unsigned long wifiReconnectDisplayUntil = 0; // WiFi断开显示
